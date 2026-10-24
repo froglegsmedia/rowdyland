@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Rowdyland. Somewhere out there, a place is being built.">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#07040e"/>
+      <stop offset="50%" stop-color="#140816"/>
+      <stop offset="100%" stop-color="#2a130e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="90%" r="45%">
+      <stop offset="0%" stop-color="#ff8c28" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#ff3d78" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ff3d78" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="neon" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g fill="#fff8ee">
+    <circle cx="120" cy="80" r="1.2"/>
+    <circle cx="240" cy="140" r="1"/>
+    <circle cx="410" cy="60" r="1.4"/>
+    <circle cx="560" cy="110" r="1"/>
+    <circle cx="730" cy="48" r="1.3"/>
+    <circle cx="880" cy="130" r="1"/>
+    <circle cx="1020" cy="70" r="1.5"/>
+    <circle cx="150" cy="220" r="1"/>
+    <circle cx="980" cy="200" r="1.2"/>
+    <circle cx="300" cy="40" r="1"/>
+  </g>
+  <path fill="#241018" d="M0 630V500H70L92 452H190L214 500H310L340 430H470L500 492H600L630 408H790L824 486H940L980 450H1100L1134 498H1200V630Z"/>
+  <path fill="#140910" d="M0 630V545H130L168 488H290L326 536H470L508 478H650L692 530H860L910 492H1040L1090 536H1200V630Z"/>
+  <path fill="#0c070d" d="M0 630V590C180 574 420 586 700 568C980 580 1100 572 1200 572V630Z"/>
+  <rect x="78" y="54" width="1044" height="446" rx="6" fill="none" stroke="#ffc67a" stroke-opacity="0.6" stroke-width="2"/>
+  <rect x="90" y="66" width="1020" height="422" rx="3" fill="none" stroke="#ffc478" stroke-opacity="0.28"/>
+  <g fill="#ffc857" filter="url(#neon)">
+    <polygon points="600,104 604,114 615,115 606,122 609,133 600,127 591,133 594,122 585,115 596,114"/>
+  </g>
+  <text x="600" y="268" text-anchor="middle" fill="#fff8ee" font-family="Bebas Neue, Impact, sans-serif" font-size="150" letter-spacing="4" filter="url(#neon)">ROWDYLAND</text>
+  <text x="600" y="348" text-anchor="middle" fill="#f6efe4" font-family="Outfit, sans-serif" font-size="32" font-weight="300">Somewhere out there, a place is being built.</text>
+  <text x="600" y="402" text-anchor="middle" fill="#ffc857" font-family="Outfit, sans-serif" font-size="18" font-weight="500" letter-spacing="6">COMING SOON</text>
+  <text x="600" y="452" text-anchor="middle" fill="#d9cbb8" font-family="Outfit, sans-serif" font-size="18">POPULATION: YOU    EST. 2026</text>
+  <text x="600" y="548" text-anchor="middle" fill="#e4d5c4" font-family="Outfit, sans-serif" font-size="18">rowdyland.com</text>
+</svg>
