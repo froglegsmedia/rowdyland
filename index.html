@@ -4,13 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="color-scheme" content="dark">
-    <meta name="theme-color" content="#07040e">
+    <meta name="theme-color" content="#2a1812">
     <meta name="format-detection" content="telephone=no">
     <title>Rowdyland</title>
     <meta name="description" content="Somewhere out there, a place is being built. Population: you. Est. 2026. Rowdyland. Coming soon.">
     <link rel="canonical" href="https://rowdyland.com/">
     <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta property="og:type" content="website">
@@ -19,66 +18,31 @@
     <meta property="og:url" content="https://rowdyland.com/">
     <meta property="og:title" content="Rowdyland">
     <meta property="og:description" content="Somewhere out there, a place is being built. Population: you. Est. 2026. Rowdyland. Coming soon.">
-    <meta property="og:image" content="https://rowdyland.com/og.png">
-    <meta property="og:image:type" content="image/png">
+    <meta property="og:image" content="https://rowdyland.com/og.jpg">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Rowdyland. Somewhere out there, a place is being built.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Rowdyland">
     <meta name="twitter:description" content="Somewhere out there, a place is being built. Population: you. Est. 2026. Rowdyland. Coming soon.">
-    <meta name="twitter:image" content="https://rowdyland.com/og.png">
+    <meta name="twitter:image" content="https://rowdyland.com/og.jpg">
     <meta name="twitter:image:alt" content="Rowdyland. Somewhere out there, a place is being built.">
-    <meta name="twitter:site" content="@rowdylandusa">
-    <link rel="preload" href="fonts/BebasNeue-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/rowdyland-logo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="assets/barn-wood.webp" as="image" type="image/webp">
+    <link rel="preload" href="fonts/Fraunces-Italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="stage" aria-hidden="true">
-      <div class="stars stars-near"></div>
-      <div class="stars stars-far"></div>
-      <div class="stars stars-warm"></div>
-      <div class="glow glow-amber"></div>
-      <div class="glow glow-rose"></div>
-      <div class="shoot"></div>
-      <svg class="mesas" viewBox="0 0 1440 280" preserveAspectRatio="none">
-        <path fill="#241018" d="M0 280V198H80L104 154H214L240 198H360L392 118H530L560 190H690L724 96H900L934 176H1070L1112 132H1256L1288 188H1440V280Z"></path>
-        <path fill="#140910" d="M0 280V230H150L188 176H318L356 224H520L558 154H712L756 214H980L1034 168H1188L1236 220H1440V280Z"></path>
-        <path fill="#0c070d" d="M0 280V248C180 228 320 236 480 250C700 268 860 236 1040 246C1220 256 1340 242 1440 250V280Z"></path>
-      </svg>
-      <svg class="tower" viewBox="0 0 24 56">
-        <path d="M12 8 V50 M5 50 H19 M7.5 22 H16.5 M8.5 34 H15.5 M9 8 L12 2 L15 8" fill="none" stroke="#3a2430" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"></path>
-        <circle class="lamp" cx="12" cy="3.2" r="1.7" fill="#ff4d6a"></circle>
-      </svg>
-      <div class="dust">
-        <span style="--x:8%; --d:19s; --delay:-4s; --s:2px"></span>
-        <span style="--x:18%; --d:23s; --delay:-11s; --s:1px"></span>
-        <span style="--x:27%; --d:16s; --delay:-2s; --s:2px"></span>
-        <span style="--x:36%; --d:27s; --delay:-16s; --s:3px"></span>
-        <span style="--x:48%; --d:21s; --delay:-7s; --s:1px"></span>
-        <span style="--x:57%; --d:18s; --delay:-13s; --s:2px"></span>
-        <span style="--x:66%; --d:25s; --delay:-5s; --s:2px"></span>
-        <span style="--x:74%; --d:15s; --delay:-9s; --s:1px"></span>
-        <span style="--x:83%; --d:22s; --delay:-1s; --s:3px"></span>
-        <span style="--x:92%; --d:20s; --delay:-14s; --s:2px"></span>
-      </div>
-    </div>
+    <div class="stage" aria-hidden="true"></div>
 
     <main>
-      <section class="sign" aria-labelledby="title">
-        <span class="bolt b1" aria-hidden="true"></span>
-        <span class="bolt b2" aria-hidden="true"></span>
-        <span class="bolt b3" aria-hidden="true"></span>
-        <span class="bolt b4" aria-hidden="true"></span>
-        <svg class="mark" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="#ffc857" d="M12 1.4 14.5 8.4 21.9 9.1 16.3 14.1 18.1 21.5 12 17.6 5.9 21.5 7.7 14.1 2.1 9.1 9.5 8.4Z"></path>
-        </svg>
-        <div class="wordmark">
-          <span class="neon" aria-hidden="true">Rowdyland</span>
-          <h1 id="title">Rowdyland</h1>
-        </div>
+      <h1>
+        <img class="logo" src="assets/rowdyland-logo.svg" alt="Rowdyland" width="1954" height="639" fetchpriority="high" decoding="async">
+      </h1>
+      <div class="copy">
         <p class="lede">Somewhere out there, a place is being built.</p>
-        <p class="whisper">The road does not have a name yet.</p>
         <p class="soon">Coming soon.</p>
         <dl class="facts">
           <div>
@@ -95,17 +59,7 @@
           </div>
         </dl>
         <a class="enter" href="https://rowdyhop.com">Enter the world of Rowdy Hop</a>
-        <nav class="social" aria-label="Rowdyland">
-          <p class="handle">@rowdylandusa</p>
-          <p class="links">
-            <a href="https://www.instagram.com/rowdylandusa" target="_blank" rel="me noopener noreferrer">Instagram<span class="sr-only">, @rowdylandusa (opens in a new tab)</span></a>
-            <span aria-hidden="true">·</span>
-            <a href="https://www.tiktok.com/@rowdylandusa" target="_blank" rel="me noopener noreferrer">TikTok<span class="sr-only">, @rowdylandusa (opens in a new tab)</span></a>
-            <span aria-hidden="true">·</span>
-            <a href="https://x.com/rowdylandusa" target="_blank" rel="me noopener noreferrer">X<span class="sr-only">, @rowdylandusa (opens in a new tab)</span></a>
-          </p>
-        </nav>
-      </section>
+      </div>
     </main>
 
     <footer>
