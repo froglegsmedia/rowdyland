@@ -905,9 +905,10 @@ body.map-open {
   background: transparent;
   cursor: pointer;
   font: inherit;
+  transition: background 0.2s, box-shadow 0.2s;
 }
 .zone:hover,
-.zone:focus-visible { outline: none; }
+.zone:focus-visible { outline: none; background: rgba(255, 248, 230, 0.22); box-shadow: 0 0 18px 4px rgba(255, 248, 230, 0.45); }
 .zone-live {
 }
 .zone-tip {
@@ -934,8 +935,7 @@ body.map-open {
 .zone[data-zone="stables"] .zone-tip { bottom: auto; top: calc(100% + 6px); }
 .zone:hover .zone-tip,
 .zone:focus-visible .zone-tip,
-.zone.show-tip .zone-tip,
-.zone-live .zone-tip { opacity: 1; }
+.zone.show-tip .zone-tip { opacity: 1; }
 .map-zoom.is-zooming .zone-tip { opacity: 0; }
 .map-zoom.is-zooming .zone-live { animation: none; }
 @keyframes zone-pulse {
