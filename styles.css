@@ -888,3 +888,64 @@ body.map-open {
 @media (prefers-reduced-motion: reduce) {
   .horse-bubble { animation: none; }
 }
+
+/* interactive map zones */
+.map-zoom {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  transition: transform 0.9s cubic-bezier(0.6, 0, 0.3, 1), filter 0.9s;
+}
+.map-frame { cursor: default; }
+.zone {
+  position: absolute;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+.zone:hover,
+.zone:focus-visible { border-color: rgba(252, 209, 26, 0.85); background: rgba(252, 209, 26, 0.12); outline: none; }
+.zone-live {
+  border-color: rgba(252, 209, 26, 0.9);
+  box-shadow: 0 0 0 0 rgba(252, 209, 26, 0.6);
+  animation: zone-pulse 1.8s ease-out infinite;
+}
+.zone-tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 0.25rem 0.6rem;
+  border: 2px solid #3c2216;
+  border-radius: 12px;
+  background: #fbf6ee;
+  color: #3c2216;
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.zone[data-zone="tent-camping"] .zone-tip,
+.zone[data-zone="rv-camping"] .zone-tip,
+.zone[data-zone="main-stage"] .zone-tip,
+.zone[data-zone="stables"] .zone-tip { bottom: auto; top: calc(100% + 6px); }
+.zone:hover .zone-tip,
+.zone:focus-visible .zone-tip,
+.zone.show-tip .zone-tip,
+.zone-live .zone-tip { opacity: 1; }
+.map-zoom.is-zooming .zone-tip { opacity: 0; }
+.map-zoom.is-zooming .zone-live { animation: none; }
+@keyframes zone-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(252, 209, 26, 0.6); }
+  100% { box-shadow: 0 0 0 14px rgba(252, 209, 26, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zone-live { animation: none; }
+  .map-zoom { transition: none; }
+}

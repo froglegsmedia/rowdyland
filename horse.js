@@ -91,3 +91,37 @@
     }
   });
 })();
+
+/* interactive map zones */
+(function () {
+  var zoom = document.querySelector(".map-zoom");
+  if (!zoom) return;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  zoom.querySelectorAll("button.zone").forEach(function (z) {
+    z.addEventListener("click", function () {
+      zoom.querySelectorAll(".show-tip").forEach(function (o) { if (o !== z) o.classList.remove("show-tip"); });
+      z.classList.toggle("show-tip");
+    });
+  });
+  zoom.querySelectorAll("a.zone-live").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (reduce || e.metaKey || e.ctrlKey) return;
+      e.preventDefault();
+      var cx = parseFloat(a.style.left) + parseFloat(a.style.width) / 2;
+      var cy = parseFloat(a.style.top) + parseFloat(a.style.height) / 2;
+      zoom.style.transformOrigin = cx + "% " + cy + "%";
+      zoom.classList.add("is-zooming");
+      zoom.style.transform = "scale(5)";
+      zoom.style.filter = "brightness(0.35) saturate(1.4)";
+      setTimeout(function () { location.href = a.href; }, 950);
+    });
+  });
+  if (location.hash === "#map-open") {
+    var btn = document.getElementById("horse-btn");
+    var dlg = document.getElementById("map-dialog");
+    if (btn && dlg) { dlg.hidden = false; document.body.classList.add("map-open"); history.replaceState(null, "", location.pathname); }
+  }
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted) { zoom.style.transform = ""; zoom.style.filter = ""; zoom.classList.remove("is-zooming"); }
+  });
+})();

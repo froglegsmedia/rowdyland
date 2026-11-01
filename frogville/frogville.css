@@ -1,0 +1,46 @@
+@font-face { font-family: "Fraunces"; src: url("../fonts/Fraunces.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Fraunces"; src: url("../fonts/Fraunces-Italic.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
+:root { --ink: #f6efe4; --brass: #f0d7ad; --gold: #fcd11a; --red: #fc1826; --wood: #3c2216; --swamp: #0d1f17; color-scheme: dark; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--swamp); color: var(--ink); font-family: Fraunces, Georgia, serif; overflow-x: hidden; }
+#bayou { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+.veil { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(ellipse at center, transparent 45%, rgba(5, 12, 8, 0.65) 100%); }
+body.entering .veil { animation: veil-in 1.2s ease-out both; }
+@keyframes veil-in { from { background-color: #000; } to { background-color: transparent; } }
+.fv-top { position: fixed; z-index: 5; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 1rem; padding-top: max(0.8rem, env(safe-area-inset-top)); }
+.back, .mini-cta { font-weight: 700; color: var(--ink); text-decoration: none; padding: 0.45rem 0.9rem; border-radius: 999px; background: rgba(13, 31, 23, 0.7); border: 1px solid rgba(240, 215, 173, 0.45); backdrop-filter: blur(4px); }
+.mini-cta { background: var(--gold); color: var(--wood); border-color: var(--wood); }
+.back:hover, .mini-cta:hover { filter: brightness(1.1); }
+main { position: relative; z-index: 2; }
+.panel { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: 5rem 1.25rem 3rem; }
+.hero { align-items: center; text-align: center; }
+.kicker { margin: 0; letter-spacing: 0.3em; text-transform: uppercase; font-size: 0.8rem; color: var(--brass); }
+h1 { margin: 0.4rem 0 0.6rem; font-size: clamp(2.6rem, 9vw, 5.5rem); line-height: 1; font-weight: 800; text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7); }
+h1 span { display: block; color: var(--gold); font-style: italic; -webkit-text-stroke: 2px var(--wood); paint-order: stroke fill; }
+.lede { max-width: 30rem; margin: 0; font-style: italic; font-size: clamp(1.1rem, 3.6vw, 1.35rem); text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
+.scroll-cue { margin-top: 2.5rem; color: var(--brass); font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; animation: cue 1.6s ease-in-out infinite; }
+@keyframes cue { 50% { transform: translateY(8px); opacity: 0.6; } }
+.card > * { max-width: 24rem; }
+.card { align-items: flex-start; }
+.card.right { align-items: flex-end; }
+.card h2, .card p { background: rgba(251, 246, 238, 0.95); color: var(--wood); margin: 0; padding: 0.9rem 1.2rem; }
+.card h2 { border-radius: 16px 16px 0 0; font-size: clamp(1.5rem, 5vw, 2rem); border: 3px solid var(--wood); border-bottom: 0; }
+.card p { border-radius: 0 0 16px 16px; border: 3px solid var(--wood); border-top: 0; font-size: 1.05rem; line-height: 1.45; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45); }
+.card > * { opacity: 0; transform: translateY(40px) rotate(-1.5deg); transition: opacity 0.7s, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1.2); }
+.card.in > * { opacity: 1; transform: none; }
+.card.in p { transition-delay: 0.1s; }
+.cta { align-items: center; text-align: center; }
+.cta h2 { font-size: clamp(2rem, 7vw, 3.5rem); margin: 0 0 1.4rem; text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8); }
+.big-cta { display: inline-block; padding: 1.1rem 2.2rem; border-radius: 999px; background: var(--gold); color: var(--wood); border: 4px solid var(--wood); font-weight: 900; font-size: clamp(1.4rem, 5.5vw, 2.2rem); text-decoration: none; box-shadow: 0 8px 0 var(--wood), 0 18px 30px rgba(0, 0, 0, 0.5); animation: cta-hop 1.8s ease-in-out infinite; }
+.big-cta:hover { background: #ffe04a; }
+.big-cta:active { transform: translateY(6px); box-shadow: 0 2px 0 var(--wood); }
+@keyframes cta-hop { 0%, 70%, 100% { transform: translateY(0); } 80% { transform: translateY(-12px); } 90% { transform: translateY(0); } }
+.fine { max-width: 26rem; margin: 1.6rem 0 1.4rem; font-style: italic; color: var(--brass); text-shadow: 0 2px 6px #000; }
+.back.alt { font-size: 0.95rem; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .scroll-cue, .big-cta { animation: none; }
+  .card > * { opacity: 1; transform: none; transition: none; }
+  body.entering .veil { animation: none; }
+}
