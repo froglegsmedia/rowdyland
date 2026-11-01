@@ -267,6 +267,72 @@ a:focus-visible,
   outline-offset: 3px;
 }
 
+.map-link {
+  display: flex;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.map {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 72rem);
+  margin: 0 auto;
+  padding: 2.5rem max(1.2rem, env(safe-area-inset-right)) 2rem max(1.2rem, env(safe-area-inset-left));
+  text-align: center;
+  scroll-margin-top: 1rem;
+}
+
+.map .soon {
+  margin-top: 0;
+}
+
+.map-title {
+  margin: 0.5rem 0 1.2rem;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 4.5vw, 2.3rem);
+  line-height: 1.2;
+  text-wrap: balance;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75), 0 10px 22px rgba(20, 8, 4, 0.45);
+}
+
+.map figure {
+  margin: 0;
+}
+
+.map-frame {
+  display: block;
+  padding: 0.5rem;
+  border: 1px solid #6a452c;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #fbf6ee 0%, #e6d0aa 100%);
+  box-shadow: inset 0 0 0 2px rgba(122, 80, 44, 0.16), 0 18px 40px rgba(10, 5, 3, 0.5);
+  cursor: zoom-in;
+}
+
+.map-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+.map figcaption {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ink-dim);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.map figcaption a {
+  margin-left: 0.4em;
+  color: var(--brass);
+  font-style: normal;
+  text-underline-offset: 0.22em;
+}
+
 @media (hover: hover) {
   .enter:hover {
     background: linear-gradient(180deg, #fffaf4 0%, #f0ddc2 100%);
