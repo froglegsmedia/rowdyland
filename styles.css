@@ -287,14 +287,9 @@ a:focus-visible,
   margin-top: 0;
 }
 
-.map-title {
-  margin: 0.5rem 0 1.2rem;
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(1.5rem, 4.5vw, 2.3rem);
-  line-height: 1.2;
-  text-wrap: balance;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75), 0 10px 22px rgba(20, 8, 4, 0.45);
+.map .map-label {
+  margin: 0 0 1.1rem;
+  line-height: 1.4;
 }
 
 .map figure {
