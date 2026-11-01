@@ -98,7 +98,7 @@
     btn.addEventListener("click", function (e) {
       e.preventDefault();
       if (busy) return;
-      if (song.paused) { if (fresh) { try { song.currentTime = START; } catch (err) {} fresh = false; } var p = song.play(); if (p && p.catch) p.catch(function () { setSinging(false); }); }
+      if (song.paused) { if (fresh) { try { song.currentTime = START; } catch (err) {} fresh = false; } song.volume = 0; var fv = 0, fi = setInterval(function () { fv = Math.min(1, fv + 0.08); song.volume = fv; if (fv >= 1) clearInterval(fi); }, 50); var p = song.play(); if (p && p.catch) p.catch(function () { setSinging(false); }); }
       else song.pause();
     });
     song.addEventListener("play", function () { setSinging(true); });
