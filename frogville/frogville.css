@@ -249,3 +249,6 @@ body.day { --night: #3b5a4a; }
   .hot-hint, .hot-pot::after { animation: none !important; }
   .sky-day { transition: none; }
 }
+.cta-frog.cta-fiddler { width: clamp(150px, 24vw, 230px); animation: fiddle-sway 1.6s ease-in-out infinite; transform-origin: 50% 100%; }
+@keyframes fiddle-sway { 0%, 100% { transform: rotate(-2.5deg); } 50% { transform: rotate(2.5deg); } }
+@media (prefers-reduced-motion: reduce) { .cta-frog.cta-fiddler { animation: none; } }
