@@ -9,7 +9,7 @@
     <link rel="icon" href="../favicon.ico" sizes="any">
     <link rel="preload" href="art/bayou-bg.webp" as="image" type="image/webp">
     <link rel="preload" href="../fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="frogville.css?v=4">
+    <link rel="stylesheet" href="frogville.css?v=5">
   </head>
   <body class="entering">
     <div class="scene" aria-hidden="true">
@@ -21,6 +21,7 @@
       <img class="layer tree tree-r" data-speed="-0.03" src="art/cypress.webp" alt="">
     </div>
 
+    <button type="button" class="mute" id="mute" aria-pressed="false" aria-label="Play music: Dirty South"><span class="mute-icon" aria-hidden="true">&#128264;</span></button>
     <header class="fv-top">
       <a class="back" href="../#map-open">&#8592; Back to the map</a>
       <a class="mini-cta" href="#tickets">Tickets</a>
@@ -32,11 +33,17 @@
         <h1>Welcome to <span>Frogville</span></h1>
         <p class="lede">Swamp water, banjo strings and a little trouble. Step into the bayou after dark.</p>
         <p class="scroll-cue" aria-hidden="true">Scroll on in</p>
-        <div class="dancefloor" aria-hidden="true">
-          <img class="dancer d1" src="art/dancer1.webp" alt="">
-          <img class="dancer d2" src="art/dancer2.webp" alt="">
-          <img class="dancer d3" src="art/dancer3.webp" alt="">
-          <img class="dancer d4" src="art/dancer4.webp" alt="">
+        <div class="dancefloor">
+          <img aria-hidden="true" class="dancer d1" src="art/dancer1.webp" alt="">
+          <img aria-hidden="true" class="dancer d2" src="art/dancer2.webp" alt="">
+          <button type="button" class="jukebox" id="jukebox" aria-pressed="false" aria-label="Play Dirty South">
+            <span class="jb-glow"></span>
+            <img src="art/jukebox.webp" alt="" width="300" height="410">
+            <span class="jb-hint">Drop a quarter</span>
+            <span class="jb-burst"></span>
+          </button>
+          <img aria-hidden="true" class="dancer d3" src="art/dancer3.webp" alt="">
+          <img aria-hidden="true" class="dancer d4" src="art/dancer4.webp" alt="">
         </div>
       </section>
 
@@ -93,6 +100,6 @@
       </section>
     </main>
 
-    <script src="frogville.js?v=3" defer></script>
+    <script src="frogville.js?v=4" defer></script>
   </body>
 </html>

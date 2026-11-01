@@ -43,3 +43,58 @@
   addEventListener("resize", update);
   update();
 })();
+
+/* Dirty South jukebox */
+(function () {
+  var jb = document.getElementById("jukebox"), mute = document.getElementById("mute");
+  if (!jb) return;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var audio = null, wantPlay = false;
+  function getAudio() {
+    if (audio) return audio;
+    audio = document.createElement("audio");
+    audio.loop = true; audio.preload = "auto";
+    var m = document.createElement("source"); m.src = "audio/dirty-south.mp3"; m.type = "audio/mpeg";
+    var a = document.createElement("source"); a.src = "audio/dirty-south.m4a"; a.type = "audio/mp4";
+    audio.appendChild(m); audio.appendChild(a);
+    document.body.appendChild(audio);
+    return audio;
+  }
+  function setUI(on) {
+    document.body.classList.toggle("playing", on);
+    jb.setAttribute("aria-pressed", on); jb.setAttribute("aria-label", on ? "Stop Dirty South" : "Play Dirty South");
+    mute.setAttribute("aria-pressed", on); mute.setAttribute("aria-label", on ? "Mute music" : "Play music: Dirty South");
+    mute.firstElementChild.innerHTML = on ? "&#128266;" : "&#128264;";
+  }
+  function burst() {
+    if (reduce) return;
+    var b = jb.querySelector(".jb-burst"), ch = ["\u266A", "\u266B", "\u266A", "\u266C", "\u266B", "\u266A"];
+    ch.forEach(function (c, i) {
+      var n = document.createElement("i"); n.textContent = c;
+      var ang = -Math.PI / 2 + (i - 2.5) * 0.45;
+      n.style.setProperty("--bx", Math.cos(ang) * 90 + "px"); n.style.setProperty("--by", Math.sin(ang) * 110 + "px");
+      n.style.setProperty("--br", (Math.random() * 60 - 30) + "deg");
+      b.appendChild(n); setTimeout(function () { n.remove(); }, 1200);
+    });
+    jb.classList.remove("flare"); void jb.offsetWidth; jb.classList.add("flare");
+  }
+  function play() {
+    wantPlay = true; burst();
+    var p = getAudio().play();
+    setUI(true); sessionStorage.setItem("fvMusic", "on");
+    if (p && p.catch) p.catch(function () { wantPlay = false; setUI(false); });
+  }
+  function stop(remember) {
+    wantPlay = false; if (audio) audio.pause(); setUI(false);
+    if (remember) sessionStorage.setItem("fvMusic", "off");
+  }
+  function toggle() { if (wantPlay) stop(true); else play(); }
+  jb.addEventListener("click", toggle);
+  mute.addEventListener("click", toggle);
+  if (sessionStorage.getItem("fvMusic") === "on") jb.querySelector(".jb-hint").textContent = "Tap to keep it going";
+  document.addEventListener("visibilitychange", function () {
+    if (!audio) return;
+    if (document.hidden) audio.pause(); else if (wantPlay) audio.play().catch(function () {});
+  });
+  window.addEventListener("pagehide", function () { if (audio) audio.pause(); });
+})();

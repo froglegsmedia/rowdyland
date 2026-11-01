@@ -131,3 +131,35 @@ h1 span { color: var(--gold); text-shadow: 0 0 18px rgba(252, 209, 26, 0.45), 0 
 @keyframes spin-sway { 0%, 100% { transform: rotate(-5deg) scaleX(1); } 50% { transform: translateY(-12px) rotate(5deg) scaleX(-1); } }
 @media (max-width: 480px) { .dancefloor { gap: 0; } }
 @media (prefers-reduced-motion: reduce) { .dancer { animation: none; } }
+
+/* jukebox music toggle */
+:root { --beat: 0.76s; }
+.jukebox { position: relative; flex: 0 0 18%; width: 18%; padding: 0; border: 0; background: none; cursor: pointer; align-self: flex-end; -webkit-tap-highlight-color: transparent; }
+.jukebox img { width: 100%; height: auto; filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.7)) brightness(0.8); transition: filter 0.3s; }
+.jukebox:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; border-radius: 8px; }
+.jb-glow { position: absolute; left: 10%; right: 10%; top: 0; height: 62%; border-radius: 50% 50% 12% 12%; background: radial-gradient(ellipse at 50% 40%, rgba(255, 170, 40, 0.55), transparent 70%); filter: blur(8px); animation: jb-pulse 1.6s ease-in-out infinite; }
+@keyframes jb-pulse { 0%, 100% { opacity: 0.35; transform: scale(0.95); } 50% { opacity: 0.85; transform: scale(1.08); } }
+.jb-hint { position: absolute; left: 50%; bottom: 102%; transform: translateX(-50%); white-space: nowrap; padding: 0.25rem 0.6rem; background: #1d120c; color: var(--gold); border: 2px solid var(--gold); border-radius: 4px; font: 800 clamp(0.62rem, 2.4vw, 0.85rem) Fraunces, Georgia, serif; text-transform: uppercase; letter-spacing: 0.05em; text-shadow: 0 0 8px rgba(252, 209, 26, 0.6); box-shadow: 0 0 14px rgba(252, 209, 26, 0.35); animation: hint-bob 1.4s ease-in-out infinite; }
+@keyframes hint-bob { 50% { transform: translateX(-50%) translateY(-5px); } }
+.jukebox:hover img { filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.7)) brightness(0.95); }
+.playing .jukebox img { filter: drop-shadow(0 0 22px rgba(255, 150, 40, 0.75)) brightness(1.1) saturate(1.2); animation: jb-thump var(--beat) ease-out infinite; }
+.playing .jb-glow { animation: jb-pulse var(--beat) ease-in-out infinite; opacity: 1; }
+.playing .jb-hint { opacity: 0; transition: opacity 0.3s; }
+@keyframes jb-thump { 0% { transform: scale(1.04, 0.97); } 30% { transform: scale(1); } }
+.jb-burst { position: absolute; left: 50%; top: 25%; pointer-events: none; }
+.jb-burst i { position: absolute; font-style: normal; font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--gold); -webkit-text-stroke: 1px #1d120c; text-shadow: 0 0 10px rgba(252, 209, 26, 0.7); animation: burst 1.1s ease-out forwards; }
+@keyframes burst { from { opacity: 1; transform: translate(0, 0) scale(0.5); } to { opacity: 0; transform: translate(var(--bx), var(--by)) scale(1.3) rotate(var(--br)); } }
+.flare .jb-glow { animation: flare 0.6s ease-out; }
+@keyframes flare { 0% { opacity: 1; transform: scale(1.6); filter: blur(4px) brightness(2); } 100% { opacity: 0.8; transform: scale(1); } }
+/* frogs kick into high gear */
+.playing .dancer { animation-duration: var(--beat); }
+.playing .d1 { animation-name: two-step-hard; }
+.playing .d3 { animation-name: two-step-hard; }
+@keyframes two-step-hard { 0%, 100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-24px) rotate(6deg); } }
+.playing .d2 { animation-duration: calc(var(--beat) * 2); }
+.playing .d4 { animation-duration: calc(var(--beat) * 2); }
+/* corner mute */
+.mute { position: fixed; z-index: 6; right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--gold); background: rgba(15, 22, 32, 0.85); color: var(--gold); font-size: 1.3rem; cursor: pointer; box-shadow: 0 0 12px rgba(252, 209, 26, 0.3); }
+.mute:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+@media (max-width: 480px) { .jukebox { flex-basis: 20%; width: 20%; } .dancer { flex-basis: 20%; width: 20%; } }
+@media (prefers-reduced-motion: reduce) { .jb-glow, .jb-hint, .playing .jukebox img { animation: none !important; } .jb-burst { display: none; } }
