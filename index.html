@@ -31,7 +31,7 @@
     <link rel="preload" href="assets/barn-wood.webp" as="image" type="image/webp">
     <link rel="preload" href="fonts/Fraunces-Italic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=horse1">
+    <link rel="stylesheet" href="styles.css?v=horse2">
   </head>
   <body>
     <div class="stage" aria-hidden="true"></div>
@@ -79,37 +79,7 @@
       <p class="soon paddock-label">The Map</p>
       <div class="track">
         <button type="button" class="horse-btn" id="horse-btn" aria-haspopup="dialog" aria-controls="map-dialog">
-          <svg class="horse" viewBox="0 0 260 190" aria-hidden="true" focusable="false">
-            <g class="tail"><path d="M52 78 C30 74 18 92 14 118 C26 108 34 100 46 98 C40 112 40 124 44 134 C52 116 56 100 60 90 Z" fill="#3c2216"/></g>
-            <g class="leg leg-bl"><path d="M70 110 L62 150 L66 168" stroke="#7a4524" stroke-width="13" stroke-linecap="round" fill="none"/><rect x="56" y="164" width="18" height="9" rx="3" fill="#24160f"/></g>
-            <g class="leg leg-fl"><path d="M162 112 L168 150 L164 168" stroke="#7a4524" stroke-width="13" stroke-linecap="round" fill="none"/><rect x="154" y="164" width="18" height="9" rx="3" fill="#24160f"/></g>
-            <ellipse cx="112" cy="98" rx="66" ry="32" fill="#b8733d" stroke="#3c2216" stroke-width="4"/>
-            <path d="M156 84 C166 60 178 42 196 30 L214 46 C204 60 192 78 184 104 Z" fill="#b8733d" stroke="#3c2216" stroke-width="4" stroke-linejoin="round"/>
-            <path d="M192 22 C206 14 226 20 238 36 C244 44 246 54 240 58 C230 62 218 56 210 52 L200 46 Z" fill="#b8733d" stroke="#3c2216" stroke-width="4" stroke-linejoin="round"/>
-            <path d="M196 18 L200 4 L208 18 Z" fill="#b8733d" stroke="#3c2216" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M214 26 C222 30 230 38 236 50" stroke="#fbf6ee" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <circle cx="212" cy="32" r="3.4" fill="#24160f"/>
-            <circle cx="238" cy="52" r="2" fill="#3c2216"/>
-            <path d="M194 26 C182 36 172 52 162 74 L170 80 C178 60 188 44 200 34 Z" fill="#3c2216"/>
-            <path d="M206 40 L230 56" stroke="#f0d7ad" stroke-width="2.5"/>
-            <path d="M206 40 C190 48 176 56 160 62" stroke="#f0d7ad" stroke-width="2.5" fill="none"/>
-            <g class="leg leg-br"><path d="M84 112 L80 150 L84 168" stroke="#b8733d" stroke-width="14" stroke-linecap="round" fill="none"/><path d="M84 112 L80 150 L84 168" stroke="#3c2216" stroke-width="2" fill="none" opacity="0.35"/><rect x="74" y="164" width="18" height="9" rx="3" fill="#24160f"/></g>
-            <g class="leg leg-fr"><path d="M148 114 L150 150 L146 168" stroke="#b8733d" stroke-width="14" stroke-linecap="round" fill="none"/><path d="M148 114 L150 150 L146 168" stroke="#3c2216" stroke-width="2" fill="none" opacity="0.35"/><rect x="138" y="164" width="18" height="9" rx="3" fill="#24160f"/></g>
-            <path d="M92 70 L138 70 L134 96 L96 96 Z" fill="#fbf6ee" stroke="#3c2216" stroke-width="3"/>
-            <text x="115" y="91" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="800" font-size="20" fill="#E8102A">7</text>
-            <g class="jockey">
-              <path d="M108 70 C104 56 112 40 126 36 L142 42 C140 56 132 66 124 72 Z" fill="#FC1826" stroke="#3c2216" stroke-width="3" stroke-linejoin="round"/>
-              <path d="M112 54 L136 50" stroke="#FCD11A" stroke-width="5"/>
-              <path d="M136 46 C150 50 160 58 166 62" stroke="#FC1826" stroke-width="7" stroke-linecap="round" fill="none"/>
-              <circle cx="166" cy="62" r="4" fill="#f3d2b0" stroke="#3c2216" stroke-width="2"/>
-              <path d="M110 68 L112 92 L120 92" stroke="#fbf6ee" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              <rect x="112" y="90" width="12" height="7" rx="2" fill="#24160f"/>
-              <circle cx="140" cy="30" r="10" fill="#f3d2b0" stroke="#3c2216" stroke-width="3"/>
-              <path d="M129 28 C130 16 150 14 152 26 L158 28 L130 30 Z" fill="#FCD11A" stroke="#3c2216" stroke-width="3" stroke-linejoin="round"/>
-              <circle cx="145" cy="31" r="1.8" fill="#24160f"/>
-              <path d="M141 36 C144 38 147 37 148 35" stroke="#3c2216" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-            </g>
-          </svg>
+          <picture><source srcset="assets/race-horse.webp" type="image/webp"><img class="horse" src="assets/race-horse.png" width="640" height="596" alt="" decoding="async" draggable="false"></picture>
           <span class="sr-only">Open the Rowdyland concept map</span>
         </button>
         <p class="horse-hint" aria-hidden="true">Click the horse<span class="hint-arrow">&#8593;</span></p>
