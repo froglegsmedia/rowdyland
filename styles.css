@@ -946,3 +946,4 @@ body.map-open {
   .zone-live { animation: none; }
   .map-zoom { transition: none; }
 }
+.horse-btn{pointer-events:none;cursor:default}

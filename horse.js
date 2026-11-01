@@ -70,7 +70,7 @@
     }, 750);
   }
 
-  btn.addEventListener("click", run);
+
   document.querySelectorAll('a[href="#map"]').forEach(function (a) {
     a.addEventListener("click", function (e) {
       e.preventDefault();
