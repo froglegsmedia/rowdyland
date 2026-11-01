@@ -571,6 +571,10 @@ a:focus-visible,
   text-underline-offset: 0.22em;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body.map-open {
   overflow: hidden;
 }

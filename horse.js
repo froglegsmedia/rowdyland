@@ -21,6 +21,7 @@
     dlg.hidden = true;
     document.body.classList.remove("map-open");
     track.classList.remove("is-gone");
+    track.parentNode.style.height = "";
     if (!reduce.matches) {
       track.classList.add("is-returning");
       setTimeout(function () { track.classList.remove("is-returning"); }, 950);
@@ -45,6 +46,8 @@
     track.classList.add("is-rearing");
     setTimeout(function () {
       track.classList.remove("is-rearing");
+      var pad = track.parentNode;
+      pad.style.height = pad.getBoundingClientRect().height + "px";
       var r = btn.getBoundingClientRect();
       btn.style.top = r.top + "px";
       btn.style.setProperty("--start-x", r.left + "px");
