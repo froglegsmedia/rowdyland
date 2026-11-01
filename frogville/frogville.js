@@ -98,3 +98,91 @@
   });
   window.addEventListener("pagehide", function () { if (audio) audio.pause(); });
 })();
+
+/* panels, boil, fireflies, day/night */
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var small = Math.min(innerWidth, innerHeight) < 700;
+  var lastFocus = null, openEl = null;
+  function openPanel(id) {
+    var el = document.getElementById(id); if (!el) return;
+    lastFocus = document.activeElement; el.hidden = false; openEl = el;
+    el.querySelector(".sheet-close").focus();
+  }
+  function closePanel() {
+    if (!openEl) return; openEl.hidden = true; openEl = null;
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.querySelectorAll(".sheet-wrap").forEach(function (w) {
+    w.addEventListener("click", function (e) { if (e.target === w || e.target.closest(".sheet-close")) closePanel(); });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (!openEl) return;
+    if (e.key === "Escape") closePanel();
+    if (e.key === "Tab") {
+      var f = openEl.querySelectorAll("a[href], button"), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  document.querySelector(".hot-stage").addEventListener("click", function () { openPanel("lineup"); });
+  var pot = document.querySelector(".hot-pot"), shack = document.querySelector(".shack-art");
+  pot.addEventListener("click", function () {
+    if (!reduce) {
+      shack.classList.remove("boiling"); void shack.offsetWidth; shack.classList.add("boiling");
+      for (var i = 0; i < 8; i++) {
+        var b = document.createElement("span"); b.className = "bubble";
+        b.style.right = 10 + Math.random() * 22 + "%"; b.style.bottom = 30 + Math.random() * 10 + "%";
+        b.style.setProperty("--bx", (Math.random() * 40 - 20) + "px"); b.style.animationDelay = i * 0.05 + "s";
+        shack.appendChild(b); setTimeout(function (x) { return function () { x.remove(); }; }(b), 1300);
+      }
+      setTimeout(function () { shack.classList.remove("boiling"); }, 1400);
+    }
+    setTimeout(function () { openPanel("menu"); }, reduce ? 0 : 450);
+  });
+
+  /* firefly catch */
+  var layer = document.getElementById("catch-layer"), nEl = document.getElementById("jar-n"), jar = document.getElementById("jar"), hint = document.getElementById("jar-hint");
+  var count = parseInt(sessionStorage.getItem("fvCaught") || "0", 10), GOAL = 10;
+  function render() {
+    nEl.textContent = Math.min(count, GOAL);
+    var icon = jar.querySelector(".jar-icon");
+    icon.style.setProperty("--fill", Math.min(count, GOAL) * 10 + "%"); icon.style.setProperty("--fill-n", Math.min(count, GOAL));
+    if (document.body.classList.contains("day")) hint.textContent = "Fireflies come out at night";
+    else hint.textContent = count >= GOAL ? "Bayou glow unlocked" : "Catch fireflies";
+  }
+  function spawn() {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "catch"; b.setAttribute("aria-label", "Catch a firefly"); b.tabIndex = -1;
+    b.style.left = 8 + Math.random() * 84 + "%"; b.style.top = 18 + Math.random() * 64 + "%";
+    b.style.setProperty("--d", 1.8 + Math.random() * 1.5 + "s"); b.style.setProperty("--dd", 5 + Math.random() * 6 + "s");
+    b.style.setProperty("--dx", (Math.random() * 120 - 60) + "px"); b.style.setProperty("--dy", (Math.random() * 90 - 45) + "px");
+    b.style.animationDelay = -Math.random() * 5 + "s";
+    b.addEventListener("click", function (e) {
+      var r = b.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
+      if (!reduce) for (var i = 0; i < 8; i++) {
+        var s = document.createElement("span"); s.className = "sparkle"; s.style.left = x + "px"; s.style.top = y + "px";
+        var a = i / 8 * Math.PI * 2; s.style.setProperty("--sx", Math.cos(a) * 30 + "px"); s.style.setProperty("--sy", Math.sin(a) * 30 + "px");
+        document.body.appendChild(s); setTimeout(function (z) { return function () { z.remove(); }; }(s), 800);
+      }
+      b.remove(); count++; sessionStorage.setItem("fvCaught", count); render();
+      jar.classList.remove("bump"); void jar.offsetWidth; jar.classList.add("bump");
+      if (count === GOAL) setTimeout(function () { openPanel("glow"); }, 500);
+      setTimeout(spawn, 1500 + Math.random() * 2000);
+    });
+    layer.appendChild(b);
+  }
+  for (var i = 0; i < (small ? 5 : 7); i++) spawn();
+  window.__fvCatch = function () { var c = layer.querySelector(".catch"); if (c) c.click(); };
+
+  /* day / night */
+  var dn = document.getElementById("daynight");
+  function setDay(on) {
+    document.body.classList.toggle("day", on);
+    dn.setAttribute("aria-pressed", on); dn.setAttribute("aria-label", on ? "Switch to night" : "Switch to daytime");
+    dn.firstElementChild.innerHTML = on ? "&#9728;" : "&#9790;";
+    sessionStorage.setItem("fvDay", on ? "1" : "0"); render();
+  }
+  dn.addEventListener("click", function () { setDay(!document.body.classList.contains("day")); });
+  setDay(sessionStorage.getItem("fvDay") === "1");
+})();

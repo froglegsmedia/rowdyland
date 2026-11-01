@@ -9,11 +9,12 @@
     <link rel="icon" href="../favicon.ico" sizes="any">
     <link rel="preload" href="art/bayou-bg.webp" as="image" type="image/webp">
     <link rel="preload" href="../fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="frogville.css?v=5">
+    <link rel="stylesheet" href="frogville.css?v=6">
   </head>
   <body class="entering">
     <div class="scene" aria-hidden="true">
       <div class="layer sky" data-speed="-0.008"></div>
+      <div class="layer sky sky-day" data-speed="-0.008"></div>
       <div class="water"></div>
       <div class="fog f1"></div><div class="fog f2"></div>
       <div class="fireflies"></div>
@@ -35,15 +36,13 @@
         <p class="scroll-cue" aria-hidden="true">Scroll on in</p>
         <div class="dancefloor">
           <img aria-hidden="true" class="dancer d1" src="art/dancer1.webp" alt="">
-          <img aria-hidden="true" class="dancer d2" src="art/dancer2.webp" alt="">
-          <button type="button" class="jukebox" id="jukebox" aria-pressed="false" aria-label="Play Dirty South">
+                    <button type="button" class="jukebox" id="jukebox" aria-pressed="false" aria-label="Play Dirty South">
             <span class="jb-glow"></span>
             <img src="art/jukebox.webp" alt="" width="300" height="410">
             <span class="jb-hint">Drop a quarter</span>
             <span class="jb-burst"></span>
           </button>
-          <img aria-hidden="true" class="dancer d3" src="art/dancer3.webp" alt="">
-          <img aria-hidden="true" class="dancer d4" src="art/dancer4.webp" alt="">
+          <img aria-hidden="true" class="dancer d2" src="art/dancer2.webp" alt="">
         </div>
       </section>
 
@@ -52,9 +51,9 @@
           <h2>Lily Pad Porch Stage</h2>
           <p>Road-worn pickers, fast fiddles and boots stomping on old boards. Bluegrass, played loud.</p>
         </div>
-        <div class="art stage-art" data-speed="-0.08" aria-hidden="true">
-          <img src="art/stage.webp" alt="" class="sway">
-          <span class="note n1">&#9834;</span><span class="note n2">&#9835;</span><span class="note n3">&#9834;</span><span class="note n4">&#9835;</span>
+        <div class="art stage-art" data-speed="-0.08">
+          <button type="button" class="hot hot-stage" data-open="lineup" aria-haspopup="dialog"><img src="art/stage.webp" alt="" class="sway"><span class="hot-hint">See the lineup</span><span class="sr-only">Open the Frogville stage lineup</span></button>
+          <span aria-hidden="true" class="note n1">&#9834;</span><span class="note n2">&#9835;</span><span class="note n3">&#9834;</span><span class="note n4">&#9835;</span>
         </div>
       </section>
 
@@ -63,10 +62,11 @@
           <h2>Boil Shack Bar</h2>
           <p>Spicy crawfish boil, ice cold beer and neon till late. Grab a tray, find a stump, stay a while.</p>
         </div>
-        <div class="art shack-art" data-speed="-0.08" aria-hidden="true">
-          <span class="glow"></span>
+        <div class="art shack-art" data-speed="-0.08">
+          <span class="glow" aria-hidden="true"></span>
           <img src="art/shack.webp" alt="">
-          <span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span>
+          <button type="button" class="hot hot-pot" data-open="menu" aria-haspopup="dialog"><span class="hot-hint">Tap the boil</span><span class="sr-only">Open the Boil Shack sample menu</span></button>
+          <span aria-hidden="true" class="steam s1"></span><span aria-hidden="true" class="steam s2"></span><span aria-hidden="true" class="steam s3"></span>
         </div>
       </section>
 
@@ -100,6 +100,65 @@
       </section>
     </main>
 
-    <script src="frogville.js?v=4" defer></script>
+
+    <div class="catch-layer" id="catch-layer" aria-hidden="true"></div>
+    <div class="hud">
+      <button type="button" class="hud-btn daynight" id="daynight" aria-pressed="false" aria-label="Switch to daytime"><span class="dn-icon" aria-hidden="true">&#9790;</span></button>
+      <div class="jar" id="jar" role="status" aria-live="polite"><span class="jar-icon" aria-hidden="true"></span><span class="jar-count"><b id="jar-n">0</b>/10</span><span class="jar-hint" id="jar-hint">Catch fireflies</span></div>
+    </div>
+
+    <div class="sheet-wrap" id="lineup" role="dialog" aria-modal="true" aria-labelledby="lineup-title" hidden>
+      <div class="poster">
+        <button type="button" class="sheet-close" aria-label="Close lineup">&#215;</button>
+        <p class="poster-kicker">Lily Pad Porch Stage</p>
+        <h2 id="lineup-title">Frogville Lineup</h2>
+        <p class="poster-note">Sample schedule. Real lineup and set times announced soon.</p>
+        <div class="days">
+          <div class="day"><h3>Friday</h3><ul>
+            <li><span>2:00 PM</span>Daytime Songwriter Showcase</li>
+            <li><span>4:30 PM</span>String Band TBA</li>
+            <li><span>7:00 PM</span>Bluegrass Special Guest TBA</li>
+            <li><span>9:30 PM</span>Bluegrass Headliner TBA</li>
+            <li><span>Midnight</span>Late Night Pickin' Jam</li></ul></div>
+          <div class="day"><h3>Saturday</h3><ul>
+            <li><span>1:00 PM</span>Porch Pickers Open Circle</li>
+            <li><span>3:30 PM</span>Daytime Songwriter Showcase</li>
+            <li><span>6:00 PM</span>Fiddle and Banjo Throwdown TBA</li>
+            <li><span>9:00 PM</span>Bluegrass Headliner TBA</li>
+            <li><span>Midnight</span>Late Night Pickin' Jam</li></ul></div>
+        </div>
+        <a class="big-cta small" href="mailto:howdy@rowdyhop.com?subject=Rowdyland%20tickets">Get your tickets now!</a>
+      </div>
+    </div>
+
+    <div class="sheet-wrap" id="menu" role="dialog" aria-modal="true" aria-labelledby="menu-title" hidden>
+      <div class="poster menu-card">
+        <button type="button" class="sheet-close" aria-label="Close menu">&#215;</button>
+        <p class="poster-kicker">Boil Shack Bar</p>
+        <h2 id="menu-title">Sample Menu</h2>
+        <p class="poster-note">Prices coming soon. Menu subject to change.</p>
+        <ul class="menu-list">
+          <li><b>Crawfish Boil</b><span>By the pound, spicy, with corn and potatoes</span></li>
+          <li><b>Boudin Links</b><span>Smoky, snappy, grab two</span></li>
+          <li><b>Gumbo</b><span>Dark roux, served over rice</span></li>
+          <li><b>Corn and Potatoes</b><span>Straight out of the pot</span></li>
+          <li><b>Ice Cold Beer</b><span>Domestic, local and something hoppy</span></li>
+          <li><b>Sweet Tea</b><span>Big cup, lots of ice</span></li>
+        </ul>
+        <a class="big-cta small" href="mailto:howdy@rowdyhop.com?subject=Rowdyland%20tickets">Get your tickets now!</a>
+      </div>
+    </div>
+
+    <div class="sheet-wrap" id="glow" role="dialog" aria-modal="true" aria-labelledby="glow-title" hidden>
+      <div class="poster glow-card">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">10 for 10</p>
+        <h2 id="glow-title">You caught the bayou glow!</h2>
+        <p class="poster-note">That earns you first dibs. Get on the presale list before tickets go public.</p>
+        <a class="big-cta small" href="mailto:howdy@rowdyhop.com?subject=Rowdyland%20presale">Join the presale</a>
+      </div>
+    </div>
+
+    <script src="frogville.js?v=5" defer></script>
   </body>
 </html>
