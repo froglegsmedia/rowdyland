@@ -907,11 +907,8 @@ body.map-open {
   font: inherit;
 }
 .zone:hover,
-.zone:focus-visible { border-color: rgba(252, 209, 26, 0.85); background: rgba(252, 209, 26, 0.12); outline: none; }
+.zone:focus-visible { outline: none; }
 .zone-live {
-  border-color: rgba(252, 209, 26, 0.9);
-  box-shadow: 0 0 0 0 rgba(252, 209, 26, 0.6);
-  animation: zone-pulse 1.8s ease-out infinite;
 }
 .zone-tip {
   position: absolute;
