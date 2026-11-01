@@ -91,16 +91,19 @@
     noteTimer = null;
     if (on && !reduce.matches) { note(); noteTimer = setInterval(note, 450); }
   }
+  var START = 94.4; /* "Yeah, we didn't like that" */
+  var fresh = true;
   if (song) {
+    song.addEventListener("loadedmetadata", function () { if (fresh && song.paused) song.currentTime = START; });
     btn.addEventListener("click", function (e) {
       e.preventDefault();
       if (busy) return;
-      if (song.paused) { var p = song.play(); if (p && p.catch) p.catch(function () { setSinging(false); }); }
+      if (song.paused) { if (fresh) { try { song.currentTime = START; } catch (err) {} fresh = false; } var p = song.play(); if (p && p.catch) p.catch(function () { setSinging(false); }); }
       else song.pause();
     });
     song.addEventListener("play", function () { setSinging(true); });
     song.addEventListener("pause", function () { setSinging(false); });
-    song.addEventListener("ended", function () { setSinging(false); });
+    song.addEventListener("ended", function () { setSinging(false); fresh = true; });
   }
 
   document.querySelectorAll('a[href="#map"]').forEach(function (a) {
