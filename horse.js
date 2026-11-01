@@ -42,6 +42,7 @@
   function run() {
     if (busy) return;
     busy = true;
+    if (song && !song.paused) song.pause();
     if (reduce.matches) { openMap(); return; }
     track.classList.add("is-rearing");
     setTimeout(function () {
@@ -70,6 +71,37 @@
     }, 750);
   }
 
+  var song = document.getElementById("horse-song");
+  var noteTimer = null;
+  function note() {
+    var n = document.createElement("span");
+    n.className = "note";
+    n.setAttribute("aria-hidden", "true");
+    n.textContent = Math.random() < 0.5 ? "\u266A" : "\u266B";
+    n.style.left = 30 + Math.random() * 40 + "%";
+    n.style.top = 10 + Math.random() * 20 + "%";
+    n.style.setProperty("--dx", (Math.random() * 60 - 30) + "px");
+    track.appendChild(n);
+    setTimeout(function () { n.remove(); }, 1900);
+  }
+  function setSinging(on) {
+    track.classList.toggle("is-singing", on);
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    clearInterval(noteTimer);
+    noteTimer = null;
+    if (on && !reduce.matches) { note(); noteTimer = setInterval(note, 450); }
+  }
+  if (song) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (busy) return;
+      if (song.paused) { var p = song.play(); if (p && p.catch) p.catch(function () { setSinging(false); }); }
+      else song.pause();
+    });
+    song.addEventListener("play", function () { setSinging(true); });
+    song.addEventListener("pause", function () { setSinging(false); });
+    song.addEventListener("ended", function () { setSinging(false); });
+  }
 
   document.querySelectorAll('a[href="#map"]').forEach(function (a) {
     a.addEventListener("click", function (e) {
