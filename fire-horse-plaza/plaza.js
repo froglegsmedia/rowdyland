@@ -139,7 +139,7 @@
   var now = document.getElementById("now");
   function set(n) {
     document.body.classList.toggle("night", n); b.setAttribute("aria-pressed", n); b.textContent = n ? "\u2600 Day" : "\u263E Night";
-    if (!window.__fhBusy) now.textContent = n ? "At night: the fire ceremony, right before the headliner." : "Rowdy stands watch. Tap him to see the ceremony.";
+    if (!window.__fhBusy) now.textContent = n ? "Final night: the fire ceremony, right before the headliner." : "Rowdy stands watch. Tap him to see the ceremony.";
   }
   b.addEventListener("click", function () { set(!document.body.classList.contains("night")); });
 })();
