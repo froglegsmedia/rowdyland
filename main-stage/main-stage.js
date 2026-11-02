@@ -24,7 +24,7 @@
     }
   }
   var statue = document.getElementById("statue"), spinT = null, song = null, fi = null;
-  function setPlaying(on) { statue.classList.toggle("spinning", on); statue.setAttribute("aria-pressed", on); statue.setAttribute("aria-label", on ? "Pause One Champion" : "Play One Champion"); }
+  function setPlaying(on) { statue.classList.toggle("spinning", on); statue.setAttribute("aria-pressed", on); statue.setAttribute("aria-label", on ? "Pause Barn to the Boulevard" : "Play Barn to the Boulevard"); }
   statue.addEventListener("click", function () {
     burst(statue, 14);
     clearTimeout(spinT); statue.classList.remove("playing"); void statue.offsetWidth; statue.classList.add("playing");
