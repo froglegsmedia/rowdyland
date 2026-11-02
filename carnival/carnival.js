@@ -85,7 +85,7 @@
   function render() {
     var c = Math.min(count, GOAL); nEl.textContent = c;
     jar.querySelector(".jar-icon").style.setProperty("--fill-n", c);
-    hint.textContent = count >= GOAL ? "Every ticket found" : "golden tickets found";
+    hint.textContent = count >= GOAL ? "Every ticket found" : "lucky tickets found";
   }
   var SPOTS = [
     ["t1", ".hero", "8%", "86%", -14],
@@ -105,7 +105,7 @@
     if (found.indexOf(s[0]) > -1) return;
     var host = document.querySelector(s[1]); if (!host) return;
     var b = document.createElement("button");
-    b.type = "button"; b.className = "catch"; b.setAttribute("aria-label", "Golden ticket");
+    b.type = "button"; b.className = "catch"; b.setAttribute("aria-label", "Lucky ticket");
     b.style.left = s[2]; b.style.top = s[3]; b.style.setProperty("--rot", s[4] + "deg");
     b.style.setProperty("--gd", (i * 0.9) % 6 + "s");
     b.addEventListener("click", function (e) {
