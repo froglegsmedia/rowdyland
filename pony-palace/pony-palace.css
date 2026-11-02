@@ -151,3 +151,10 @@ h1 span { display: block; color: var(--pink); font-style: italic; -webkit-text-s
 .reserve-poster { text-align: center; }
 .reserve-poster .signup { margin-top: 0.4rem; }
 .reserve-poster .signup .big-cta { animation: none; }
+.reserve-poster { padding: 3.2rem 3.4rem 4.2rem; }
+.reserve-poster h2 { margin: 0.6rem 0 0.9rem; }
+.reserve-poster .poster-note { margin: 0 0 1.4rem; }
+.reserve-poster .signup { margin: 0; gap: 1rem; }
+.reserve-poster .signup-msg { min-height: 0; margin: 0; }
+.reserve-poster .signup-msg:empty { display: none; }
+@media (max-width: 480px) { .reserve-poster { padding: 3.4rem 1.6rem 3.6rem; } }
