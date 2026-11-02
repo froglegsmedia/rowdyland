@@ -191,10 +191,10 @@ body:not(.night) .feature[data-time="night"] .art, body.night .feature[data-time
 
 /* fire horse plaza: ceremony */
 body { background: linear-gradient(#121833, #2a1630 60%, #121833); }
-.statue { cursor: pointer; width: min(62vw, 280px); }
+.statue { cursor: pointer; width: min(62vw, 300px); }
 .statue .stack { position: relative; display: block; }
 .statue .stack img { transition: opacity 0.9s ease; }
-.statue .stack img + img { position: absolute; left: 50%; bottom: 0; translate: -50% 0; height: 100%; width: auto; max-width: none; opacity: 0; }
+.statue .stack img + img { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; }
 .statue.ablaze #img-fire { opacity: 1; } .statue.ablaze #img-stone { opacity: 0; }
 .statue.gold #img-gold { opacity: 1; } .statue.gold #img-stone { opacity: 0; }
 .statue.ablaze #img-fire { animation: flicker 0.35s ease-in-out infinite alternate; transform-origin: 50% 100%; }

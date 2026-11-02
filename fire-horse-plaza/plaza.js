@@ -59,7 +59,7 @@
   function render() {
     var c = Math.min(count, GOAL); nEl.textContent = c;
     jar.querySelector(".jar-icon").style.setProperty("--fill-n", c);
-    hint.textContent = count >= GOAL ? "Every rosette found" : "gold rosettes found";
+    hint.textContent = count >= GOAL ? "Every ember found" : "gold embers found";
   }
   var SPOTS = [
     ["r1", ".hero", "8%", "84%", -14],
@@ -79,7 +79,7 @@
     if (found.indexOf(s[0]) > -1) return;
     var host = document.querySelector(s[1]); if (!host) return;
     var b = document.createElement("button");
-    b.type = "button"; b.className = "catch"; b.setAttribute("aria-label", "Gold rosette");
+    b.type = "button"; b.className = "catch"; b.setAttribute("aria-label", "Gold ember");
     b.style.left = s[2]; b.style.top = s[3]; b.style.setProperty("--rot", s[4] + "deg");
     b.style.setProperty("--gd", (i * 0.9) % 6 + "s");
     b.addEventListener("click", function (e) {
@@ -167,12 +167,23 @@
     st.classList.toggle("ablaze", s === "fire"); st.classList.toggle("gold", s === "gold");
     st.setAttribute("aria-pressed", s !== "stone");
   }
+  var song = null, fi = null;
+  function play() {
+    if (!song) { song = new Audio("audio/anthem.mp3?v=1"); song.preload = "auto"; }
+    clearInterval(fi);
+    document.querySelectorAll("audio").forEach(function (x) { if (x !== song) x.pause(); });
+    song.currentTime = 0; song.volume = 0; var fv = 0;
+    fi = setInterval(function () { fv = Math.min(1, fv + 0.08); song.volume = fv; if (fv >= 1) clearInterval(fi); }, 40);
+    var pr = song.play(); if (pr && pr.catch) pr.catch(function () {});
+  }
+  function stop() { clearInterval(fi); if (song) song.pause(); }
+  document.addEventListener("visibilitychange", function () { if (document.hidden) stop(); });
   st.addEventListener("click", function () {
     clear();
-    if (st.classList.contains("gold") || st.classList.contains("ablaze")) { stage("stone"); window.__fhBusy = false; now.textContent = "Rowdy stands watch. Tap him to see the ceremony."; return; }
+    if (st.classList.contains("gold") || st.classList.contains("ablaze")) { stage("stone"); stop(); window.__fhBusy = false; now.textContent = "Rowdy stands watch. Tap him to see the ceremony."; return; }
     window.__fhBusy = true;
     if (!document.body.classList.contains("night")) document.getElementById("daynight").click();
-    stage("fire"); embers(); now.textContent = "The anthem plays. Rowdy goes ablaze.";
+    stage("fire"); embers(); play(); now.textContent = "The anthem plays. Rowdy goes ablaze.";
     timers.push(setTimeout(function () { clearInterval(emb); stage("gold"); now.textContent = "Rowdy is revealed in gold. Tap to reset."; }, 4200));
   });
 })();
