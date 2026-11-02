@@ -87,7 +87,7 @@
     ["p6", "#bar .art", "8%", "18%", -8],
     ["p7", "#lineup", "94%", "8%", -12],
     ["p8", "#showcase .art", "12%", "70%", 16],
-    ["p9", "#rave .art", "90%", "60%", -8],
+    ["p9", "#contests .art", "6%", "14%", -8],
     ["p10", "#tickets", "88%", "20%", 10]
   ];
   var found = []; try { found = JSON.parse(sessionStorage.getItem("jtFound") || "[]"); } catch (e) {}
