@@ -10,7 +10,7 @@
     <link rel="icon" href="../favicon-32.png?v=2" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
     <link rel="preload" href="../fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="story.css?v=story1">
+    <link rel="stylesheet" href="story.css?v=story2">
   </head>
   <body>
     <header class="fv-top">
@@ -42,14 +42,14 @@
       </section>
       <section class="chapter" id="captured">
         <figure class="art reveal"><picture><source srcset="art/ch5-captured.webp?v=2" type="image/webp"><img src="art/ch5-captured.jpg?v=2" width="1024" height="768" loading="lazy" decoding="async" alt="Rowdy, wearing a number 1 saddle cloth, stands alone at the racetrack fence, mourning the wild desert beyond"></picture></figure>
-        <div class="card reveal"><span class="num">Chapter Five</span><h2>Captured</h2><p>The racing industry rounds up wild horses and trains them to race. They took Rowdy. He kicked, he bucked, he did not belong. Some horses there were rich, cocky star athletes. Most were trapped. The only way out was to beat every one of them, so he did, and became the number one racehorse in the land. But deep in the racing years, Rowdy accepted his fate. The capture changed his heart and his spirit. At night he stood at the fence and mourned the wild horse he used to be.</p></div>
+        <div class="card reveal"><span class="num">Chapter Five</span><h2>Captured</h2><p>The racing industry rounds up wild horses and trains them to race. They took Rowdy. He kicked, he bucked, he did not belong. Some horses there were rich, cocky star athletes. Most were trapped. The only way out was to beat every one of them, so he did, and became the number one racehorse in the land. But deep in the racing years, Rowdy accepted his fate. At night he could still hear the wild herd's beat, but his own stride had gone quiet. He did not recognize the horse with a number on his back staring up from the water trough. He mourned the wild horse he used to be.</p></div>
       </section>
       <section class="chapter" id="plan">
-        <figure class="art reveal"><picture><source srcset="art/ch6-plan.webp?v=1" type="image/webp"><img src="art/ch6-plan.jpg?v=1" width="1024" height="768" loading="lazy" decoding="async" alt="Pony Tale leans into Rowdy's stall by lantern light as they plan an escape"></picture></figure>
-        <div class="card reveal"><span class="num">Chapter Six</span><h2>The Plan</h2><p>One night Pony Tale found him. She had come to bust him out. Rowdy told her he was not the horse she fell for anymore. She told him that was okay. He had not lost himself. He had become better, and he was going to help so many others. Nose to nose by lantern light, the two of them cooked up a plan.</p></div>
+        <figure class="art reveal"><picture><source srcset="art/ch6-plan.webp?v=2" type="image/webp"><img src="art/ch6-plan.jpg?v=2" width="1024" height="768" loading="lazy" decoding="async" alt="Pony Tale, wearing number 7, edges past a stunned Rowdy at the finish line"></picture></figure>
+        <div class="card reveal"><span class="num">Chapter Six</span><h2>The Plan</h2><p>Pony Tale came all that way to find him, but she could not get near him in the stables. So she got herself captured on purpose and won over a trainer to get into racing. Racing him was the only way to get next to him. So she lined up beside him and beat him by a nose, stealing a win from the number one horse in the land. Rowdy told her he was not the horse she fell for anymore. She told him that was okay. He had become better, and he was going to help so many others. Then she told him her plan to get him out.</p></div>
       </section>
       <section class="chapter" id="firehorse">
-        <figure class="art reveal"><picture><source srcset="art/ch7-firehorse.webp?v=1" type="image/webp"><img src="art/ch7-firehorse.jpg?v=1" width="1024" height="768" loading="lazy" decoding="async" alt="Rowdy blazes in flames as the Fire Horse, crossing the finish line under a glowing gold trophy"></picture></figure>
+        <figure class="art reveal"><picture><source srcset="art/ch7-firehorse.webp?v=2" type="image/webp"><img src="art/ch7-firehorse.jpg?v=2" width="1024" height="768" loading="lazy" decoding="async" alt="Rowdy blazes in flames as the Fire Horse, breaking the finish line ribbon under a glowing gold trophy"></picture></figure>
         <div class="card reveal"><span class="num">Chapter Seven</span><h2>The Fire Horse</h2><p>Rowdy dug deeper than he ever had. He caught fire. He became the Fire Horse, went for the Triple Crown gold, and took it.</p></div>
       </section>
       <section class="chapter" id="free">
@@ -58,10 +58,20 @@
       </section>
       <section class="cta" id="tickets">
         <h2>Run home to Rowdyland</h2>
-        <a class="big-cta" href="mailto:howdy@rowdyhop.com">Get your tickets now!</a>
+        <a class="big-cta" href="#reserve" data-reserve>Get your tickets now!</a>
         <a class="back" href="../#map-open">Explore the map</a>
       </section>
     </main>
+    <div class="sheet-wrap" id="reserve" role="dialog" aria-modal="true" aria-labelledby="reserve-title" hidden>
+      <div class="poster reserve-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Tickets coming soon</p>
+        <h2 id="reserve-title">Reserve your ticket</h2>
+        <p class="poster-note">Drop your email and you'll be the first to know when tickets go on sale.</p>
+        <form class="signup" onsubmit="var n=this.previousElementSibling;if(n&&n.classList.contains('poster-note'))n.hidden=true" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Reserve my spot</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
+      </div>
+    </div>
+    <script src="story.js?v=story3" defer></script>
     <script>(function(){var s=document.querySelectorAll('.chapter');if(!('IntersectionObserver' in window)){s.forEach(function(e){e.classList.add('in')});return}var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}})},{threshold:0.15});s.forEach(function(e){o.observe(e)})})();</script>
   </body>
 </html>

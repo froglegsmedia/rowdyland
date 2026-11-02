@@ -35,3 +35,29 @@ h1 { margin: 0.4rem 0 1rem; font-size: clamp(2.6rem, 10vw, 5.5rem); line-height:
   .art, .card { flex-basis: auto; width: 100%; max-width: 30rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .reveal { opacity: 1; transform: none; transition: none; } }
+.sheet-wrap { position: fixed; inset: 0; z-index: 20; display: grid; place-items: center; padding: 1rem; background: rgba(10, 12, 28, 0.75); }
+.sheet-wrap[hidden] { display: none; }
+.poster { position: relative; width: min(100%, 34rem); max-height: calc(100dvh - 2rem); overflow: auto; padding: 2.4rem 2.6rem 2.6rem; background: var(--pearl); color: #2a1a10; border: 4px solid var(--wine); border-radius: 6px; box-shadow: 10px 10px 0 var(--wine), 0 0 40px rgba(255, 190, 90, 0.35); text-align: center; animation: poster-in 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.3); }
+.poster::before { content: ""; position: absolute; inset: 8px; border: 2px dashed rgba(90, 20, 20, 0.4); border-radius: 3px; pointer-events: none; }
+@keyframes poster-in { from { opacity: 0; transform: translateY(40px) rotate(-4deg) scale(0.9); } to { opacity: 1; transform: none; } }
+.poster h2 { margin: 0.2rem 0 0.6rem; font-size: clamp(1.8rem, 6vw, 2.6rem); text-transform: uppercase; color: #b8281c; letter-spacing: 0.03em; line-height: 1; }
+.poster-kicker { margin: 0; font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 800; }
+.poster-note { margin: 0 0 1.4rem; font-style: italic; font-size: 0.95rem; }
+.sheet-close { position: absolute; top: 1.1rem; right: 1.1rem; z-index: 1; width: 40px; height: 40px; border: 2px solid var(--wine); border-radius: 50%; background: var(--pink); color: var(--wine); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+/* email signup */
+.signup { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.7rem; max-width: 34rem; margin: 0 auto; }
+.signup input { flex: 1 1 15rem; min-width: 0; padding: 0.95rem 1.2rem; border-radius: 999px; border: 3px solid currentColor; background: #fff; color: #222; font: 600 1.05rem Fraunces, Georgia, serif; }
+.signup input:focus { outline: 3px solid var(--gold); outline-offset: 2px; }
+.signup .big-cta { cursor: pointer; font-family: inherit; flex: 0 0 auto; }
+.signup-msg { flex: 1 0 100%; margin: 0.3rem 0 0; min-height: 1.2em; font-weight: 700; text-align: center; }
+.signup.done input, .signup.done button { display: none; }
+.signup.done .signup-msg { font-size: 1.4rem; }
+@media (max-width: 480px) { .signup input, .signup .big-cta { flex: 1 1 100%; } }
+
+/* reserve popup */
+.reserve-poster { text-align: center; }
+.reserve-poster .signup { margin-top: 0.4rem; }
+.reserve-poster .signup .big-cta { animation: none; }
+.reserve-poster { padding: 3.2rem 3.4rem 4.2rem; }
+.reserve-poster h2 { margin: 0.6rem 0 0.9rem; }
+.big-cta.small { font-size: clamp(1.05rem, 4.5vw, 1.4rem); padding: 0.8rem 1.6rem; animation: none; }
