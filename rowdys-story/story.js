@@ -28,3 +28,21 @@
   pop.addEventListener("click", function (e) { if (e.target === pop || e.target.closest(".sheet-close")) close(); });
   document.addEventListener("keydown", function (e) { if (!pop.hidden && e.key === "Escape") close(); });
 })();
+
+/* story-v2: shift background tint by chapter */
+(function () {
+  var sky = document.querySelector(".sky"); if (!sky || !("IntersectionObserver" in window)) return;
+  var T = {
+    wild: "linear-gradient(180deg, rgba(255,170,90,0.45), rgba(150,80,40,0.2))",
+    stride: "linear-gradient(180deg, rgba(255,120,70,0.45), rgba(120,50,90,0.25))",
+    ancestors: "linear-gradient(180deg, rgba(40,60,160,0.55), rgba(20,20,70,0.4))",
+    "pony-tale": "linear-gradient(180deg, rgba(60,80,170,0.5), rgba(30,30,80,0.35))",
+    captured: "linear-gradient(180deg, rgba(110,60,140,0.45), rgba(40,20,50,0.4))",
+    plan: "linear-gradient(180deg, rgba(180,40,40,0.4), rgba(60,20,30,0.35))",
+    taken: "linear-gradient(180deg, rgba(20,30,70,0.6), rgba(10,10,25,0.55))",
+    firehorse: "linear-gradient(180deg, rgba(255,90,20,0.6), rgba(200,40,10,0.45))",
+    free: "linear-gradient(180deg, rgba(255,200,80,0.6), rgba(230,140,40,0.4))"
+  };
+  var o = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting && T[e.target.id]) sky.style.setProperty("--tint", T[e.target.id]); }); }, { rootMargin: "-45% 0px -45% 0px" });
+  Object.keys(T).forEach(function (id) { var el = document.getElementById(id); if (el) o.observe(el); });
+})();
