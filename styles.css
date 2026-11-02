@@ -974,3 +974,9 @@ body.map-open {
   .track.is-singing .horse, .track.is-singing .tail { animation: none !important; }
   .note { display: none; }
 }
+
+/* jam tent: tent top and label highlight together */
+.zone-round { border-radius: 50%; }
+.map-zoom:has([data-zone^="jam-tent"]:hover) [data-zone^="jam-tent"],
+.map-zoom:has([data-zone^="jam-tent"]:focus-visible) [data-zone^="jam-tent"] { outline: none; background: rgba(255, 248, 230, 0.22); box-shadow: 0 0 18px 4px rgba(255, 248, 230, 0.45); }
+.map-zoom:has([data-zone="jam-tent-top"]:hover) [data-zone="jam-tent"] .zone-tip { opacity: 1; }
