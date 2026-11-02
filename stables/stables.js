@@ -139,7 +139,7 @@
   var img = document.getElementById("hero-img"), now = document.getElementById("now");
   function set(n) {
     document.body.classList.toggle("night", n); b.setAttribute("aria-pressed", n); b.textContent = n ? "\u2600 Day" : "\u263E Night";
-    img.src = n ? "art/rodeo.webp?v=5" : "art/hero.webp?v=5";
+    img.src = n ? "art/rodeo.webp?v=6" : "art/hero.webp?v=6";
     now.textContent = n ? "At night: rodeo under the lights while the main stage plays." : "Guided trail rides and the petting corral.";
   }
   b.addEventListener("click", function () { set(!document.body.classList.contains("night")); });
