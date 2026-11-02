@@ -29,7 +29,7 @@
     burst(statue, 14);
     clearTimeout(spinT); statue.classList.remove("playing"); void statue.offsetWidth; statue.classList.add("playing");
     spinT = setTimeout(function () { statue.classList.remove("playing"); }, 1700);
-    if (!song) { song = new Audio("../assets/one-champion.mp3"); song.preload = "auto"; song.addEventListener("ended", function () { setPlaying(false); }); }
+    if (!song) { song = new Audio("../assets/barn-to-the-boulevard.mp3"); song.preload = "auto"; song.addEventListener("ended", function () { setPlaying(false); }); }
     clearInterval(fi);
     if (song.paused) {
             song.volume = 0; var fv = 0;
