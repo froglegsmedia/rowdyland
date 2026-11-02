@@ -1005,3 +1005,14 @@ body.map-open {
 .poster .signup.done .signup-msg { font-size: 1.4rem; }
 @media (max-width: 480px) { .reserve-poster { padding: 3.4rem 1.6rem 3.6rem; } .poster .signup input, .poster .signup .big-cta { flex: 1 1 100%; } }
 @media (prefers-reduced-motion: reduce) { .poster { animation: none; } }
+
+/* map zoom + pan */
+.map-pan { position: relative; transform-origin: 0 0; will-change: transform; touch-action: pan-x pan-y; }
+.map-zoom.is-zoomed .map-pan { touch-action: none; cursor: grab; }
+.map-zoom.is-dragging .map-pan { cursor: grabbing; }
+.map-zoom.is-dragging .zone-tip { opacity: 0; }
+.map-ctl { position: absolute; right: 8px; bottom: 8px; z-index: 5; display: flex; flex-direction: column; gap: 5px; }
+.map-ctl button { width: 34px; height: 34px; padding: 0; border: 2px solid #e2b445; border-radius: 50%; background: #7a1f12; color: #fbf1d8; font: 700 1.25rem/1 Georgia, serif; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.45); }
+.map-ctl button:hover, .map-ctl button:focus-visible { outline: none; background: #9c2a17; color: #ffe08a; }
+.map-ctl button[data-z="reset"] { font-size: 1rem; }
+.map-zoom.is-zooming .map-ctl { opacity: 0; }

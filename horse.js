@@ -196,3 +196,79 @@
     });
   });
 })();
+
+/* map pinch / wheel zoom + drag pan */
+(function () {
+  var box = document.querySelector(".map-zoom"), pan = box && box.querySelector(".map-pan");
+  if (!pan) return;
+  var s = 1, x = 0, y = 0, MAX = 3, moved = false;
+  function clamp() {
+    s = Math.min(MAX, Math.max(1, s));
+    var w = box.clientWidth, h = box.clientHeight;
+    x = Math.min(0, Math.max(w - w * s, x)); y = Math.min(0, Math.max(h - h * s, y));
+    if (s === 1) { x = 0; y = 0; }
+    pan.style.transform = "translate(" + x + "px," + y + "px) scale(" + s + ")";
+    box.classList.toggle("is-zoomed", s > 1);
+  }
+  function zoomAt(ns, cx, cy) { /* cx,cy relative to box */
+    ns = Math.min(MAX, Math.max(1, ns));
+    x = cx - (cx - x) * ns / s; y = cy - (cy - y) * ns / s; s = ns; clamp();
+  }
+  function rel(px, py) { var r = box.getBoundingClientRect(); return [px - r.left, py - r.top]; }
+  box.querySelector(".map-ctl").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    e.stopPropagation();
+    var cx = box.clientWidth / 2, cy = box.clientHeight / 2, z = b.getAttribute("data-z");
+    if (z === "reset") { s = 1; clamp(); } else zoomAt(s * (z === "in" ? 1.5 : 1 / 1.5), cx, cy);
+  });
+  box.addEventListener("wheel", function (e) {
+    if (!e.ctrlKey && s === 1 && e.deltaY > 0) return;
+    e.preventDefault();
+    var p = rel(e.clientX, e.clientY);
+    zoomAt(s * Math.exp(-e.deltaY * (e.ctrlKey ? 0.01 : 0.0025)), p[0], p[1]);
+  }, { passive: false });
+  /* mouse drag */
+  var md = null;
+  pan.addEventListener("pointerdown", function (e) {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    md = { sx: e.clientX, sy: e.clientY, x: x, y: y }; moved = false;
+  });
+  window.addEventListener("pointermove", function (e) {
+    if (!md) return;
+    var dx = e.clientX - md.sx, dy = e.clientY - md.sy;
+    if (!moved && Math.abs(dx) + Math.abs(dy) > 6) { moved = true; box.classList.add("is-dragging"); }
+    if (moved && s > 1) { x = md.x + dx; y = md.y + dy; clamp(); }
+  });
+  window.addEventListener("pointerup", function () { md = null; box.classList.remove("is-dragging"); });
+  /* touch: pinch + one-finger pan when zoomed */
+  var t = null;
+  function mid(a, b) { return rel((a.clientX + b.clientX) / 2, (a.clientY + b.clientY) / 2); }
+  function dist(a, b) { return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY); }
+  pan.addEventListener("touchstart", function (e) {
+    var a = e.touches[0];
+    if (e.touches.length === 1) { moved = false; t = { one: true, sx: a.clientX, sy: a.clientY, x: x, y: y }; }
+    else if (e.touches.length === 2) { moved = true; var m = mid(a, e.touches[1]); t = { d: dist(a, e.touches[1]), s: s, m: m, x: x, y: y }; }
+  }, { passive: true });
+  pan.addEventListener("touchmove", function (e) {
+    if (!t) return;
+    if (e.touches.length === 2 && !t.one) {
+      e.preventDefault();
+      var a = e.touches[0], b = e.touches[1], m = mid(a, b), ns = Math.min(MAX, Math.max(1, t.s * dist(a, b) / t.d));
+      x = m[0] - (t.m[0] - t.x) * ns / t.s; y = m[1] - (t.m[1] - t.y) * ns / t.s; s = ns; clamp();
+    } else if (e.touches.length === 2) {
+      var a2 = e.touches[0]; t = { d: dist(a2, e.touches[1]), s: s, m: mid(a2, e.touches[1]), x: x, y: y }; moved = true; e.preventDefault();
+    } else if (t.one) {
+      var dx = e.touches[0].clientX - t.sx, dy = e.touches[0].clientY - t.sy;
+      if (Math.abs(dx) + Math.abs(dy) > 8) moved = true;
+      if (s > 1) { e.preventDefault(); if (moved) { box.classList.add("is-dragging"); x = t.x + dx; y = t.y + dy; clamp(); } }
+    }
+  }, { passive: false });
+  pan.addEventListener("touchend", function (e) { if (!e.touches.length) { t = null; box.classList.remove("is-dragging"); } });
+  /* a drag is not a tap */
+  box.addEventListener("click", function (e) {
+    if (moved && e.target.closest(".zone")) { e.preventDefault(); e.stopImmediatePropagation(); }
+    moved = false;
+  }, true);
+  pan.addEventListener("dragstart", function (e) { e.preventDefault(); });
+  window.addEventListener("resize", clamp);
+})();

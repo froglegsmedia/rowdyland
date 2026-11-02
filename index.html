@@ -31,7 +31,7 @@
     <link rel="preload" href="assets/barn-wood.webp" as="image" type="image/webp">
     <link rel="preload" href="fonts/Fraunces-Italic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=mqa1">
+    <link rel="stylesheet" href="styles.css?v=mzoom1">
   </head>
   <body>
     <div class="stage" aria-hidden="true"></div>
@@ -92,7 +92,7 @@
           <button type="button" class="map-close" aria-label="Close map">&#215;</button>
         </div>
         <figure>
-        <div class="map-frame"><div class="map-zoom">
+        <div class="map-frame"><div class="map-zoom"><div class="map-pan">
           <picture><source srcset="assets/rowdyland-map.webp?v=legend5" type="image/webp"><img src="assets/rowdyland-map.jpg?v=legend5" width="1600" height="1067" decoding="async" loading="eager" alt="Illustrated concept map of the Rowdyland festival grounds, showing the Main Stage, the Saloon Stage in the bottom right corner, The Stables horse area in the top left corner, Pony Palace, camping, and the fire ritual grounds."></picture>
             <a class="zone zone-live" href="frogville/" data-zone="frogville" style="left:47.6%;top:26.4%;width:15.4%;height:27.8%"><span class="zone-tip">Frogville: step inside!</span><span class="sr-only">Enter Frogville</span></a>
             <a class="zone zone-live" href="stables/" data-zone="stables" style="left:15.3%;top:5.4%;width:9.1%;height:13.4%"><span class="zone-tip">The Stables: saddle up!</span><span class="sr-only">Enter The Stables</span></a>
@@ -108,7 +108,7 @@
             <a class="zone zone-live" href="saloon-stage/" data-zone="saloon" style="left:48.3%;top:55%;width:14.2%;height:17.5%"><span class="zone-tip">Saloon Stage: swing on in!</span><span class="sr-only">Enter the Saloon Stage</span></a>
             <a class="zone zone-live" href="camping/#tent" data-zone="tent-camping" style="left:2%;top:5%;width:11.7%;height:69.7%"><span class="zone-tip">Tent Camping: pick your spot!</span><span class="sr-only">Enter Tent Camping</span></a>
             <a class="zone zone-live" href="camping/#rv" data-zone="rv-camping" style="left:64%;top:5%;width:12.7%;height:69.7%"><span class="zone-tip">RV Camping: park the rig!</span><span class="sr-only">Enter RV Camping</span></a>
-        </div></div>
+        </div><div class="map-ctl" role="group" aria-label="Map zoom"><button type="button" data-z="in" aria-label="Zoom in">+</button><button type="button" data-z="out" aria-label="Zoom out">&#8722;</button><button type="button" data-z="reset" aria-label="Reset zoom">&#10227;</button></div></div></div>
         <figcaption><b>Tap any spot on the map to step inside.</b></figcaption>
       </figure>
       </div>
@@ -124,7 +124,7 @@
       </div>
     </div>
 
-    <script src="horse.js?v=merge1" defer></script>
+    <script src="horse.js?v=mzoom1" defer></script>
 
     <footer>
       <p>© 2026 ROWDYLAND™</p>
