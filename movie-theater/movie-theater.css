@@ -187,5 +187,8 @@ h1 span { display: block; color: var(--pink); font-style: italic; -webkit-text-s
   .feature, .feature.right { gap: 1.75rem; min-height: 0; padding-top: 2.5rem; padding-bottom: 2.5rem; }
   .feature .card, .feature .art { flex-basis: auto; }
   .feature .art { transform: none !important; }
+  .feature, .feature.right { flex-direction: column; }
+  .feature .art { order: -1; }
+  .feature .card { order: 0; }
   .feature .art-tall { padding-top: 0; }
 }
