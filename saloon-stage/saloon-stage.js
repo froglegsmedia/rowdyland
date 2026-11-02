@@ -24,12 +24,12 @@
     }
   }
   var statue = document.getElementById("statue"), spinT = null, song = null, fi = null;
-  function setPlaying(on) { statue.classList.toggle("spinning", on); statue.setAttribute("aria-pressed", on); statue.setAttribute("aria-label", on ? "Pause Get Rowdy Get Low" : "Play Get Rowdy Get Low"); }
+  function setPlaying(on) { statue.classList.toggle("spinning", on); statue.setAttribute("aria-pressed", on); statue.setAttribute("aria-label", on ? "Pause Zero Bucks Given" : "Play Zero Bucks Given"); }
   statue.addEventListener("click", function () {
     burst(statue, 14);
     clearTimeout(spinT); statue.classList.remove("playing"); void statue.offsetWidth; statue.classList.add("playing");
     spinT = setTimeout(function () { statue.classList.remove("playing"); }, 1700);
-    if (!song) { song = new Audio("../jam-tent/audio/get-rowdy-get-low.mp3"); song.preload = "auto"; song.addEventListener("ended", function () { setPlaying(false); }); }
+    if (!song) { song = new Audio("../assets/zero-bucks-given.mp3"); song.preload = "auto"; song.addEventListener("ended", function () { setPlaying(false); }); }
     clearInterval(fi);
     if (song.paused) {
             song.volume = 0; var fv = 0;
