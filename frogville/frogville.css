@@ -122,7 +122,7 @@ h1 span { color: var(--gold); text-shadow: 0 0 18px rgba(252, 209, 26, 0.45), 0 
 
 /* opening dance floor */
 .dancefloor { position: relative; display: flex; justify-content: center; align-items: flex-end; gap: clamp(0.2rem, 2vw, 1.5rem); width: min(100%, 46rem); margin-top: 1.2rem; height: auto; }
-.dancer { width: 23%; height: auto; flex: 0 0 23%; transform-origin: 50% 100%; filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.65)); animation: two-step 1.1s ease-in-out infinite; }
+.dancer { width: 23%; height: auto; flex: 0 0 23%; transform-origin: 50% 100%; filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.65)); animation: two-step 1.068s ease-in-out infinite; }
 .d2 { animation-name: line-sway; animation-delay: -0.3s; width: 22%; flex-basis: 22%; }
 .d3 { animation-delay: -0.55s; width: 26%; flex-basis: 26%; }
 .d4 { animation-name: spin-sway; animation-delay: -0.8s; width: 25%; flex-basis: 25%; }

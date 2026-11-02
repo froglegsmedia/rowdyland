@@ -24,10 +24,21 @@
     }
   }
   var statue = document.getElementById("statue");
+  var song = null, fi = null;
+  function setPlaying(on) { statue.classList.toggle("playing", on); statue.setAttribute("aria-pressed", on); statue.setAttribute("aria-label", on ? "Pause Hometown" : "Play Hometown"); }
   statue.addEventListener("click", function () {
     burst(statue, 14);
+    if (!song) { song = new Audio("audio/hometown.mp3"); song.preload = "auto"; song.addEventListener("ended", function () { setPlaying(false); }); }
+    clearInterval(fi);
+    if (song.paused) {
+      song.volume = 0; var fv = 0;
+      fi = setInterval(function () { fv = Math.min(1, fv + 0.08); song.volume = fv; if (fv >= 1) clearInterval(fi); }, 40);
+      var pr = song.play(); setPlaying(true);
+      if (pr && pr.catch) pr.catch(function () { setPlaying(false); });
+    } else { song.pause(); setPlaying(false); }
     statue.classList.remove("glow-up"); void statue.offsetWidth; statue.classList.add("glow-up");
   });
+  document.addEventListener("visibilitychange", function () { if (document.hidden && song && !song.paused) { song.pause(); setPlaying(false); } });
   var fortunes = ["A cowboy with good manners is headed your way.", "Your boots will survive the night. Barely.", "Say yes to the next dance.", "Somebody's saving you a seat on the balcony.", "Tonight you find the way out of the maze.", "More rhinestones. Always more rhinestones.", "The White Horse says: go on, be trouble."];
   var wish = document.getElementById("wish"), out = document.getElementById("fortune"), last = -1;
   wish.addEventListener("click", function () {

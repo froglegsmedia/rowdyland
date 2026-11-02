@@ -44,7 +44,7 @@
   update();
 })();
 
-/* Dirty South jukebox */
+/* Frog Legs jukebox */
 (function () {
   var jb = document.getElementById("jukebox"), mute = document.getElementById("mute");
   if (!jb) return;
@@ -54,16 +54,16 @@
     if (audio) return audio;
     audio = document.createElement("audio");
     audio.loop = true; audio.preload = "auto";
-    var m = document.createElement("source"); m.src = "audio/dirty-south.mp3"; m.type = "audio/mpeg";
-    var a = document.createElement("source"); a.src = "audio/dirty-south.m4a"; a.type = "audio/mp4";
+    var m = document.createElement("source"); m.src = "audio/frog-legs.mp3"; m.type = "audio/mpeg";
+    var a = document.createElement("source"); a.src = "audio/frog-legs.m4a"; a.type = "audio/mp4";
     audio.appendChild(m); audio.appendChild(a);
     document.body.appendChild(audio);
     return audio;
   }
   function setUI(on) {
     document.body.classList.toggle("playing", on);
-    jb.setAttribute("aria-pressed", on); jb.setAttribute("aria-label", on ? "Stop Dirty South" : "Play Dirty South");
-    mute.setAttribute("aria-pressed", on); mute.setAttribute("aria-label", on ? "Mute music" : "Play music: Dirty South");
+    jb.setAttribute("aria-pressed", on); jb.setAttribute("aria-label", on ? "Stop Frog Legs" : "Play Frog Legs");
+    mute.setAttribute("aria-pressed", on); mute.setAttribute("aria-label", on ? "Mute music" : "Play music: Frog Legs");
     mute.firstElementChild.innerHTML = on ? "&#128266;" : "&#128264;";
   }
   function burst() {

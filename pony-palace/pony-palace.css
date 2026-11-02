@@ -32,11 +32,11 @@ h1 span { display: block; color: var(--pink); font-style: italic; -webkit-text-s
 .scroll-cue { margin: 1.2rem 0 0; color: var(--gold); font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; animation: cue 1.6s ease-in-out infinite; }
 @keyframes cue { 50% { transform: translateY(8px); opacity: 0.6; } }
 
-.statue { position: relative; margin-top: 2.6rem; width: min(62vw, 300px); padding: 0; border: 0; background: none; cursor: pointer; color: inherit; font: inherit; -webkit-tap-highlight-color: transparent; }
+.statue { position: relative; margin-top: 2.6rem; width: min(52vw, 240px); padding: 0; border: 0; background: none; cursor: pointer; color: inherit; font: inherit; -webkit-tap-highlight-color: transparent; }
 .statue img { position: relative; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 22px rgba(255, 200, 230, 0.45)); }
 .halo { position: absolute; left: 50%; top: 45%; width: 140%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 190, 225, 0.5), transparent 65%); animation: halo 3s ease-in-out infinite; }
 @keyframes halo { 50% { opacity: 0.5; scale: 0.9; } }
-.shine { position: absolute; inset: 0; -webkit-mask: url("art/horse.webp?v=2") center / contain no-repeat; mask: url("art/horse.webp?v=2") center / contain no-repeat; background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%) -150% 0 / 250% 100% no-repeat; animation: shimmer 4.5s ease-in-out infinite; pointer-events: none; }
+.shine { position: absolute; inset: 0; -webkit-mask: url("art/horse.webp?v=3") center / contain no-repeat; mask: url("art/horse.webp?v=3") center / contain no-repeat; background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%) -150% 0 / 250% 100% no-repeat; animation: shimmer 4.5s ease-in-out infinite; pointer-events: none; }
 @keyframes shimmer { 0%, 40% { background-position: 150% 0; } 100% { background-position: -150% 0; } }
 .statue.glow-up img { animation: glow-up 0.9s ease-out; }
 @keyframes glow-up { 40% { filter: drop-shadow(0 0 40px rgba(255, 220, 240, 1)) brightness(1.15); transform: scale(1.04); } }
@@ -87,3 +87,6 @@ h1 span { display: block; color: var(--pink); font-style: italic; -webkit-text-s
   .gl { opacity: 0.6; }
   .shine { display: none; }
 }
+.statue.playing img { animation: prance 0.9s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+@keyframes prance { from { transform: rotate(-2deg); } to { transform: rotate(2deg) translateY(-4px); } }
+@media (prefers-reduced-motion: reduce) { .statue.playing img { animation: none !important; } }
