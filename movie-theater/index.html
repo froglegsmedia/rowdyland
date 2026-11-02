@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>The Picture Show | Rowdyland</title>
+    <meta name="description" content="The Picture Show at Rowdyland: a small movie theater showing classic movies 24/7, with midnight westerns, a concession stand and cozy seats to cool off in.">
+    <meta name="theme-color" content="#121833">
+    <link rel="icon" href="../favicon.ico?v=2" sizes="any">
+    <link rel="icon" href="../favicon-32.png?v=2" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+    <link rel="preload" href="art/theater-bg.webp" as="image" type="image/webp">
+    <link rel="preload" href="../fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="movie-theater.css?v=1">
+  </head>
+  <body class="entering">
+    <div class="scene" aria-hidden="true">
+      <div class="layer sky" data-speed="-0.008"></div>
+      <div class="glitter"></div>
+    </div>
+
+    <header class="fv-top">
+      <a class="back" href="../#map-open">&#8592; Back to the map</a>
+      <a class="mini-cta" href="#tickets">Tickets</a>
+    </header>
+
+    <main>
+      <section class="panel hero">
+        <p class="kicker">Rowdyland Zone</p>
+        <h1>Welcome to <span>The Picture Show</span></h1>
+        <p class="lede">A little movie palace with classic movies rolling day and night.</p>
+        <div class="statue">
+          <span class="halo" aria-hidden="true"></span>
+          <span class="marquee-glow" aria-hidden="true"></span>
+          <img src="art/hero.webp" alt="An old-school western movie palace with a lit marquee reading Now Showing Classics 24/7" width="560" height="847">
+        </div>
+        <p class="scroll-cue" aria-hidden="true">Grab a seat</p>
+      </section>
+
+      <section class="panel feature left" id="classics">
+        <div class="card"><span class="tag">24/7</span><h2>Classics All Day, All Night</h2><p>The screen never goes dark. Duck in to cool off in the AC, catch a classic and grab a nap between sets.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/screen.webp" alt="A chestnut horse and a gray horse in cowboy hats and vests watching a western sunset rider on a big screen from plush red seats"></div>
+      </section>
+
+      <section class="panel feature right" id="midnight">
+        <div class="card"><span class="tag">Late night</span><h2>Midnight Westerns</h2><p>When the clock strikes twelve, the dusters come out. Old-time showdowns on the big screen till the wee hours. Lineup coming soon.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/midnight.webp" alt="A horse in a black hat and fringed jacket with a bucket of popcorn watching a black and white western showdown at midnight"></div>
+      </section>
+
+      <section class="panel feature left" id="snacks">
+        <div class="card menu-open"><span class="tag">All day</span><h2>Concession Stand</h2><p>Hot buttered popcorn, candy by the box and an ice cold soda. Tap for the menu.</p></div>
+        <div class="art menu-open" data-speed="-0.08" role="button" tabindex="0" aria-label="See the concession menu"><span class="pp-bubble menu-bubble" aria-hidden="true">See the menu &#127871;</span><img src="art/snacks.webp" alt="A palomino horse in a denim shirt, fringed vest and bolo tie beside a striped concession stand with popcorn, candy, sodas and nachos"></div>
+      </section>
+
+      <section class="panel feature right" id="seats">
+        <div class="card"><span class="tag">Anytime</span><h2>Cozy Seats, Snooze in the Dark</h2><p>Plush red seats, cool air and the lights down low. Kick your boots up and rest between sets.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/seats.webp" alt="A sorrel horse in a plaid shirt and boots napping in a plush red theater seat under a blanket, hat tipped back"></div>
+      </section>
+
+      <section class="panel cta" id="tickets">
+        <img class="cta-horse" src="art/screen.webp" alt="" aria-hidden="true">
+        <h2>The lights are going down</h2>
+        <a class="big-cta" href="#reserve" data-reserve>Get your tickets now!</a>
+        <p class="fine">Ticket sales open soon. Save your spot and we'll let you know first.</p>
+        <a class="back alt" href="../#map-open">Explore more of the map</a>
+      </section>
+    </main>
+    <div class="catch-layer" id="catch-layer" aria-hidden="true"></div>
+    <div class="hud">
+      <div class="jar" id="jar" role="status" aria-live="polite"><span class="jar-icon" aria-hidden="true"></span><span class="jar-count"><b id="jar-n">0</b>/10</span><span class="jar-hint" id="jar-hint">gold film reels found</span></div>
+    </div>
+
+    <div class="sheet-wrap" id="lucky" role="dialog" aria-modal="true" aria-labelledby="lucky-title" hidden>
+      <div class="poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">That's a wrap</p>
+        <h2 id="lucky-title">You found every reel!</h2>
+        <p class="poster-note">That earns you 15% off Rowdyland merch. Use code <strong>FIREFLY15</strong> at checkout.</p>
+        <a class="big-cta small" href="https://shop.rowdyhop.com/collections/rowdyland" target="_blank" rel="noopener">Shop the merch</a>
+      </div>
+    </div>
+
+    <div class="sheet-wrap" id="menu" role="dialog" aria-modal="true" aria-labelledby="menu-title" hidden>
+      <div class="poster menu-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Concession Stand</p>
+        <h2 id="menu-title">The Menu</h2>
+        <h3>Popcorn</h3>
+        <ul>
+          <li><b>Hot Buttered Popcorn</b> Popped fresh all day and all night</li>
+          <li><b>Kettle Corn</b> Sweet, salty and still warm</li>
+        </ul>
+        <h3>Candy Counter</h3>
+        <ul>
+          <li><b>Boxed Candy</b> All the movie theater classics</li>
+          <li><b>Licorice Ropes</b> Red and black</li>
+        </ul>
+        <h3>Snacks</h3>
+        <ul>
+          <li><b>Nachos</b> Chips with warm cheese</li>
+          <li><b>Soft Pretzel</b> Salted, with mustard</li>
+        </ul>
+        <h3>Drinks</h3>
+        <ul>
+          <li><b>Fountain Soda</b> Ice cold and fizzy</li>
+          <li><b>Root Beer</b> On tap</li>
+          <li><b>Bottled Water</b> Stay hydrated, partner</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sheet-wrap" id="reserve" role="dialog" aria-modal="true" aria-labelledby="reserve-title" hidden>
+      <div class="poster reserve-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Tickets coming soon</p>
+        <h2 id="reserve-title">Reserve your ticket</h2>
+        <p class="poster-note">Drop your email and you'll be the first to know when tickets go on sale.</p>
+        <form class="signup" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Reserve my spot</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
+      </div>
+    </div>
+
+    <script src="movie-theater.js?v=1" defer></script>
+  </body>
+</html>
