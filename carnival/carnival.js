@@ -23,12 +23,22 @@
       document.body.appendChild(p); setTimeout(function (z) { return function () { z.remove(); }; }(p), 900);
     }
   }
-  var statue = document.getElementById("statue"), spinT = null;
+  var statue = document.getElementById("statue"), spinT = null, song = null, fi = null;
+  function setPlaying(on) { statue.classList.toggle("spinning", on); statue.setAttribute("aria-pressed", on); statue.setAttribute("aria-label", on ? "Pause Fell in Love at the Festival" : "Play Fell in Love at the Festival"); }
   statue.addEventListener("click", function () {
     burst(statue, 14);
-    clearTimeout(spinT); statue.classList.remove("playing"); void statue.offsetWidth; statue.classList.add("playing"); statue.setAttribute("aria-pressed", "true");
-    spinT = setTimeout(function () { statue.classList.remove("playing"); statue.setAttribute("aria-pressed", "false"); }, 1700);
+    clearTimeout(spinT); statue.classList.remove("playing"); void statue.offsetWidth; statue.classList.add("playing");
+    spinT = setTimeout(function () { statue.classList.remove("playing"); }, 1700);
+    if (!song) { song = new Audio("audio/fell-in-love-at-the-festival.mp3"); song.preload = "auto"; song.addEventListener("ended", function () { setPlaying(false); }); }
+    clearInterval(fi);
+    if (song.paused) {
+      song.volume = 0; var fv = 0;
+      fi = setInterval(function () { fv = Math.min(1, fv + 0.08); song.volume = fv; if (fv >= 1) clearInterval(fi); }, 40);
+      var pr = song.play(); setPlaying(true);
+      if (pr && pr.catch) pr.catch(function () { setPlaying(false); });
+    } else { song.pause(); setPlaying(false); }
   });
+  document.addEventListener("visibilitychange", function () { if (document.hidden && song && !song.paused) { song.pause(); setPlaying(false); } });
   var fortunes = ["A stranger in good boots will ask you to dance.", "Ride the Ferris wheel twice. The second time is the one.", "Your ring lands on the bottle tonight.", "Somebody's saving you a corn dog.", "The mirror maze lets you out, eventually.", "Say yes to the next wild idea.", "The cards say: one more ride."];
   var wish = document.getElementById("teller"), out = document.getElementById("fortune"), last = -1;
   wish.addEventListener("click", function () {

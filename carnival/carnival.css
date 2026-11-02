@@ -172,3 +172,7 @@ h1 span { display: block; color: var(--pink); font-style: italic; -webkit-text-s
 @media (prefers-reduced-motion: reduce) { .statue.playing img, .striker-wrap .puck, .striker-wrap.ding img { animation: none !important; } }
 .art-tall { flex-basis: 15rem; max-width: 15rem; padding-top: 2.4rem; }
 @media (max-width: 760px) { .art-tall { max-width: 12rem; } }
+.statue.spinning:not(.playing) img { animation: sway 2.4s ease-in-out infinite alternate; transform-origin: 50% 85%; }
+@keyframes sway { from { transform: rotate(-1.5deg) translateY(0); } to { transform: rotate(1.5deg) translateY(-4px); } }
+.statue.spinning .pp-bubble { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .statue.spinning img { animation: none !important; } }
