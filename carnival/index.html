@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>The Carnival | Rowdyland</title>
-    <meta name="description" content="The Carnival at Rowdyland: a Ferris wheel, a carousel, Rowdy's Puppet Show, midway games, carnival snacks, a fortune teller, the high striker and the prize booth.">
+    <meta name="description" content="The Carnival at Rowdyland: a Ferris wheel, a carousel, Rowdy's Puppet Show, midway games, carnival snacks and a fortune teller.">
     <meta name="theme-color" content="#121833">
     <link rel="icon" href="../favicon.ico?v=2" sizes="any">
     <link rel="icon" href="../favicon-32.png?v=2" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
     <link rel="preload" href="art/carnival-bg.webp" as="image" type="image/webp">
     <link rel="preload" href="../fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="carnival.css?v=3">
+    <link rel="stylesheet" href="carnival.css?v=4">
   </head>
   <body class="entering">
     <div class="scene" aria-hidden="true">
@@ -57,26 +57,12 @@
         <div class="art menu-open" data-speed="-0.08" role="button" tabindex="0" aria-label="See the snack menu"><span class="pp-bubble menu-bubble" aria-hidden="true">See the menu &#127853;</span><img src="art/snacks.webp" alt="A snack cart with corn dogs, funnel cake, cotton candy, candied apples, kettle corn and lemonade"></div>
       </section>
 
-
-      <section class="panel feature right" id="fortune-booth">
+      <section class="panel feature left" id="fortune-booth">
         <div class="card"><h2>Fortune Teller</h2><p>She sees your whole night in that crystal ball. Tap the booth and she'll tell you a little of it.</p></div>
         <div class="art art-tall" data-speed="-0.08">
           <button type="button" class="hot" id="teller"><img src="art/fortune.webp" alt=""><span class="hot-hint">Get your fortune</span><span class="sr-only">Get your fortune from the fortune teller</span></button>
           <p class="fortune" id="fortune" role="status" aria-live="polite"></p>
         </div>
-      </section>
-
-      <section class="panel feature left" id="striker">
-        <div class="card"><h2>High Striker</h2><p>Grab the mallet, swing from the boots and ring that bell for the whole midway to hear.</p></div>
-        <div class="art art-tall" data-speed="-0.08">
-          <button type="button" class="hot striker-wrap" id="swing"><img src="art/striker.webp" alt=""><span class="puck" aria-hidden="true"></span><span class="hot-hint">Swing the mallet</span><span class="sr-only">Swing the mallet at the high striker</span></button>
-          <p class="fortune" id="strike-out" role="status" aria-live="polite"></p>
-        </div>
-      </section>
-
-      <section class="panel feature right" id="prize">
-        <div class="card"><h2>Prize Booth</h2><p>Trade in your tickets for plush ponies, cowboy hats and big gold stars. The more you win, the bigger the haul.</p></div>
-        <div class="art" data-speed="-0.08"><img src="art/prize.webp" alt="A prize booth with plush horses, gold stars, cowboy hats and guitars"></div>
       </section>
 
       <section class="panel cta" id="tickets">
@@ -133,6 +119,6 @@
       </div>
     </div>
 
-    <script src="carnival.js?v=3b" defer></script>
+    <script src="carnival.js?v=4" defer></script>
   </body>
 </html>

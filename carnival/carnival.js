@@ -45,20 +45,6 @@
     var k; do { k = Math.floor(Math.random() * fortunes.length); } while (k === last); last = k;
     burst(wish, 10); out.textContent = fortunes[k]; out.classList.remove("show"); void out.offsetWidth; out.classList.add("show");
   });
-  var sw = document.getElementById("swing"), so = document.getElementById("strike-out"), busy = false, tries = 0;
-  sw.addEventListener("click", function () {
-    if (busy) return; busy = true; tries++;
-    var ring = tries % 3 !== 1 || Math.random() < 0.4, h = sw.offsetHeight;
-    sw.style.setProperty("--rise", -(ring ? h * 0.6 : h * (0.2 + Math.random() * 0.3)) + "px");
-    sw.classList.remove("swing", "ding"); void sw.offsetWidth; sw.classList.add("swing");
-    setTimeout(function () {
-      if (ring) { sw.classList.add("ding"); burst(sw, 14); so.textContent = "DING! Ring that bell, champ!"; }
-      else so.textContent = ["So close. Swing again!", "Put your boots into it!", "Almost! One more swing."][tries % 3];
-      so.classList.remove("show"); void so.offsetWidth; so.classList.add("show");
-    }, reduce ? 0 : 500);
-    setTimeout(function () { busy = false; sw.classList.remove("swing"); }, reduce ? 300 : 1150);
-  });
-
   if (reduce) return;
   var layers = [].slice.call(document.querySelectorAll("[data-speed]")), ticking = false;
   function update() {
@@ -105,8 +91,8 @@
     ["t5", "#snacks .art", "10%", "12%", -20],
     ["t6", "#games .art", "8%", "14%", -8],
     ["t7", "#fortune-booth .art", "6%", "30%", -12],
-    ["t8", "#striker .art", "94%", "60%", 16],
-    ["t9", "#prize .art", "8%", "8%", -8],
+    ["t8", "#rides .art", "10%", "62%", 16],
+    ["t9", "#puppet .art", "90%", "52%", -8],
     ["t10", "#tickets", "88%", "20%", 10]
   ];
   var found = []; try { found = JSON.parse(sessionStorage.getItem("cvFound") || "[]"); } catch (e) {}
