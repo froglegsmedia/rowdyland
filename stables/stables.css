@@ -187,3 +187,4 @@ body.night .card h2 { text-shadow: 0 0 14px rgba(255, 240, 190, 0.7); }
 body:not(.night) .feature[data-time="night"] .art, body.night .feature[data-time="day"] .art { filter: saturate(0.7) brightness(0.8); }
 
 .cta-horse { width: clamp(110px, 16vw, 160px); }
+.halo { display: none; }
