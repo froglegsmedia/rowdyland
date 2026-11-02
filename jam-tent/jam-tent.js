@@ -199,6 +199,10 @@
   function open() { last = document.activeElement; pop.hidden = false; pop.querySelector(".sheet-close").focus(); }
   function close() { if (pop.hidden) return; pop.hidden = true; if (last && last.focus) last.focus(); }
   document.querySelectorAll(".lineup-open").forEach(function (b) { b.addEventListener("click", open); });
+  document.querySelectorAll(".lineup-art").forEach(function (el) {
+    el.addEventListener("click", function (e) { if (e.target.closest(".catch, a")) return; open(); });
+    el.addEventListener("keydown", function (e) { if ((e.key === "Enter" || e.key === " ") && e.target === el) { e.preventDefault(); open(); } });
+  });
   pop.addEventListener("click", function (e) { if (e.target === pop || e.target.closest(".sheet-close")) close(); });
   document.addEventListener("keydown", function (e) { if (!pop.hidden && e.key === "Escape") close(); });
 })();

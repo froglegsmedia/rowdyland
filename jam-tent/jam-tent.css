@@ -200,3 +200,5 @@ body.night .gl { background: #ff9ccc; box-shadow: 0 0 10px 4px rgba(255, 60, 150
 .halo { display: none; }
 .lineup-open { border: 4px solid var(--wine); cursor: pointer; font-family: inherit; }
 .poster.lineup-poster { width: min(100%, 46rem); padding: 2.4rem 2rem 2rem; }
+.lineup-art { cursor: pointer; }
+.lineup-bubble { top: 0.4rem; right: 1rem; }
