@@ -1008,4 +1008,6 @@ body.map-open {
 .map-ctl button[data-z="reset"] { font-size: 1rem; }
 .map-zoom.is-zooming .map-ctl { opacity: 0; }
 
-.story-link { display: block; width: fit-content; margin: 0.9rem auto 0; color: #fbf1dc; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }
+.story-link { margin-left: auto; margin-right: 0.75rem; color: #ffe08a; font-weight: 700; font-size: 0.95rem; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+.story-link:hover, .story-link:focus-visible { color: #fff; }
+@media (max-width: 760px) { .story-link { font-size: 0.82rem; margin-right: 0.5rem; } }
