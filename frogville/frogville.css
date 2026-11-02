@@ -262,3 +262,8 @@ body.day { --night: #3b5a4a; }
 .signup.done input, .signup.done button { display: none; }
 .signup.done .signup-msg { font-size: 1.4rem; }
 @media (max-width: 480px) { .signup input, .signup .big-cta { flex: 1 1 100%; } }
+
+/* reserve popup */
+.reserve-poster { text-align: center; }
+.reserve-poster .signup { margin-top: 0.4rem; }
+.reserve-poster .signup .big-cta { animation: none; }
