@@ -39,7 +39,7 @@
     statue.classList.remove("glow-up"); void statue.offsetWidth; statue.classList.add("glow-up");
   });
   document.addEventListener("visibilitychange", function () { if (document.hidden && song && !song.paused) { song.pause(); setPlaying(false); } });
-  var fortunes = ["A cowboy with good manners is headed your way.", "Your boots will survive the night. Barely.", "Say yes to the next dance.", "Somebody's saving you a seat on the balcony.", "Tonight you find the way out of the maze.", "More rhinestones. Always more rhinestones.", "The White Horse says: go on, be trouble."];
+  var fortunes = ["A cowboy with good manners is headed your way.", "Your boots will survive the night. Barely.", "Say yes to the next dance.", "Somebody's saving you a seat on the balcony.", "Tonight you find the way out of the maze.", "More rhinestones. Always more rhinestones.", "The statue says: go on, be trouble."];
   var wish = document.getElementById("wish"), out = document.getElementById("fortune"), last = -1;
   wish.addEventListener("click", function () {
     var k; do { k = Math.floor(Math.random() * fortunes.length); } while (k === last); last = k;
