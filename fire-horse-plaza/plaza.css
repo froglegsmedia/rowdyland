@@ -103,13 +103,13 @@ h1 span { display: block; color: var(--pink); font-style: italic; -webkit-text-s
 .catch-layer { position: fixed; inset: 0; z-index: 4; pointer-events: none; }
 .hero { position: relative; }
 .catch { position: absolute; z-index: 3; width: 44px; height: 44px; margin: -22px 0 0 -22px; padding: 0; border: 0; background: none; cursor: pointer; -webkit-tap-highlight-color: transparent; transform: rotate(var(--rot, 0deg)); }
-.catch::before { content: ""; position: absolute; inset: 12px; background: url("art/rosette.svg") center / contain no-repeat; opacity: 0.7; filter: drop-shadow(0 0 2px rgba(255, 215, 150, 0.6)); animation: shoe-glint 6s ease-in-out var(--gd, 0s) infinite; }
+.catch::before { content: ""; position: absolute; inset: 12px; background: url("art/ember.svg") center / contain no-repeat; opacity: 0.9; filter: drop-shadow(0 0 3px rgba(255, 200, 80, 0.8)); animation: shoe-glint 6s ease-in-out var(--gd, 0s) infinite; }
 .catch:focus-visible { outline: 2px solid var(--gold); border-radius: 50%; }
 
 @keyframes shoe-glint { 0%, 86%, 100% { opacity: 0.7; filter: drop-shadow(0 0 2px rgba(255, 215, 150, 0.6)); } 92% { opacity: 1; filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 4px rgba(255, 210, 120, 1)); } }
 .hud { position: fixed; z-index: 6; left: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 0.5rem; }
 .jar { display: flex; align-items: center; gap: 0.4rem; height: 46px; padding: 0 0.8rem 0 0.5rem; border-radius: 999px; border: 2px solid var(--pink); background: rgba(18, 24, 51, 0.88); color: var(--pink); font-weight: 800; font-size: 0.9rem; box-shadow: 0 0 12px rgba(255, 190, 90, 0.35); }
-.jar-icon { width: 26px; height: 26px; background: url("art/rosette.svg") center / contain no-repeat; opacity: calc(0.35 + var(--fill-n, 0) * 0.065); }
+.jar-icon { width: 26px; height: 26px; background: url("art/ember.svg") center / contain no-repeat; opacity: calc(0.35 + var(--fill-n, 0) * 0.065); }
 .jar-hint { font-weight: 600; font-style: italic; color: var(--pearl); font-size: 0.8rem; }
 .jar.bump { animation: jar-bump 0.4s ease-out; }
 @keyframes jar-bump { 40% { transform: scale(1.15); } }
