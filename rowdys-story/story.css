@@ -62,8 +62,17 @@ h1 { margin: 0.4rem 0 1rem; font-size: clamp(2.6rem, 10vw, 5.5rem); line-height:
 .reserve-poster h2 { margin: 0.6rem 0 0.9rem; }
 .big-cta.small { font-size: clamp(1.05rem, 4.5vw, 1.4rem); padding: 0.8rem 1.6rem; animation: none; }
 
-/* story-v2 background: barn wood + sky that shifts dawn > night > fire > gold */
-.sky { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(rgba(20,12,8,0.25), rgba(20,12,8,0.4)), url("art/bg-wood.webp?v=1") center/420px repeat; }
-.sky::after { content: ""; position: absolute; inset: 0; background: var(--tint, linear-gradient(180deg, rgba(240,150,80,0.35), rgba(120,60,40,0.15))); mix-blend-mode: overlay; transition: background 1.2s; }
+/* story-v3 background: painted desert sky that shifts dawn > night > fire > gold */
+.sky { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: #2a1a14; overflow: hidden; }
+.sky .l { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s ease; }
+.sky .l.on { opacity: 1; }
+.sky .dawn { background: radial-gradient(120% 60% at 50% 100%, #ffd29a 0%, rgba(255,170,110,0) 60%), linear-gradient(180deg, #5b6fa3 0%, #b98aa8 38%, #f2a77a 70%, #f7c98a 100%); }
+.sky .dusk { background: radial-gradient(100% 40% at 50% 100%, rgba(255,120,60,.55) 0%, rgba(255,120,60,0) 70%), linear-gradient(180deg, #0c1238 0%, #222a6b 45%, #6a3d78 75%, #b8584a 100%); }
+.sky .night { background: radial-gradient(80% 35% at 50% 100%, rgba(90,110,160,.25) 0%, rgba(0,0,0,0) 70%), linear-gradient(180deg, #05070f 0%, #0d1428 55%, #1b2238 100%); }
+.sky .fire { background: radial-gradient(110% 70% at 50% 100%, #ffb340 0%, rgba(255,90,20,.6) 40%, rgba(120,20,10,0) 80%), linear-gradient(180deg, #2a0705 0%, #7a160a 45%, #d8481a 80%, #ff8a2a 100%); }
+.sky .gold { background: radial-gradient(90% 50% at 50% 92%, #fff3c4 0%, rgba(255,214,120,.7) 25%, rgba(255,180,80,0) 65%), linear-gradient(180deg, #7fa6c9 0%, #e9c38a 50%, #f6b55e 80%, #f0d08a 100%); }
+.sky .stars { background-image: radial-gradient(1.4px 1.4px at 12% 18%, #fff, transparent), radial-gradient(1px 1px at 27% 8%, #fff, transparent), radial-gradient(1.6px 1.6px at 44% 22%, #fff, transparent), radial-gradient(1px 1px at 63% 12%, #fff, transparent), radial-gradient(1.3px 1.3px at 78% 28%, #fff, transparent), radial-gradient(1px 1px at 90% 9%, #fff, transparent), radial-gradient(1.2px 1.2px at 35% 38%, #fff, transparent), radial-gradient(1px 1px at 8% 44%, #fff, transparent), radial-gradient(1.2px 1.2px at 70% 46%, #fff, transparent), radial-gradient(1px 1px at 52% 4%, #fff, transparent); background-size: 360px 360px; }
+.sky .mesa { position: absolute; left: 0; right: 0; bottom: 0; height: 22vh; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'%3E%3Cpath d='M0 200V140l80-6 20-40h90l18 40 120 8 60-20 140 4 30-58h120l24 58 160 10 90-26 110 6 20-34h70l18 34 30 10V200z' fill='%23150c08' fill-opacity='.85'/%3E%3C/svg%3E") bottom/100% 100% no-repeat; }
+@media (prefers-reduced-motion: reduce) { .sky .l { transition: none; } }
 main { position: relative; z-index: 0; }
 .art img { background: transparent; }
