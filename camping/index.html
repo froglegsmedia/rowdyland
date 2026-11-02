@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Camping | Rowdyland</title>
+    <meta name="description" content="Camping at Rowdyland: tent sites with bonfires and BBQ, RV sites with hookups, and glamping in furnished canvas tents with real beds.">
+    <meta name="theme-color" content="#121833">
+    <link rel="icon" href="../favicon.ico?v=2" sizes="any">
+    <link rel="icon" href="../favicon-32.png?v=2" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+    <link rel="preload" href="art/camp-bg.webp" as="image" type="image/webp">
+    <link rel="preload" href="../fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="camping.css?v=1">
+  </head>
+  <body class="entering">
+    <div class="scene" aria-hidden="true">
+      <div class="layer sky" data-speed="-0.008"></div>
+      <div class="night-wash"></div>
+      <div class="glitter"></div>
+    </div>
+
+    <header class="fv-top">
+      <a class="back" href="../#map-open">&#8592; Back to the map</a>
+      <div class="top-r"><button type="button" class="dn" id="daynight" aria-pressed="false">&#9790; Night</button><a class="mini-cta" href="#tickets">Tickets</a></div>
+    </header>
+
+    <main>
+      <section class="panel hero">
+        <p class="kicker">Rowdyland Zone</p>
+        <h1>Welcome to <span>Camping</span></h1>
+        <p class="lede">Tent sites, RV sites and glamping, a short walk from the music. Stay the whole weekend.</p>
+        <div class="statue" id="statue">
+          <img id="hero-img" src="art/hero.webp?v=1" alt="" width="800" height="706">
+        </div>
+        <p class="now" id="now" role="status" aria-live="polite">Pitch a tent, park the rig or settle into glamping.</p>
+        <p class="scroll-cue" aria-hidden="true">Pick your spot</p>
+      </section>
+
+      <section class="panel feature left" id="tent" data-time="day">
+        <div class="card"><span class="tag">Tent Camping</span><h2>Tent Sites</h2><p>Marked grassy sites with room for your tent, a cooler and a few camp chairs. String lights overhead and neighbors who came for the same reason you did.</p><a class="big-cta small camp-btn" href="#campsite" data-camp="tent camping">Reserve your spot</a></div>
+        <div class="art" data-speed="-0.08"><img src="art/tents.webp?v=1" alt="Three dome tents on marked grass sites under string lights with a cooler and water jug"></div>
+      </section>
+
+      <section class="panel feature right" id="bonfires" data-time="night">
+        <div class="card"><span class="tag n">Nighttime</span><h2>Bonfires</h2><p>When the stages wind down, the fire rings light up. Bring a guitar, roast a marshmallow and swap stories until late.</p><a class="big-cta small camp-btn" href="#campsite" data-camp="tent camping">Reserve your spot</a></div>
+        <div class="art" data-speed="-0.08"><img src="art/bonfire.webp?v=1" alt="A cowboy in a plaid western shirt playing guitar on a log beside a bonfire while a cowgirl in western wear roasts a marshmallow"></div>
+      </section>
+
+      <section class="panel feature left" id="bbq" data-time="day">
+        <div class="card"><span class="tag">All day</span><h2>Campground BBQ</h2><p>Fire up the grill for burgers, sausages and corn, then pull up a bench at the picnic tables.</p><a class="big-cta small camp-btn" href="#campsite" data-camp="tent camping">Reserve your spot</a></div>
+        <div class="art" data-speed="-0.08"><img src="art/bbq.webp?v=1" alt="A barrel smoker grilling burgers, sausages and corn beside a picnic table with a red checkered cloth"></div>
+      </section>
+
+      <section class="panel feature right" id="rv">
+        <div class="card"><span class="tag">RV Camping</span><h2>RV Sites</h2><p>Roll in and park the rig. RV sites come with hookups, room to put out the awning and space for chairs and a rug out front.</p><a class="big-cta small camp-btn" href="#campsite" data-camp="RV camping">Reserve your spot</a></div>
+        <div class="art" data-speed="-0.08"><img src="art/rv.webp?v=1" alt="A vintage cream and turquoise travel trailer with a striped awning, lawn chairs and a hookup post"></div>
+      </section>
+
+      <section class="panel feature left" id="glamping">
+        <div class="card"><span class="tag">Glamping</span><h2>Glamping</h2><p>Camping without the hassle. Glamping means a furnished canvas tent that's set up and waiting when you arrive, with a real bed, cozy bedding, a rug and lantern light. Just bring your bags and your boots.</p><a class="big-cta small camp-btn" href="#campsite" data-camp="glamping">Reserve your spot</a></div>
+        <div class="art" data-speed="-0.08"><img src="art/glamp.webp?v=1" alt="A canvas bell tent on a wooden deck with the flaps open showing a real bed, quilt, rug and lantern"></div>
+      </section>
+
+      <section class="panel cta" id="tickets">
+        <img class="cta-horse" src="art/hero.webp?v=1" alt="" aria-hidden="true">
+        <h2>The campfire's waiting</h2>
+        <a class="big-cta" href="#reserve" data-reserve>Get your tickets now!</a>
+        <p class="fine">Ticket sales open soon. Save your spot and we'll let you know first.</p>
+        <a class="back alt" href="../#map-open">Explore more of the map</a>
+      </section>
+    </main>
+    <div class="catch-layer" id="catch-layer" aria-hidden="true"></div>
+    <div class="hud">
+      <div class="jar" id="jar" role="status" aria-live="polite"><span class="jar-icon" aria-hidden="true"></span><span class="jar-count"><b id="jar-n">0</b>/10</span><span class="jar-hint" id="jar-hint">gold rosettes found</span></div>
+    </div>
+
+    <div class="sheet-wrap" id="lucky" role="dialog" aria-modal="true" aria-labelledby="lucky-title" hidden>
+      <div class="poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Blue ribbon</p>
+        <h2 id="lucky-title">You found every rosette!</h2>
+        <p class="poster-note">That earns you 15% off Rowdyland merch. Use code <strong>FIREFLY15</strong> at checkout.</p>
+        <a class="big-cta small" href="https://shop.rowdyhop.com/collections/rowdyland" target="_blank" rel="noopener">Shop the merch</a>
+      </div>
+    </div>
+
+    <div class="sheet-wrap" id="campsite" role="dialog" aria-modal="true" aria-labelledby="camp-title" hidden>
+      <div class="poster reserve-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Reservations coming soon</p>
+        <h2 id="camp-title">Reserve your spot</h2>
+        <p class="poster-note">Drop your email for <span id="camp-kind">camping</span>. We will notify you when they are available to reserve.</p>
+        <form class="signup" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Notify me</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
+      </div>
+    </div>
+
+    <div class="sheet-wrap" id="reserve" role="dialog" aria-modal="true" aria-labelledby="reserve-title" hidden>
+      <div class="poster reserve-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Tickets coming soon</p>
+        <h2 id="reserve-title">Reserve your ticket</h2>
+        <p class="poster-note">Drop your email and you'll be the first to know when tickets go on sale.</p>
+        <form class="signup" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Reserve my spot</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
+      </div>
+    </div>
+
+    <script src="camping.js?v=1" defer></script>
+  </body>
+</html>
