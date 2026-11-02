@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>The Carnival | Rowdyland</title>
+    <meta name="description" content="The Carnival at Rowdyland: a Ferris wheel, a carousel, Rowdy's Puppet Show, midway games, carnival snacks, a mirror maze, a fortune teller, the high striker and the prize booth.">
+    <meta name="theme-color" content="#121833">
+    <link rel="icon" href="../favicon.ico?v=2" sizes="any">
+    <link rel="icon" href="../favicon-32.png?v=2" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+    <link rel="preload" href="art/carnival-bg.webp" as="image" type="image/webp">
+    <link rel="preload" href="../fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="carnival.css?v=2">
+  </head>
+  <body class="entering">
+    <div class="scene" aria-hidden="true">
+      <div class="layer sky" data-speed="-0.008"></div>
+      <div class="glitter"></div>
+    </div>
+
+    <header class="fv-top">
+      <a class="back" href="../#map-open">&#8592; Back to the map</a>
+      <a class="mini-cta" href="#tickets">Tickets</a>
+    </header>
+
+    <main>
+      <section class="panel hero">
+        <p class="kicker">Rowdyland Zone</p>
+        <h1>Welcome to <span>The Carnival</span></h1>
+        <p class="lede">Rides, midway games and warm bulbs all night long. Step right up.</p>
+        <button type="button" class="statue" id="statue" aria-label="Give the carousel a spin" aria-pressed="false">
+          <span class="halo" aria-hidden="true"></span>
+          <img src="art/carousel.webp" alt="" width="760" height="800">
+          <span class="pp-bubble" aria-hidden="true">Give it a spin &#10022;</span>
+        </button>
+        <p class="scroll-cue" aria-hidden="true">Step right up</p>
+      </section>
+
+      <section class="panel feature left" id="rides">
+        <div class="card"><h2>The Rides</h2><p>The Ferris wheel, the carousel and a midway full of spinners and swings. Ride to the top of the wheel and see all of Rowdyland lit up below.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/ferris.webp" alt="A Ferris wheel lit with warm bulbs above a striped ticket booth"></div>
+      </section>
+
+      <section class="panel feature right" id="puppet">
+        <div class="card"><h2>Rowdy's Puppet Show</h2><p>Pull up a hay bale. The tale of how Rowdy came to be, told with strings and sawdust.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/puppet.webp" alt="A wooden puppet theater with red curtains and a horse marionette dancing on stage"></div>
+      </section>
+
+      <section class="panel feature left" id="games">
+        <div class="card"><h2>Carnival Games</h2><p>Ring toss, milk bottles and a wall full of prizes. Steady hand, good arm, a little luck.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/games.webp" alt="A midway game booth with ring toss bottles, milk bottles and hanging plush horses"></div>
+      </section>
+
+      <section class="panel feature right" id="snacks">
+        <div class="card menu-open"><h2>Carnival Snacks</h2><p>Corn dogs, funnel cake, cotton candy, candied apples, kettle corn and fresh lemonade. Come hungry.</p></div>
+        <div class="art menu-open" data-speed="-0.08" role="button" tabindex="0" aria-label="See the snack menu"><span class="pp-bubble menu-bubble" aria-hidden="true">See the menu &#127853;</span><img src="art/snacks.webp" alt="A snack cart with corn dogs, funnel cake, cotton candy, candied apples, kettle corn and lemonade"></div>
+      </section>
+
+      <section class="panel feature left" id="mirror">
+        <div class="card"><h2>Mirror Maze</h2><p>A hundred of you and only one way out. Hands out, eyes open, and don't trust that hallway.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/mirror.webp" alt="A carved wooden mirror maze entrance lined with bulbs"></div>
+      </section>
+
+      <section class="panel feature right" id="fortune-booth">
+        <div class="card"><h2>Fortune Teller</h2><p>She sees your whole night in that crystal ball. Tap the booth and she'll tell you a little of it.</p></div>
+        <div class="art art-tall" data-speed="-0.08">
+          <button type="button" class="hot" id="teller"><img src="art/fortune.webp" alt=""><span class="hot-hint">Get your fortune</span><span class="sr-only">Get your fortune from the fortune teller</span></button>
+          <p class="fortune" id="fortune" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="panel feature left" id="striker">
+        <div class="card"><h2>High Striker</h2><p>Grab the mallet, swing from the boots and ring that bell for the whole midway to hear.</p></div>
+        <div class="art art-tall" data-speed="-0.08">
+          <button type="button" class="hot striker-wrap" id="swing"><img src="art/striker.webp" alt=""><span class="puck" aria-hidden="true"></span><span class="hot-hint">Swing the mallet</span><span class="sr-only">Swing the mallet at the high striker</span></button>
+          <p class="fortune" id="strike-out" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="panel feature right" id="prize">
+        <div class="card"><h2>Prize Booth</h2><p>Trade in your tickets for plush ponies, cowboy hats and big gold stars. The more you win, the bigger the haul.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/prize.webp" alt="A prize booth with plush horses, gold stars, cowboy hats and guitars"></div>
+      </section>
+
+      <section class="panel cta" id="tickets">
+        <img class="cta-horse" src="art/ferris.webp" alt="" aria-hidden="true">
+        <h2>The midway is calling</h2>
+        <a class="big-cta" href="#reserve" data-reserve>Get your tickets now!</a>
+        <p class="fine">Ticket sales open soon. Save your spot and we'll let you know first.</p>
+        <a class="back alt" href="../#map-open">Explore more of the map</a>
+      </section>
+    </main>
+    <div class="catch-layer" id="catch-layer" aria-hidden="true"></div>
+    <div class="hud">
+      <div class="jar" id="jar" role="status" aria-live="polite"><span class="jar-icon" aria-hidden="true"></span><span class="jar-count"><b id="jar-n">0</b>/10</span><span class="jar-hint" id="jar-hint">golden tickets found</span></div>
+    </div>
+
+    <div class="sheet-wrap" id="lucky" role="dialog" aria-modal="true" aria-labelledby="lucky-title" hidden>
+      <div class="poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">10 for 10</p>
+        <h2 id="lucky-title">You found every ticket!</h2>
+        <p class="poster-note">That earns you 15% off Rowdyland merch. Use code <strong>FIREFLY15</strong> at checkout.</p>
+        <a class="big-cta small" href="https://shop.rowdyhop.com/collections/rowdyland" target="_blank" rel="noopener">Shop the merch</a>
+      </div>
+    </div>
+
+    <div class="sheet-wrap" id="menu" role="dialog" aria-modal="true" aria-labelledby="menu-title" hidden>
+      <div class="poster menu-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Carnival Snacks</p>
+        <h2 id="menu-title">The Menu</h2>
+        <h3>Eats</h3>
+        <ul>
+          <li><b>Corn Dogs</b> Hand-dipped and fried golden, mustard on the side</li>
+          <li><b>Funnel Cake</b> Crispy, hot and buried in powdered sugar</li>
+          <li><b>Cotton Candy</b> Blue or pink, spun right in front of you</li>
+          <li><b>Candied Apples</b> Crackly red candy shell on a crisp apple</li>
+          <li><b>Kettle Corn</b> Sweet, salty and popped fresh by the bag</li>
+        </ul>
+        <h3>Drinks</h3>
+        <ul>
+          <li><b>Fresh Lemonade</b> Shaken up with real lemons</li>
+          <li><b>Strawberry Lemonade</b> The pink one, just as tart</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sheet-wrap" id="reserve" role="dialog" aria-modal="true" aria-labelledby="reserve-title" hidden>
+      <div class="poster reserve-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Tickets coming soon</p>
+        <h2 id="reserve-title">Reserve your ticket</h2>
+        <p class="poster-note">Drop your email and you'll be the first to know when tickets go on sale.</p>
+        <form class="signup" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Reserve my spot</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
+      </div>
+    </div>
+
+    <script src="carnival.js?v=1" defer></script>
+  </body>
+</html>
