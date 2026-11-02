@@ -173,7 +173,10 @@ h1 span { display: block; color: var(--pink); font-style: italic; -webkit-text-s
 @media (prefers-reduced-motion: reduce) { .statue.spinning img { animation: none !important; } }
 
 /* movie theater */
-.statue { width: min(70vw, 340px); cursor: default; }
+.statue { width: min(70vw, 340px); }
+.statue.spinning .marquee-glow { animation-duration: 0.5s; }
 .marquee-glow { position: absolute; left: 10%; right: 10%; top: 50%; height: 18%; border-radius: 20px; background: radial-gradient(ellipse, rgba(255, 220, 140, 0.55), transparent 70%); filter: blur(14px); animation: bulbs 2.2s ease-in-out infinite alternate; pointer-events: none; }
 @keyframes bulbs { from { opacity: 0.35; } to { opacity: 0.9; } }
 @media (prefers-reduced-motion: reduce) { .marquee-glow { animation: none; } }
+.statue.playing img, .statue.spinning:not(.playing) img { animation: none; }
+.statue.playing img { animation: glow-up 0.9s ease-out; }
