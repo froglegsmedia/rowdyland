@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Pony Palace | Rowdyland</title>
+    <meta name="description" content="Pony Palace at Rowdyland: a pink fantasy castle with a white horse statue, a fun house maze, a funky barn, a circus show, glam makeovers, the Glitter Saloon and more.">
+    <meta name="theme-color" content="#2a1430">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="preload" href="art/palace-bg.webp" as="image" type="image/webp">
+    <link rel="preload" href="../fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="pony-palace.css?v=1">
+  </head>
+  <body class="entering">
+    <div class="scene" aria-hidden="true">
+      <div class="layer sky" data-speed="-0.008"></div>
+      <div class="glitter"></div>
+    </div>
+
+    <header class="fv-top">
+      <a class="back" href="../#map-open">&#8592; Back to the map</a>
+      <a class="mini-cta" href="#tickets">Tickets</a>
+    </header>
+
+    <main>
+      <section class="panel hero">
+        <p class="kicker">Rowdyland Zone</p>
+        <h1>Welcome to <span>Pony Palace</span></h1>
+        <p class="lede">Pearls, rhinestones and a little bit of wild. The pink side of Rowdyland, ruled by the White Horse.</p>
+        <button type="button" class="statue" id="statue" aria-label="Make a wish on the White Horse">
+          <span class="halo" aria-hidden="true"></span>
+          <img src="art/horse.webp" alt="" width="560" height="700">
+          <span class="shine" aria-hidden="true"></span>
+          <span class="hot-hint">Touch the White Horse</span>
+        </button>
+        <p class="statue-cap">The White Horse statue. Symbol of Pony Palace. Rub the hoof for luck.</p>
+        <p class="scroll-cue" aria-hidden="true">Ride on in</p>
+      </section>
+
+      <section class="panel feature left" id="maze">
+        <div class="card"><h2>The Fun House Maze</h2><p>Mirrors, twists and dead ends. Step inside the inner craziness workings of Pony Tale's brain. Good luck getting out.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/maze.webp" alt="A fun house maze entrance shaped like a giant pony head"></div>
+      </section>
+
+      <section class="panel feature right" id="barn">
+        <div class="card"><h2>Funky Barn</h2><p>Fluffy silkie chickens, mini ponies, baby goats and bunnies. Come pet them, hold them and play.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/barn.webp" alt="A pink barn with silkie chickens, a mini pony, a goat and bunnies on hay bales"></div>
+      </section>
+
+      <section class="panel feature left" id="circus">
+        <div class="card"><h2>The Circus Show</h2><p>Spangles, white horses and high-flying hoops under the big top. The show happens right here in Pony Palace.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/circus.webp" alt="A pink striped big top with a white horse and an aerialist in a rhinestone western catsuit"></div>
+      </section>
+
+      <section class="panel feature right" id="balcony">
+        <div class="card"><h2>Castle Lounge Balcony</h2><p>Velvet chairs, cold bubbly and the best seat over the circus show. Lean back and watch it all from up top.</p></div>
+        <div class="art art-tall" data-speed="-0.08"><img src="art/balcony.webp" alt="A pink castle tower balcony with velvet chairs and string lights"></div>
+      </section>
+
+      <section class="panel feature left" id="saloon">
+        <div class="card"><h2>Glitter Saloon</h2><p>Mexican-inspired eats, cold margaritas and a mirror ball over the porch. Tacos, chips and salsa, and a dance floor that sparkles.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/saloon.webp" alt="A pink saloon porch with a mirror ball, tacos, chips, guacamole and margaritas"></div>
+      </section>
+
+      <section class="panel feature right" id="glam">
+        <div class="card"><h2>Glam Stable</h2><p>Braids, rhinestones and full cowgirl makeovers. Walk in plain, strut out the prettiest thing in the paddock.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/glam.webp" alt="A cowgirl getting her hair braided with rhinestones at a lit vanity beside a white horse"></div>
+      </section>
+
+      <section class="panel feature left" id="tunnel">
+        <div class="card"><h2>Tunnel of Love</h2><p>Climb in the swan, slide into the dark and see who's holding your hand when you come out.</p></div>
+        <div class="art" data-speed="-0.08"><img src="art/tunnel.webp" alt="A cowboy and cowgirl in a swan boat entering a heart-shaped tunnel"></div>
+      </section>
+
+      <section class="panel feature right" id="fountain">
+        <div class="card"><h2>Wishing Fountain</h2><p>Toss a coin, make a wish, keep it secret. The White Horse is listening.</p></div>
+        <div class="art art-sq" data-speed="-0.08">
+          <button type="button" class="hot" id="wish"><img src="art/fountain.webp" alt=""><span class="hot-hint">Toss a coin</span><span class="sr-only">Toss a coin in the wishing fountain</span></button>
+          <p class="fortune" id="fortune" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="panel feature left" id="fashion">
+        <div class="card"><h2>Fashion Town Square</h2><p>Rowdy Girls merch: rhinestone jackets, pink hats and boots made for trouble. <a class="merch-link" href="https://shop.rowdyhop.com/collections/rowdyland" target="_blank" rel="noopener">Rowdy Girls merch coming soon</a></p></div>
+        <div class="art" data-speed="-0.08"><img src="art/fashion.webp" alt="A cowgirl with shopping bags outside a western boutique"></div>
+      </section>
+
+      <section class="panel cta" id="tickets">
+        <img class="cta-horse" src="art/horse.webp" alt="" aria-hidden="true">
+        <h2>Pony Palace is calling</h2>
+        <a class="big-cta" href="mailto:howdy@rowdyhop.com?subject=Rowdyland%20tickets">Get your tickets now!</a>
+        <p class="fine">Ticket sales open soon. Send us a howdy and we'll save you a spot on the list.</p>
+        <a class="back alt" href="../#map-open">Explore more of the map</a>
+      </section>
+    </main>
+    <script src="pony-palace.js?v=1" defer></script>
+  </body>
+</html>
