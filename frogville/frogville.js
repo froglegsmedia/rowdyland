@@ -186,3 +186,23 @@
   dn.addEventListener("click", function () { setDay(!document.body.classList.contains("day")); });
   setDay(sessionStorage.getItem("fvDay") === "1");
 })();
+
+/* email signup (Kit form 9130714) */
+(function () {
+  document.querySelectorAll(".signup").forEach(function (f) {
+    f.addEventListener("submit", function (e) {
+      if (!window.fetch || !window.FormData) return;
+      e.preventDefault();
+      var btn = f.querySelector("button"), msg = f.querySelector(".signup-msg");
+      btn.disabled = true; msg.textContent = "";
+      fetch(f.action, { method: "POST", body: new FormData(f), headers: { Accept: "application/json" } })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d.status === "success") { f.classList.add("done"); msg.textContent = "You're on the list!"; }
+          else if (d.status === "quarantined" && d.url) { window.open(d.url, "_blank", "noopener"); msg.textContent = "One quick check in the new tab and you're on the list!"; btn.disabled = false; }
+          else { msg.textContent = "Hmm, double check that email and try again."; btn.disabled = false; }
+        })
+        .catch(function () { f.submit(); });
+    });
+  });
+})();

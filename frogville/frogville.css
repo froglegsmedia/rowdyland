@@ -252,3 +252,13 @@ body.day { --night: #3b5a4a; }
 .cta-frog.cta-fiddler { width: clamp(150px, 24vw, 230px); animation: fiddle-sway 1.6s ease-in-out infinite; transform-origin: 50% 100%; }
 @keyframes fiddle-sway { 0%, 100% { transform: rotate(-2.5deg); } 50% { transform: rotate(2.5deg); } }
 @media (prefers-reduced-motion: reduce) { .cta-frog.cta-fiddler { animation: none; } }
+
+/* email signup */
+.signup { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.7rem; max-width: 34rem; margin: 0 auto; }
+.signup input { flex: 1 1 15rem; min-width: 0; padding: 0.95rem 1.2rem; border-radius: 999px; border: 3px solid currentColor; background: #fff; color: #222; font: 600 1.05rem Fraunces, Georgia, serif; }
+.signup input:focus { outline: 3px solid var(--gold); outline-offset: 2px; }
+.signup .big-cta { cursor: pointer; font-family: inherit; flex: 0 0 auto; }
+.signup-msg { flex: 1 0 100%; margin: 0.3rem 0 0; min-height: 1.2em; font-weight: 700; text-align: center; }
+.signup.done input, .signup.done button { display: none; }
+.signup.done .signup-msg { font-size: 1.4rem; }
+@media (max-width: 480px) { .signup input, .signup .big-cta { flex: 1 1 100%; } }
