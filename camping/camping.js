@@ -142,7 +142,7 @@
   var img = document.getElementById("hero-img"), now = document.getElementById("now");
   function set(n) {
     document.body.classList.toggle("night", n); b.setAttribute("aria-pressed", n); b.textContent = n ? "\u2600 Day" : "\u263E Night";
-    img.src = n ? "art/bonfire.webp?v=2" : "art/hero.webp?v=2";
+    /* hero image stays the same day and night */
     now.textContent = n ? "At night: bonfires, guitars and the main stage glow over the tents." : "Pitch a tent, park the rig or settle into glamping.";
   }
   b.addEventListener("click", function () { set(!document.body.classList.contains("night")); });
