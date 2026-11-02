@@ -5,3 +5,5 @@
 #rintro .rskip{position:absolute;z-index:2;right:max(1rem,env(safe-area-inset-right));bottom:max(1.25rem,env(safe-area-inset-bottom));font:700 1rem/1 Fraunces,Georgia,serif;letter-spacing:.12em;text-transform:uppercase;color:#2a1608;background:#f3c94a;border:3px solid #2a1608;border-radius:4px;padding:.7rem 1.2rem;box-shadow:3px 3px 0 #2a1608;cursor:pointer}
 #rintro .rskip:hover,#rintro .rskip:focus-visible{background:#ffe08a;outline:none}
 html.rintro-on,html.rintro-on body{overflow:hidden}
+#rintro .rplay{display:none;position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);font:700 1.3rem/1 Fraunces,Georgia,serif;letter-spacing:.12em;text-transform:uppercase;color:#2a1608;background:#f3c94a;border:3px solid #2a1608;border-radius:4px;padding:1rem 1.6rem;box-shadow:3px 3px 0 #2a1608;cursor:pointer}
+#rintro.needtap .rplay{display:block}
