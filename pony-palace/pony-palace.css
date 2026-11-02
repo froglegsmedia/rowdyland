@@ -125,3 +125,13 @@ h1 span { display: block; color: var(--pink); font-style: italic; -webkit-text-s
 .sheet-close { position: absolute; top: 1.1rem; right: 1.1rem; z-index: 1; width: 40px; height: 40px; border: 2px solid var(--wine); border-radius: 50%; background: var(--pink); color: var(--wine); font-size: 1.5rem; line-height: 1; cursor: pointer; }
 .big-cta.small { font-size: clamp(1.05rem, 4.5vw, 1.4rem); padding: 0.8rem 1.6rem; animation: none; }
 @media (prefers-reduced-motion: reduce) { .catch, .catch::before, .poster { animation: none !important; } }
+
+/* saloon menu */
+.menu-open { cursor: pointer; }
+.menu-bubble { top: 0.4rem; right: 1rem; }
+.menu-poster h2 { margin: 0.3rem 0 0.4rem; color: var(--wine); font-size: clamp(1.8rem, 6vw, 2.4rem); }
+.menu-poster h3 { margin: 1.2rem 0 0.5rem; color: var(--hot); text-transform: uppercase; letter-spacing: 0.12em; font-size: 1rem; border-bottom: 2px dotted var(--pink); padding-bottom: 0.3rem; }
+.menu-poster ul { list-style: none; margin: 0; padding: 0; }
+.menu-poster li { margin: 0 0 0.7rem; font-size: 0.95rem; line-height: 1.35; }
+.menu-poster li b { display: block; color: var(--wine); font-size: 1.05rem; }
+@media (max-width: 480px) { .menu-poster { padding: 2.4rem 1.3rem 1.6rem; } }

@@ -9,7 +9,7 @@
     <link rel="icon" href="../favicon.ico" sizes="any">
     <link rel="preload" href="art/palace-bg.webp" as="image" type="image/webp">
     <link rel="preload" href="../fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="pony-palace.css?v=5">
+    <link rel="stylesheet" href="pony-palace.css?v=6">
   </head>
   <body class="entering">
     <div class="scene" aria-hidden="true">
@@ -57,8 +57,8 @@
       </section>
 
       <section class="panel feature left" id="saloon">
-        <div class="card"><h2>Glitter Saloon</h2><p>Mexican-inspired eats, cold margaritas and a mirror ball over the porch. Tacos, chips and salsa, and a dance floor that sparkles.</p></div>
-        <div class="art" data-speed="-0.08"><img src="art/saloon.webp" alt="A pink saloon porch with a mirror ball, tacos, chips, guacamole and margaritas"></div>
+        <div class="card menu-open"><h2>Glitter Saloon</h2><p>Mexican-inspired eats, cold margaritas and a mirror ball over the porch. Tacos, chips and salsa, and a dance floor that sparkles.</p></div>
+        <div class="art menu-open" data-speed="-0.08" role="button" tabindex="0" aria-label="See the Glitter Saloon menu"><span class="pp-bubble menu-bubble" aria-hidden="true">See the menu &#127790;</span><img src="art/saloon.webp" alt="A pink saloon porch with a mirror ball, tacos, chips, guacamole and margaritas"></div>
       </section>
 
       <section class="panel feature right" id="glam">
@@ -107,6 +107,29 @@
       </div>
     </div>
 
-    <script src="pony-palace.js?v=4" defer></script>
+    <div class="sheet-wrap" id="menu" role="dialog" aria-modal="true" aria-labelledby="menu-title" hidden>
+      <div class="poster menu-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Glitter Saloon</p>
+        <h2 id="menu-title">The Menu</h2>
+        <h3>Eats</h3>
+        <ul>
+          <li><b>Rhinestone Street Tacos</b> Carne asada or al pastor, onion, cilantro, lime</li>
+          <li><b>Pony Corn Elote</b> Grilled corn, crema, cotija, chili and a little sparkle</li>
+          <li><b>Pearl Queso</b> Warm, gooey and served with a mountain of chips</li>
+          <li><b>Disco Nachos</b> Loaded high with everything</li>
+          <li><b>Tiara Churros</b> Cinnamon sugar with chocolate for dipping</li>
+        </ul>
+        <h3>Glam Drinks</h3>
+        <ul>
+          <li><b>Pink Pony Margarita</b> Prickly pear, lime and a salted rim</li>
+          <li><b>Mirror Ball Paloma</b> Grapefruit, lime and fizz</li>
+          <li><b>Pearl Horchata</b> Creamy rice milk with cinnamon</li>
+          <li><b>Glitter Agua Fresca</b> Watermelon or strawberry</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="pony-palace.js?v=5" defer></script>
   </body>
 </html>
