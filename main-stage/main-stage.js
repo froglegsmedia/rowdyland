@@ -139,13 +139,6 @@
   document.addEventListener("keydown", function (e) { if (!pop.hidden && e.key === "Escape") close(); });
 })();
 
-/* day / night toggle */
-(function () {
-  var b = document.getElementById("daynight"); if (!b) return;
-  function set(n) { document.body.classList.toggle("night", n); b.setAttribute("aria-pressed", n); b.textContent = n ? "\u2600 Day" : "\u263E After Hours"; }
-  b.addEventListener("click", function () { set(!document.body.classList.contains("night")); });
-  set(false);
-})();
 
 
 /* lineup popup */
