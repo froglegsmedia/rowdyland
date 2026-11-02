@@ -33,13 +33,13 @@ h1 span { display: block; color: var(--pink); font-style: italic; -webkit-text-s
 @keyframes cue { 50% { transform: translateY(8px); opacity: 0.6; } }
 
 .statue { position: relative; margin-top: 2.6rem; width: min(52vw, 240px); padding: 0; border: 0; background: none; cursor: pointer; color: inherit; font: inherit; -webkit-tap-highlight-color: transparent; }
-.statue img { position: relative; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 22px rgba(255, 220, 160, 0.45)); }
+.statue img { position: relative; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.55)); }
 .halo { position: absolute; left: 50%; top: 45%; width: 140%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 215, 150, 0.5), transparent 65%); animation: halo 3s ease-in-out infinite; }
 @keyframes halo { 50% { opacity: 0.5; scale: 0.9; } }
 .shine { position: absolute; inset: 0; -webkit-mask: url("art/carousel.webp") center / contain no-repeat; mask: url("art/carousel.webp") center / contain no-repeat; background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%) -150% 0 / 250% 100% no-repeat; animation: shimmer 4.5s ease-in-out infinite; pointer-events: none; }
 @keyframes shimmer { 0%, 40% { background-position: 150% 0; } 100% { background-position: -150% 0; } }
 .statue.glow-up img { animation: glow-up 0.9s ease-out; }
-@keyframes glow-up { 40% { filter: drop-shadow(0 0 40px rgba(255, 235, 190, 1)) brightness(1.15); transform: scale(1.04); } }
+@keyframes glow-up { 40% { transform: scale(1.04); } }
 .statue:focus-visible, .hot:focus-visible { outline: 3px solid var(--gold); outline-offset: 6px; border-radius: 8px; }
 .statue-cap { margin: 0.8rem 0 0; max-width: 24rem; font-size: 0.95rem; font-style: italic; color: var(--pearl); text-shadow: 0 2px 6px #000; }
 .hot-hint { position: absolute; left: 50%; top: -1.6rem; transform: translateX(-50%); white-space: nowrap; padding: 0.3rem 0.7rem; background: var(--wine); color: var(--pearl); border: 2px solid var(--pink); border-radius: 4px; font: 800 clamp(0.7rem, 2.6vw, 0.9rem) Fraunces, Georgia, serif; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 0 16px rgba(255, 190, 90, 0.6); animation: hint-glow 1.6s ease-in-out infinite; z-index: 2; }
@@ -69,7 +69,7 @@ h1 span { display: block; color: var(--pink); font-style: italic; -webkit-text-s
 
 .cta { flex-direction: column; text-align: center; gap: 0; }
 .cta h2 { margin: 0.6rem 0 1.4rem; font-size: clamp(2rem, 7vw, 3.4rem); text-shadow: 0 4px 0 var(--wine), 0 8px 18px rgba(0, 0, 0, 0.6); }
-.cta-horse { width: clamp(130px, 20vw, 200px); filter: drop-shadow(0 0 20px rgba(255, 220, 160, 0.5)); }
+.cta-horse { width: clamp(130px, 20vw, 200px); filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.5)); }
 .big-cta { display: inline-block; padding: 1.1rem 2.2rem; border-radius: 999px; background: var(--pink); color: var(--plum); border: 4px solid var(--wine); font-weight: 900; font-size: clamp(1.4rem, 5.5vw, 2.2rem); text-decoration: none; box-shadow: 0 8px 0 var(--wine), 0 0 30px rgba(255, 190, 90, 0.45), 0 18px 30px rgba(0, 0, 0, 0.6); animation: cta-hop 1.8s ease-in-out infinite; }
 .big-cta:hover { background: #ffe08a; }
 .big-cta:active { transform: translateY(6px); box-shadow: 0 2px 0 var(--wine); }
@@ -221,3 +221,4 @@ h1 span { display: block; color: var(--pink); font-style: italic; -webkit-text-s
 .counter { top: 61%; height: 14%; left: 10%; right: 10%; }
 .counter .item { width: 14%; }
 .panel[id] { scroll-margin-top: 3.5rem; }
+.halo { display: none; }

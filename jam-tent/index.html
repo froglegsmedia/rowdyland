@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
     <link rel="preload" href="art/tent-bg.webp" as="image" type="image/webp">
     <link rel="preload" href="../fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="jam-tent.css?v=4">
+    <link rel="stylesheet" href="jam-tent.css?v=5">
   </head>
   <body class="entering">
     <div class="scene" aria-hidden="true">
@@ -69,12 +69,7 @@
       </section>
 
       <section class="panel lineup" id="lineup">
-        <div class="lineup-poster">
-          <p class="poster-kicker">Jam Tent</p>
-          <h2>Lineup &amp; Set Times</h2>
-          <div class="days"><div><h3>Friday</h3><h4>Daytime</h4><ul><li><b>12:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>1:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>2:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>3:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>4:00 to 6:00 PM</b><span>Open Jam Circle</span></li></ul><h4>Late Night</h4><ul><li><b>11:00 PM</b><span>DJ TBA</span></li><li><b>12:30 AM</b><span>DJ TBA</span></li><li><b>2:00 to 3:00 AM</b><span>DJ TBA</span></li><li><b>11:00 PM to 3:00 AM</b><span>Mud Pit Bull Ride open</span></li></ul></div><div><h3>Saturday</h3><h4>Daytime</h4><ul><li><b>12:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>1:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>2:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>3:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>4:00 to 6:00 PM</b><span>Open Jam Circle</span></li></ul><h4>Late Night</h4><ul><li><b>11:00 PM</b><span>DJ TBA</span></li><li><b>12:30 AM</b><span>DJ TBA</span></li><li><b>2:00 to 3:00 AM</b><span>DJ TBA</span></li><li><b>11:00 PM to 3:00 AM</b><span>Mud Pit Bull Ride open</span></li></ul></div></div>
-          <p class="tba-note">Lineup coming soon. Times subject to change.</p>
-        </div>
+        <button type="button" class="big-cta lineup-open" aria-haspopup="dialog">See the lineup</button>
       </section>
 
       <section class="panel cta" id="tickets">
@@ -124,6 +119,15 @@
       </div>
     </div>
 
+    <div class="sheet-wrap" id="lineup-pop" role="dialog" aria-modal="true" aria-labelledby="lineup-title" hidden>
+      <div class="poster lineup-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Jam Tent</p>
+        <h2 id="lineup-title">Lineup &amp; Set Times</h2>
+        <div class="days"><div><h3>Friday</h3><h4>Daytime</h4><ul><li><b>12:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>1:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>2:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>3:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>4:00 to 6:00 PM</b><span>Open Jam Circle</span></li></ul><h4>Late Night</h4><ul><li><b>11:00 PM</b><span>DJ TBA</span></li><li><b>12:30 AM</b><span>DJ TBA</span></li><li><b>2:00 to 3:00 AM</b><span>DJ TBA</span></li><li><b>11:00 PM to 3:00 AM</b><span>Mud Pit Bull Ride open</span></li></ul></div><div><h3>Saturday</h3><h4>Daytime</h4><ul><li><b>12:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>1:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>2:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>3:00 PM</b><span>Songwriter Showcase: Artist TBA</span></li><li><b>4:00 to 6:00 PM</b><span>Open Jam Circle</span></li></ul><h4>Late Night</h4><ul><li><b>11:00 PM</b><span>DJ TBA</span></li><li><b>12:30 AM</b><span>DJ TBA</span></li><li><b>2:00 to 3:00 AM</b><span>DJ TBA</span></li><li><b>11:00 PM to 3:00 AM</b><span>Mud Pit Bull Ride open</span></li></ul></div></div>
+        <p class="tba-note">Lineup coming soon. Times subject to change.</p>
+      </div>
+    </div>
     <div class="sheet-wrap" id="reserve" role="dialog" aria-modal="true" aria-labelledby="reserve-title" hidden>
       <div class="poster reserve-poster">
         <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
@@ -134,6 +138,6 @@
       </div>
     </div>
 
-    <script src="jam-tent.js?v=4" defer></script>
+    <script src="jam-tent.js?v=5" defer></script>
   </body>
 </html>

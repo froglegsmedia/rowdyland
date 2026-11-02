@@ -142,7 +142,7 @@ h1 span { color: var(--gold); text-shadow: 0 0 18px rgba(252, 209, 26, 0.45), 0 
 .jb-hint { position: absolute; left: 50%; bottom: 102%; transform: translateX(-50%); white-space: nowrap; padding: 0.25rem 0.6rem; background: #1d120c; color: var(--gold); border: 2px solid var(--gold); border-radius: 4px; font: 800 clamp(0.62rem, 2.4vw, 0.85rem) Fraunces, Georgia, serif; text-transform: uppercase; letter-spacing: 0.05em; text-shadow: 0 0 8px rgba(252, 209, 26, 0.6); box-shadow: 0 0 14px rgba(252, 209, 26, 0.35); animation: hint-bob 1.4s ease-in-out infinite; }
 @keyframes hint-bob { 50% { transform: translateX(-50%) translateY(-5px); } }
 .jukebox:hover img { filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.7)) brightness(0.95); }
-.playing .jukebox img { filter: drop-shadow(0 0 22px rgba(255, 150, 40, 0.75)) brightness(1.1) saturate(1.2); animation: jb-thump var(--beat) ease-out infinite; }
+.playing .jukebox img { filter: brightness(1.1) saturate(1.2); animation: jb-thump var(--beat) ease-out infinite; }
 .playing .jb-glow { animation: jb-pulse var(--beat) ease-in-out infinite; opacity: 1; }
 .playing .jb-hint { opacity: 0; transition: opacity 0.3s; }
 @keyframes jb-thump { 0% { transform: scale(1.04, 0.97); } 30% { transform: scale(1); } }
