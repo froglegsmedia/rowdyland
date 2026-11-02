@@ -167,3 +167,13 @@
     document.addEventListener("keydown", function (e) { if (!pop.hidden && e.key === "Escape") close(); });
   });
 })();
+
+/* day / night toggle */
+(function () {
+  var b = document.getElementById("daynight"); if (!b) return;
+  var K = "rl-mainstage-mode";
+  function set(n) { document.body.classList.toggle("night", n); b.setAttribute("aria-pressed", n); b.textContent = n ? "\u2600 Day" : "\u263E Night"; try { localStorage.setItem(K, n ? "night" : "day"); } catch (e) {} }
+  b.addEventListener("click", function () { set(!document.body.classList.contains("night")); });
+  var s = null; try { s = localStorage.getItem(K); } catch (e) {}
+  set(s !== "day");
+})();

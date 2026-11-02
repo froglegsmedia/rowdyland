@@ -9,7 +9,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 .scene { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .layer { will-change: transform; }
-.sky { position: absolute; inset: -6% 0 0; background: linear-gradient(rgba(18, 24, 51, 0.08), rgba(18, 24, 51, 0.4)), url("art/msbg.webp?v=2") center 40% / cover no-repeat; }
+.sky { position: absolute; inset: -6% 0 0; background: linear-gradient(rgba(18, 24, 51, 0.08), rgba(18, 24, 51, 0.4)), url("art/msbg-night.webp?v=1") center 40% / cover no-repeat; }
 .glitter { position: absolute; inset: 0; }
 .gl { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #fff; box-shadow: 0 0 8px 3px rgba(255, 210, 120, 0.85); animation: twinkle var(--d, 3s) ease-in-out var(--delay, 0s) infinite; }
 @keyframes twinkle { 0%, 100% { opacity: 0.05; transform: scale(0.6); } 50% { opacity: 1; transform: scale(1.2); } }
@@ -211,5 +211,19 @@ body.night .gl { background: #ff9ccc; box-shadow: 0 0 10px 4px rgba(255, 60, 150
 .lineup .fine { text-align: center; }
 
 .statue img.ms-logo { position: absolute; left: 50%; top: 11.2%; width: 31%; transform: translateX(-50%); filter: none; animation: none !important; pointer-events: none; }
-.dn { display: none; }
 .hero .statue { width: min(94vw, 640px); }
+
+/* day / night */
+.sky-day { background: linear-gradient(rgba(255, 230, 180, 0.05), rgba(18, 24, 51, 0.3)), url("art/msbg-day.webp?v=1") center 40% / cover no-repeat; transition: opacity 0.8s; }
+body.night .sky-day { opacity: 0; }
+.night-wash { background: radial-gradient(ellipse at 50% 35%, rgba(255, 200, 120, 0.25), transparent 50%), rgba(10, 0, 40, 0.15); }
+.beams { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s; mix-blend-mode: screen; }
+body.night .beams { opacity: 1; }
+.beams i { position: absolute; bottom: 45%; left: 50%; width: 9vw; height: 120vh; transform-origin: 50% 100%; background: linear-gradient(to top, rgba(255, 235, 180, 0.35), transparent 80%); clip-path: polygon(45% 100%, 55% 100%, 100% 0, 0 0); animation: sweep 7s ease-in-out infinite alternate; }
+.beams i:nth-child(1) { --a: -38deg; --b: -18deg; }
+.beams i:nth-child(2) { --a: -12deg; --b: 8deg; animation-delay: -2s; background: linear-gradient(to top, rgba(255, 90, 200, 0.3), transparent 80%); }
+.beams i:nth-child(3) { --a: 14deg; --b: -6deg; animation-delay: -4s; background: linear-gradient(to top, rgba(90, 200, 255, 0.3), transparent 80%); }
+.beams i:nth-child(4) { --a: 36deg; --b: 16deg; animation-delay: -1s; }
+@keyframes sweep { from { transform: translateX(-50%) rotate(var(--a)); } to { transform: translateX(-50%) rotate(var(--b)); } }
+body:not(.night) .glitter { opacity: 0.25; }
+@media (prefers-reduced-motion: reduce) { .beams i { animation: none; transform: translateX(-50%) rotate(var(--a)); } body.night .night-wash { animation: none; } }
