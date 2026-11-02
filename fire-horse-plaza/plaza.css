@@ -203,3 +203,4 @@ body { background: linear-gradient(#121833, #2a1630 60%, #121833); }
 @keyframes rise { from { opacity: 1; transform: translate(0, 0); } to { opacity: 0; transform: translate(var(--ex, 0), -70vh); } }
 .statue.ablaze .pp-bubble, .statue.gold .pp-bubble { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .statue .stack img, .ember { animation: none !important; transition: none; } }
+.now[hidden] { display: none !important; }
