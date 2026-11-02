@@ -64,7 +64,6 @@
 /* lucky horseshoe catch */
 (function () {
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var small = Math.min(innerWidth, innerHeight) < 700;
   var layer = document.getElementById("catch-layer"), nEl = document.getElementById("jar-n"), jar = document.getElementById("jar"), hint = document.getElementById("jar-hint");
   var pop = document.getElementById("lucky"), lastFocus = null;
   var count = parseInt(sessionStorage.getItem("ppCaught") || "0", 10), GOAL = 10;
@@ -83,32 +82,45 @@
   function render() {
     var c = Math.min(count, GOAL); nEl.textContent = c;
     jar.querySelector(".jar-icon").style.setProperty("--fill-n", c);
-    hint.textContent = count >= GOAL ? "Lucky streak unlocked" : "Catch lucky horseshoes";
+    hint.textContent = count >= GOAL ? "Lucky streak unlocked" : "lucky horseshoes found";
   }
-  function spawn() {
+  var SPOTS = [
+    ["h1", ".hero", "6%", "88%", -18],
+    ["h2", "#maze .art", "88%", "14%", 22],
+    ["h3", "#barn .art", "9%", "84%", -10],
+    ["h4", "#circus .art", "91%", "70%", 14],
+    ["h5", "#balcony .art", "14%", "10%", -24],
+    ["h6", "#saloon .art", "86%", "90%", 8],
+    ["h7", "#glam .art", "6%", "40%", -14],
+    ["h8", "#tunnel .art", "93%", "30%", 18],
+    ["h9", "#fountain .art", "92%", "8%", -8],
+    ["h10", "#fashion .art", "10%", "92%", 12]
+  ];
+  var found = []; try { found = JSON.parse(sessionStorage.getItem("ppFound") || "[]"); } catch (e) {}
+  count = Math.max(count, found.length);
+  SPOTS.forEach(function (s, i) {
+    if (found.indexOf(s[0]) > -1) return;
+    var host = document.querySelector(s[1]); if (!host) return;
     var b = document.createElement("button");
-    b.type = "button"; b.className = "catch"; b.setAttribute("aria-label", "Catch a lucky horseshoe"); b.tabIndex = -1;
-    b.style.left = 8 + Math.random() * 84 + "%"; b.style.top = 18 + Math.random() * 64 + "%";
-    b.style.setProperty("--d", 1.8 + Math.random() * 1.5 + "s"); b.style.setProperty("--dd", 6 + Math.random() * 6 + "s");
-    b.style.setProperty("--dx", (Math.random() * 120 - 60) + "px"); b.style.setProperty("--dy", (Math.random() * 90 - 45) + "px");
-    b.style.setProperty("--rot", (Math.random() * 40 - 20) + "deg");
-    b.style.animationDelay = -Math.random() * 5 + "s";
-    b.addEventListener("click", function () {
+    b.type = "button"; b.className = "catch"; b.setAttribute("aria-label", "Lucky horseshoe");
+    b.style.left = s[2]; b.style.top = s[3]; b.style.setProperty("--rot", s[4] + "deg");
+    b.style.setProperty("--gd", (i * 0.9) % 6 + "s");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation();
       var r = b.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
-      if (!reduce) for (var i = 0; i < 8; i++) {
-        var s = document.createElement("span"); s.className = "sparkle"; s.textContent = i % 2 ? "\u2726" : "\u2727";
-        s.style.left = x + "px"; s.style.top = y + "px";
-        var a = i / 8 * Math.PI * 2; s.style.setProperty("--sx", Math.cos(a) * 34 + "px"); s.style.setProperty("--sy", Math.sin(a) * 34 + "px");
-        document.body.appendChild(s); setTimeout(function (z) { return function () { z.remove(); }; }(s), 900);
+      if (!reduce) for (var k = 0; k < 8; k++) {
+        var sp = document.createElement("span"); sp.className = "sparkle"; sp.textContent = k % 2 ? "\u2726" : "\u2727";
+        sp.style.left = x + "px"; sp.style.top = y + "px";
+        var a = k / 8 * Math.PI * 2; sp.style.setProperty("--sx", Math.cos(a) * 34 + "px"); sp.style.setProperty("--sy", Math.sin(a) * 34 + "px");
+        document.body.appendChild(sp); setTimeout(function (z) { return function () { z.remove(); }; }(sp), 900);
       }
-      b.remove(); count++; sessionStorage.setItem("ppCaught", count); render();
+      b.remove(); found.push(s[0]); count = found.length;
+      sessionStorage.setItem("ppFound", JSON.stringify(found)); sessionStorage.setItem("ppCaught", count); render();
       jar.classList.remove("bump"); void jar.offsetWidth; jar.classList.add("bump");
       if (count === GOAL) setTimeout(openPop, 500);
-      setTimeout(spawn, 1500 + Math.random() * 2000);
     });
-    layer.appendChild(b);
-  }
-  for (var i = 0; i < (small ? 5 : 7); i++) spawn();
+    host.appendChild(b);
+  });
   render();
-  window.__ppCatch = function () { var c = layer.querySelector(".catch"); if (c) c.click(); };
+  window.__ppCatch = function () { var c = document.querySelector(".catch"); if (c) c.click(); };
 })();
