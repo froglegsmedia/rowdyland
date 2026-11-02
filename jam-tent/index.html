@@ -136,7 +136,7 @@
         <p class="poster-kicker">Tickets coming soon</p>
         <h2 id="reserve-title">Reserve your ticket</h2>
         <p class="poster-note">Drop your email and you'll be the first to know when tickets go on sale.</p>
-        <form class="signup" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Reserve my spot</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
+        <form class="signup" onsubmit="var n=this.previousElementSibling;if(n&&n.classList.contains('poster-note'))n.hidden=true" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Reserve my spot</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
       </div>
     </div>
 
