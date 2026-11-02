@@ -210,5 +210,6 @@ body.night .gl { background: #ff9ccc; box-shadow: 0 0 10px 4px rgba(255, 60, 150
 .ask-poster .big-cta.small { margin-top: 0.6rem; }
 .lineup .fine { text-align: center; }
 
-.statue img.ms-logo { position: absolute; left: 50%; top: 2.5%; width: 44%; transform: translateX(-50%); filter: none; animation: none !important; pointer-events: none; }
+.statue img.ms-logo { position: absolute; left: 50%; top: 11.2%; width: 31%; transform: translateX(-50%); filter: none; animation: none !important; pointer-events: none; }
 .dn { display: none; }
+.hero .statue { width: min(94vw, 640px); }
