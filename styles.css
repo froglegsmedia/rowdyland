@@ -1007,3 +1007,5 @@ body.map-open {
 .map-ctl button:hover, .map-ctl button:focus-visible { outline: none; background: #9c2a17; color: #ffe08a; }
 .map-ctl button[data-z="reset"] { font-size: 1rem; }
 .map-zoom.is-zooming .map-ctl { opacity: 0; }
+
+.story-link { display: block; width: fit-content; margin: 0.9rem auto 0; color: #fbf1dc; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }

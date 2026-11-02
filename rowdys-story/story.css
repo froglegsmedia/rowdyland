@@ -1,0 +1,37 @@
+@font-face { font-family: "Fraunces"; src: url("../fonts/Fraunces.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+:root { --ink: #fff8ec; --pearl: #fbf1dc; --pink: #ffcf5a; --gold: #ffd98a; --plum: #121833; --wine: #5a1414; color-scheme: dark; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--plum); overflow-x: clip; }
+body { margin: 0; background: linear-gradient(#121833, #2a1a2e 50%, #121833); color: var(--ink); font-family: Fraunces, Georgia, serif; }
+img { display: block; max-width: 100%; height: auto; }
+.fv-top { position: fixed; z-index: 5; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 1rem; padding-top: max(0.8rem, env(safe-area-inset-top)); }
+.back, .mini-cta { font-weight: 700; color: var(--ink); text-decoration: none; padding: 0.45rem 0.9rem; border-radius: 999px; background: rgba(18, 24, 51, 0.82); border: 2px solid rgba(255, 215, 140, 0.6); }
+.mini-cta { background: var(--pink); color: var(--plum); border-color: var(--plum); }
+.hero { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 5rem 1.25rem 3rem; }
+.kicker { margin: 0; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold); font-weight: 700; }
+h1 { margin: 0.4rem 0 1rem; font-size: clamp(2.6rem, 10vw, 5.5rem); line-height: 1; color: var(--pink); text-shadow: 0 5px 0 var(--wine), 0 10px 24px rgba(0,0,0,0.6); }
+.lede { max-width: 32rem; margin: 0; font-size: 1.2rem; font-style: italic; color: var(--pearl); }
+.scroll-cue { margin-top: 2.5rem; color: var(--gold); font-weight: 700; animation: bob 1.6s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(8px); } }
+.chapter { display: flex; align-items: center; justify-content: center; gap: 3rem; padding: 4.5rem 1.5rem; max-width: 72rem; margin: 0 auto; }
+.chapter:nth-of-type(even) { flex-direction: row-reverse; }
+.art { flex: 1 1 34rem; max-width: 36rem; margin: 0; }
+.art img { width: 100%; border-radius: 6px; border: 4px solid var(--wine); box-shadow: 8px 8px 0 var(--wine); }
+.card { flex: 0 1 26rem; max-width: 26rem; }
+.num { display: inline-block; margin-bottom: 0.5rem; padding: 0.25rem 0.8rem; border-radius: 999px; background: var(--wine); color: var(--pink); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.85rem; }
+.card h2 { margin: 0; padding: 0.9rem 1.2rem; background: var(--wine); color: var(--pink); border-radius: 4px 4px 0 0; font-size: clamp(1.5rem, 5vw, 2rem); text-transform: uppercase; letter-spacing: 0.04em; }
+.card p { margin: 0; padding: 1rem 1.2rem; background: var(--pearl); color: #2a1a10; border: 3px solid var(--wine); border-top: 0; border-radius: 0 0 4px 4px; font-size: 1.08rem; line-height: 1.5; box-shadow: 6px 6px 0 var(--wine); }
+.chapter:nth-of-type(odd) .card { rotate: -1deg; } .chapter:nth-of-type(even) .card { rotate: 1deg; }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.2); }
+.in .reveal { opacity: 1; transform: none; }
+.in .art.reveal { transition-delay: 0.12s; }
+.cta { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 5rem 1.25rem 6rem; }
+.cta h2 { margin: 0 0 1.6rem; font-size: clamp(2rem, 7vw, 3.4rem); color: var(--pink); text-shadow: 0 4px 0 var(--wine), 0 8px 18px rgba(0,0,0,0.6); }
+.big-cta { display: inline-block; padding: 1.1rem 2.2rem; border-radius: 999px; background: var(--pink); color: var(--plum); border: 4px solid var(--wine); font-weight: 900; font-size: clamp(1.4rem, 5.5vw, 2.2rem); text-decoration: none; box-shadow: 0 8px 0 var(--wine), 0 0 30px rgba(255, 190, 90, 0.45); animation: hop 1.8s ease-in-out infinite; }
+@keyframes hop { 0%, 70%, 100% { transform: none; } 80% { transform: translateY(-12px); } }
+.cta .back { margin-top: 2rem; }
+@media (max-width: 760px) {
+  .chapter, .chapter:nth-of-type(even) { flex-direction: column; gap: 28px; padding: 3.25rem 1.25rem; }
+  .art, .card { flex-basis: auto; width: 100%; max-width: 30rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .reveal { opacity: 1; transform: none; transition: none; } }
