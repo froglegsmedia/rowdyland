@@ -1,3 +1,4 @@
+html { overflow-x: clip; }
 @font-face { font-family: "Fraunces"; src: url("../fonts/Fraunces.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
 @font-face { font-family: "Fraunces"; src: url("../fonts/Fraunces-Italic.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
 :root { --ink: #fff8ec; --pearl: #fbf1dc; --pink: #ffcf5a; --hot: #e23b2e; --gold: #ffd98a; --plum: #121833; --wine: #5a1414; color-scheme: dark; }

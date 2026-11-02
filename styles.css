@@ -1,3 +1,4 @@
+html { overflow-x: clip; }
 @font-face {
   font-family: "Fraunces";
   src: url("fonts/Fraunces.woff2") format("woff2");
