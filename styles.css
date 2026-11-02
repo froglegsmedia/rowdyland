@@ -980,3 +980,27 @@ body.map-open {
 .map-zoom:has([data-zone^="jam-tent"]:hover) [data-zone^="jam-tent"],
 .map-zoom:has([data-zone^="jam-tent"]:focus-visible) [data-zone^="jam-tent"] { outline: none; background: rgba(255, 248, 230, 0.22); box-shadow: 0 0 18px 4px rgba(255, 248, 230, 0.45); }
 .map-zoom:has([data-zone="jam-tent-top"]:hover) [data-zone="jam-tent"] .zone-tip { opacity: 1; }
+
+/* Chuckwagon Row popup (matches the Reserve your ticket popup) */
+.sheet-wrap { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 1rem; background: rgba(5, 8, 12, 0.72); }
+.sheet-wrap[hidden] { display: none; }
+.poster { position: relative; width: min(100%, 34rem); max-height: calc(100dvh - 2rem); overflow: auto; padding: 2.4rem 2.6rem 2.6rem; background: #f3e6cc; color: #1d120c; border: 4px solid #1d120c; border-radius: 6px; box-shadow: 10px 10px 0 #1d120c; text-align: center; font-family: Fraunces, Georgia, serif; animation: poster-in 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.3); }
+.poster::before { content: ""; position: absolute; inset: 8px; border: 2px dashed rgba(29, 18, 12, 0.35); border-radius: 3px; pointer-events: none; }
+@keyframes poster-in { from { opacity: 0; transform: translateY(40px) rotate(-4deg) scale(0.9); } to { opacity: 1; transform: none; } }
+.poster h2 { margin: 0.6rem 0 0.9rem; font-size: clamp(1.8rem, 6vw, 2.6rem); text-transform: uppercase; color: #a3121b; letter-spacing: 0.03em; line-height: 1; }
+.poster-kicker { margin: 0; font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 800; }
+.poster-note { margin: 0 0 1.4rem; font-style: italic; font-size: 0.95rem; }
+.sheet-close { position: absolute; top: 1.1rem; right: 1.1rem; z-index: 1; width: 40px; height: 40px; border: 2px solid #1d120c; border-radius: 50%; background: #fcd11a; color: #1d120c; font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.reserve-poster { padding: 3.2rem 3.4rem 4.2rem; }
+.poster .big-cta { display: inline-block; border-radius: 999px; background: #fcd11a; color: #3c2216; border: 4px solid #3c2216; font-weight: 900; font-size: clamp(1.05rem, 4.5vw, 1.4rem); padding: 0.8rem 1.6rem; box-shadow: 0 8px 0 #3c2216, 0 18px 30px rgba(0, 0, 0, 0.5); cursor: pointer; font-family: inherit; flex: 0 0 auto; }
+.poster .big-cta:hover { background: #ffe04a; }
+.poster .big-cta:active { transform: translateY(6px); box-shadow: 0 2px 0 #3c2216; }
+.poster .signup { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem; max-width: 34rem; margin: 0 auto; }
+.poster .signup input { flex: 1 1 15rem; min-width: 0; padding: 0.95rem 1.2rem; border-radius: 999px; border: 3px solid currentColor; background: #fff; color: #222; font: 600 1.05rem Fraunces, Georgia, serif; }
+.poster .signup input:focus { outline: 3px solid #fcd11a; outline-offset: 2px; }
+.poster .signup-msg { flex: 1 0 100%; margin: 0; font-weight: 700; text-align: center; }
+.poster .signup-msg:empty { display: none; }
+.poster .signup.done input, .poster .signup.done button { display: none; }
+.poster .signup.done .signup-msg { font-size: 1.4rem; }
+@media (max-width: 480px) { .reserve-poster { padding: 3.4rem 1.6rem 3.6rem; } .poster .signup input, .poster .signup .big-cta { flex: 1 1 100%; } }
+@media (prefers-reduced-motion: reduce) { .poster { animation: none; } }
