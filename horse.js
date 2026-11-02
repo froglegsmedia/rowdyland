@@ -160,3 +160,39 @@
     if (e.persisted) { zoom.style.transform = ""; zoom.style.filter = ""; zoom.classList.remove("is-zooming"); }
   });
 })();
+
+/* Chuckwagon Row popup + email signup (Kit form 9130714) */
+(function () {
+  var pop = document.getElementById("chuck"); if (!pop) return;
+  var last = null;
+  function open(e) { e.preventDefault(); e.stopPropagation(); last = document.activeElement; if (last && last.classList) last.classList.remove("show-tip"); pop.hidden = false; pop.querySelector("input[type=email]").focus(); }
+  function close() { if (pop.hidden) return; pop.hidden = true; if (last && last.focus) last.focus(); }
+  document.querySelectorAll("[data-chuck]").forEach(function (b) { b.addEventListener("click", open); });
+  pop.addEventListener("click", function (e) { if (e.target === pop || e.target.closest(".sheet-close")) close(); });
+  document.addEventListener("keydown", function (e) {
+    if (pop.hidden) return;
+    e.stopImmediatePropagation();
+    if (e.key === "Escape") { close(); return; }
+    if (e.key === "Tab") {
+      var f = pop.querySelectorAll("input, button"), first = f[0], lastF = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); lastF.focus(); }
+      else if (!e.shiftKey && document.activeElement === lastF) { e.preventDefault(); first.focus(); }
+    }
+  }, true);
+  pop.querySelectorAll(".signup").forEach(function (f) {
+    f.addEventListener("submit", function (e) {
+      if (!window.fetch || !window.FormData) return;
+      e.preventDefault();
+      var btn = f.querySelector("button"), msg = f.querySelector(".signup-msg");
+      btn.disabled = true; msg.textContent = "";
+      fetch(f.action, { method: "POST", body: new FormData(f), headers: { Accept: "application/json" } })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d.status === "success") { f.classList.add("done"); msg.textContent = "Thanks! We'll be in touch."; }
+          else if (d.status === "quarantined" && d.url) { window.open(d.url, "_blank", "noopener"); msg.textContent = "One quick check in the new tab and you're all set!"; btn.disabled = false; }
+          else { msg.textContent = "Hmm, double check that email and try again."; btn.disabled = false; }
+        })
+        .catch(function () { f.submit(); });
+    });
+  });
+})();
