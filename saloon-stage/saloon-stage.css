@@ -9,7 +9,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 .scene { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .layer { will-change: transform; }
-.sky { position: absolute; inset: -6% 0 0; background: linear-gradient(rgba(18, 24, 51, 0.08), rgba(18, 24, 51, 0.4)), url("art/ssbg.webp?v=1") center 40% / cover no-repeat; }
+.sky { position: absolute; inset: -6% 0 0; background: linear-gradient(rgba(18, 24, 51, 0.08), rgba(18, 24, 51, 0.4)), url("art/ssbg.webp?v=2") center 40% / cover no-repeat; }
 .glitter { position: absolute; inset: 0; }
 .gl { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #fff; box-shadow: 0 0 8px 3px rgba(255, 210, 120, 0.85); animation: twinkle var(--d, 3s) ease-in-out var(--delay, 0s) infinite; }
 @keyframes twinkle { 0%, 100% { opacity: 0.05; transform: scale(0.6); } 50% { opacity: 1; transform: scale(1.2); } }
