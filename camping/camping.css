@@ -184,7 +184,7 @@ h1 span { display: block; color: var(--pink); font-style: italic; -webkit-text-s
 body.night .night-wash { opacity: 1; }
 body.night .card h2 { text-shadow: 0 0 14px rgba(255, 240, 190, 0.7); }
 .feature[data-time] { transition: opacity 0.6s, filter 0.6s; }
-body:not(.night) .feature[data-time="night"] .art, body.night .feature[data-time="day"] .art { filter: saturate(0.7) brightness(0.8); }
+body:not(.night) .feature[data-time="night"] .art img, body.night .feature[data-time="day"] .art img { filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.5)) saturate(0.7) brightness(0.8); }
 
 .cta-horse { width: clamp(110px, 16vw, 160px); }
 .halo { display: none; }
@@ -193,7 +193,7 @@ body:not(.night) .feature[data-time="night"] .art, body.night .feature[data-time
 
 /* mobile: tight, consistent card-to-art spacing */
 @media (max-width: 760px) {
-  .feature, .feature.right { gap: 1.75rem; min-height: 0; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .feature, .feature.right { gap: 1.75rem; min-height: 0; padding-top: 3.25rem; padding-bottom: 3.25rem; }
   .feature .card, .feature .art { flex-basis: auto; }
   .feature .art { transform: none !important; }
   .feature, .feature.right { flex-direction: column; }
