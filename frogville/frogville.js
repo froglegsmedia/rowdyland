@@ -54,8 +54,8 @@
     if (audio) return audio;
     audio = document.createElement("audio");
     audio.loop = true; audio.preload = "auto";
-    var m = document.createElement("source"); m.src = "audio/frog-legs.mp3"; m.type = "audio/mpeg";
-    var a = document.createElement("source"); a.src = "audio/frog-legs.m4a"; a.type = "audio/mp4";
+    var m = document.createElement("source"); m.src = "audio/frog-legs.mp3?v=3"; m.type = "audio/mpeg";
+    var a = document.createElement("source"); a.src = "audio/frog-legs.m4a?v=3"; a.type = "audio/mp4";
     audio.appendChild(m); audio.appendChild(a);
     document.body.appendChild(audio);
     return audio;
