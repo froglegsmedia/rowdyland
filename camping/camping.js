@@ -38,7 +38,7 @@
   addEventListener("resize", update); update();
 })();
 
-/* gold rosette find */
+/* gold lantern find */
 (function () {
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var layer = document.getElementById("catch-layer"), nEl = document.getElementById("jar-n"), jar = document.getElementById("jar"), hint = document.getElementById("jar-hint");
@@ -59,7 +59,7 @@
   function render() {
     var c = Math.min(count, GOAL); nEl.textContent = c;
     jar.querySelector(".jar-icon").style.setProperty("--fill-n", c);
-    hint.textContent = count >= GOAL ? "Every camp badge found" : "camp badges found";
+    hint.textContent = count >= GOAL ? "Every lantern found" : "lanterns found";
   }
   var SPOTS = [
     ["r1", ".hero", "8%", "84%", -14],
@@ -79,7 +79,7 @@
     if (found.indexOf(s[0]) > -1) return;
     var host = document.querySelector(s[1]); if (!host) return;
     var b = document.createElement("button");
-    b.type = "button"; b.className = "catch"; b.setAttribute("aria-label", "Camp badge");
+    b.type = "button"; b.className = "catch"; b.setAttribute("aria-label", "Lantern");
     b.style.left = s[2]; b.style.top = s[3]; b.style.setProperty("--rot", s[4] + "deg");
     b.style.setProperty("--gd", (i * 0.9) % 6 + "s");
     b.addEventListener("click", function (e) {
@@ -142,7 +142,7 @@
   var img = document.getElementById("hero-img"), now = document.getElementById("now");
   function set(n) {
     document.body.classList.toggle("night", n); b.setAttribute("aria-pressed", n); b.textContent = n ? "\u2600 Day" : "\u263E Night";
-    img.src = n ? "art/bonfire.webp?v=1" : "art/hero.webp?v=1";
+    img.src = n ? "art/bonfire.webp?v=2" : "art/hero.webp?v=2";
     now.textContent = n ? "At night: bonfires, guitars and the main stage glow over the tents." : "Pitch a tent, park the rig or settle into glamping.";
   }
   b.addEventListener("click", function () { set(!document.body.classList.contains("night")); });
