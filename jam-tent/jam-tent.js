@@ -32,6 +32,7 @@
     if (!song) { song = new Audio("audio/get-rowdy-get-low.mp3"); song.preload = "auto"; song.addEventListener("ended", function () { setPlaying(false); }); }
     clearInterval(fi);
     if (song.paused) {
+      if (window.__stopRave) window.__stopRave();
       song.volume = 0; var fv = 0;
       fi = setInterval(function () { fv = Math.min(1, fv + 0.08); song.volume = fv; if (fv >= 1) clearInterval(fi); }, 40);
       var pr = song.play(); setPlaying(true);
@@ -168,4 +169,25 @@
   function set(n) { document.body.classList.toggle("night", n); b.setAttribute("aria-pressed", n); b.textContent = n ? "\u2600 Day" : "\u263E After Hours"; }
   b.addEventListener("click", function () { set(!document.body.classList.contains("night")); });
   set(false);
+})();
+
+/* rave song: Ready to Run */
+(function () {
+  var el = document.getElementById("raveplay"); if (!el) return;
+  var a = null, t = null;
+  function set(on) { el.classList.toggle("on", on); el.setAttribute("aria-pressed", on); el.setAttribute("aria-label", on ? "Pause Ready to Run" : "Play Ready to Run"); }
+  window.__stopRave = function () { if (a && !a.paused) { a.pause(); set(false); } };
+  function toggle(e) {
+    if (e && e.target.closest && e.target.closest(".catch")) return;
+    if (!a) { a = new Audio("audio/ready-to-run.mp3?v=1"); a.preload = "auto"; a.addEventListener("ended", function () { set(false); }); }
+    clearInterval(t);
+    if (a.paused) {
+      var st = document.getElementById("statue"); if (st && st.getAttribute("aria-pressed") === "true") st.click();
+      a.volume = 0; var v = 0; t = setInterval(function () { v = Math.min(1, v + 0.05); a.volume = v; if (v >= 1) clearInterval(t); }, 60);
+      var p = a.play(); set(true); if (p && p.catch) p.catch(function () { set(false); });
+    } else { a.pause(); set(false); }
+  }
+  el.addEventListener("click", toggle);
+  el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(e); } });
+  document.addEventListener("visibilitychange", function () { if (document.hidden) window.__stopRave(); });
 })();

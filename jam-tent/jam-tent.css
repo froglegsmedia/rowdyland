@@ -192,3 +192,8 @@ body.night .gl { background: #ff9ccc; box-shadow: 0 0 10px 4px rgba(255, 60, 150
 .days li span { text-align: right; }
 .tba-note { margin: 1.2rem 0 0; font-style: italic; font-size: 0.9rem; font-weight: 700; }
 @media (max-width: 640px) { .days { grid-template-columns: 1fr; } .lineup-poster { padding: 2.2rem 1.2rem 1.6rem; } }
+
+/* rave song */
+.rave-play { cursor: pointer; position: relative; }
+.rave-play.on .pp-bubble { opacity: 0; }
+.rave-play.on img { filter: drop-shadow(0 0 18px rgba(255,80,160,0.7)); }
