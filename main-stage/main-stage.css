@@ -227,3 +227,8 @@ body.night .beams { opacity: 1; }
 @keyframes sweep { from { transform: translateX(-50%) rotate(var(--a)); } to { transform: translateX(-50%) rotate(var(--b)); } }
 body:not(.night) .glitter { opacity: 0.25; }
 @media (prefers-reduced-motion: reduce) { .beams i { animation: none; transform: translateX(-50%) rotate(var(--a)); } body.night .night-wash { animation: none; } }
+/* stage and logo move together */
+.statue .rig { position: relative; display: block; transform-origin: 50% 85%; }
+.statue.playing img, .statue.spinning img { animation: none !important; }
+.statue.playing .rig, .statue.spinning .rig { animation: sway 2.4s ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) { .statue .rig { animation: none !important; } }
