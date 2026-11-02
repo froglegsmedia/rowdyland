@@ -190,3 +190,11 @@ body:not(.night) .feature[data-time="night"] .art, body.night .feature[data-time
 .halo { display: none; }
 /* camping */
 .card .big-cta.small.camp-btn { display: inline-block; margin-top: 0.9rem; }
+
+/* mobile: tight, consistent card-to-art spacing */
+@media (max-width: 760px) {
+  .feature, .feature.right { gap: 0.85rem; min-height: 0; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .feature .card, .feature .art { flex-basis: auto; }
+  .feature .art { transform: none !important; }
+  .feature .art-tall { padding-top: 0; }
+}

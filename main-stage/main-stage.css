@@ -233,3 +233,11 @@ body:not(.night) .glitter { opacity: 0.25; }
 .statue.playing img, .statue.spinning img { animation: none !important; }
 .statue.playing .rig, .statue.spinning .rig { animation: sway 2.4s ease-in-out infinite alternate; }
 @media (prefers-reduced-motion: reduce) { .statue .rig { animation: none !important; } }
+
+/* mobile: tight, consistent card-to-art spacing */
+@media (max-width: 760px) {
+  .feature, .feature.right { gap: 0.85rem; min-height: 0; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .feature .card, .feature .art { flex-basis: auto; }
+  .feature .art { transform: none !important; }
+  .feature .art-tall { padding-top: 0; }
+}
