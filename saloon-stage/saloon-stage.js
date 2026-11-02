@@ -54,7 +54,7 @@
   addEventListener("resize", update); update();
 })();
 
-/* guitar pick catch */
+/* sheriff badge catch */
 (function () {
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var layer = document.getElementById("catch-layer"), nEl = document.getElementById("jar-n"), jar = document.getElementById("jar"), hint = document.getElementById("jar-hint");
@@ -75,7 +75,7 @@
   function render() {
     var c = Math.min(count, GOAL); nEl.textContent = c;
     jar.querySelector(".jar-icon").style.setProperty("--fill-n", c);
-    hint.textContent = count >= GOAL ? "Every pick found" : "guitar picks found";
+    hint.textContent = count >= GOAL ? "Every sheriff badge found" : "sheriff badges found";
   }
   var SPOTS = [["s1", ".hero", "8%", "86%", -14],["s2", "#dance .art", "88%", "14%", 18],["s3", "#dance .art", "8%", "84%", -10],["s4", "#bar .art", "92%", "80%", 12],["s5", "#bar .art", "10%", "12%", -20],["s6", "#fiddle .art", "8%", "18%", -8],["s7", "#lineup", "94%", "8%", -12],["s8", "#fiddle .art", "90%", "70%", 16],["s9", "#lineup", "4%", "90%", -8],["s10", "#tickets", "88%", "20%", 10]];
   var found = []; try { found = JSON.parse(sessionStorage.getItem("ssFound") || "[]"); } catch (e) {}
@@ -84,7 +84,7 @@
     if (found.indexOf(s[0]) > -1) return;
     var host = document.querySelector(s[1]); if (!host) return;
     var b = document.createElement("button");
-    b.type = "button"; b.className = "catch"; b.setAttribute("aria-label", "Guitar pick");
+    b.type = "button"; b.className = "catch"; b.setAttribute("aria-label", "Sheriff badge");
     b.style.left = s[2]; b.style.top = s[3]; b.style.setProperty("--rot", s[4] + "deg");
     b.style.setProperty("--gd", (i * 0.9) % 6 + "s");
     b.addEventListener("click", function (e) {
