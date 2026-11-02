@@ -139,8 +139,27 @@
   var img = document.getElementById("hero-img"), now = document.getElementById("now");
   function set(n) {
     document.body.classList.toggle("night", n); b.setAttribute("aria-pressed", n); b.textContent = n ? "\u2600 Day" : "\u263E Night";
-    img.src = n ? "art/rodeo.webp" : "art/hero.webp";
+    img.src = n ? "art/rodeo.webp?v=2" : "art/hero.webp?v=2";
     now.textContent = n ? "Tonight: rodeo under the lights while the main stage plays." : "Today: guided trail rides and the petting corral.";
   }
   b.addEventListener("click", function () { set(!document.body.classList.contains("night")); });
+})();
+
+/* hero song: Rowdy */
+(function () {
+  var statue = document.getElementById("statue"); if (!statue) return;
+  var song = null, fi = null;
+  function setPlaying(on) { statue.classList.toggle("spinning", on); statue.setAttribute("aria-pressed", on); statue.setAttribute("aria-label", on ? "Pause Rowdy" : "Play Rowdy"); }
+  statue.addEventListener("click", function () {
+    if (!song) { song = new Audio("audio/rowdy.mp3?v=1"); song.preload = "auto"; song.addEventListener("ended", function () { setPlaying(false); }); }
+    clearInterval(fi);
+    if (song.paused) {
+      document.querySelectorAll("audio").forEach(function (x) { if (x !== song) x.pause(); });
+      song.volume = 0; var fv = 0;
+      fi = setInterval(function () { fv = Math.min(1, fv + 0.08); song.volume = fv; if (fv >= 1) clearInterval(fi); }, 40);
+      var pr = song.play(); setPlaying(true);
+      if (pr && pr.catch) pr.catch(function () { setPlaying(false); });
+    } else { song.pause(); setPlaying(false); }
+  });
+  document.addEventListener("visibilitychange", function () { if (document.hidden && song && !song.paused) { song.pause(); setPlaying(false); } });
 })();
