@@ -48,7 +48,8 @@
 /* anthem heart player: same song as Fire Horse Plaza, starts on tap */
 (function () {
   var a = document.getElementById("anthem-song"), btn = document.getElementById("play-btn"); if (!a || !btn) return;
-  function ui() { var on = !a.paused; btn.classList.toggle("on", on); btn.setAttribute("aria-pressed", on); btn.setAttribute("aria-label", on ? "Pause the Rowdyland Anthem" : "Play the Rowdyland Anthem"); }
+  var hint = document.getElementById("play-hint");
+  function ui() { var on = !a.paused; if (hint) hint.textContent = on ? "Click to pause" : "Click to play"; btn.classList.toggle("on", on); btn.setAttribute("aria-pressed", on); btn.setAttribute("aria-label", on ? "Pause the Rowdyland Anthem" : "Play the Rowdyland Anthem"); }
   btn.addEventListener("click", function () { if (a.paused) { var p = a.play(); if (p && p.catch) p.catch(function () {}); } else a.pause(); });
   a.addEventListener("play", ui); a.addEventListener("pause", ui); a.addEventListener("ended", function () { a.currentTime = 0; ui(); });
   btn.addEventListener("keydown", function (e) { if (!a.duration) return; if (e.key === "ArrowRight") { a.currentTime = Math.min(a.duration, a.currentTime + 5); e.preventDefault(); } if (e.key === "ArrowLeft") { a.currentTime = Math.max(0, a.currentTime - 5); e.preventDefault(); } });

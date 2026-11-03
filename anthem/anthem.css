@@ -71,20 +71,15 @@ h1.arch { margin: 0.2rem auto 0; width: min(94vw, 900px); }
 @media (max-width: 520px) { .top-r .back { display: none; } .block { padding: 3rem 0.9rem 4rem; } }
 @media (prefers-reduced-motion: reduce) { .ln { transition: color 0.2s; opacity: 1; transform: none; } .big-cta, .scroll-cue { animation: none; } }
 
-/* anthem heart player */
-.heart-player { display: flex; justify-content: center; margin: 1.1rem auto 0; }
-.heart-btn { position: relative; width: clamp(104px, 12vw, 132px); aspect-ratio: 400 / 388; padding: 0; border: 0; background: none; cursor: pointer; filter: drop-shadow(0 6px 10px rgba(70, 25, 15, 0.55)); transition: transform 0.25s, filter 0.4s; -webkit-tap-highlight-color: transparent; }
+/* anthem buckle player */
+.heart-player { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin: 1.1rem auto 0; }
+.heart-btn { position: relative; width: clamp(130px, 14vw, 168px); aspect-ratio: 440 / 369; padding: 0; border: 0; background: none; cursor: pointer; filter: drop-shadow(0 6px 10px rgba(50, 20, 10, 0.6)); transition: transform 0.25s, filter 0.4s; -webkit-tap-highlight-color: transparent; }
 .heart-btn:hover { transform: scale(1.04); }
 .heart-btn:active { transform: scale(0.97); }
 .heart-btn:focus { outline: none; }
-.heart-btn:focus-visible { filter: drop-shadow(0 0 10px #ffe0a3) drop-shadow(0 6px 10px rgba(70, 25, 15, 0.55)); }
+.heart-btn:focus-visible { filter: drop-shadow(0 0 10px #ffe0a3) drop-shadow(0 6px 10px rgba(50, 20, 10, 0.6)); }
 .heart-art { display: block; width: 100%; height: auto; pointer-events: none; }
-.heart-mark { position: absolute; left: 50%; bottom: 2%; width: 26px; height: 26px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f6d88a, #b9852c 60%, #7a5216); border: 1.5px solid #5a1a0e; box-shadow: 0 2px 4px rgba(40, 15, 8, 0.6), inset 0 1px 1px rgba(255, 240, 200, 0.6); display: grid; place-items: center; }
-.heart-mark svg { width: 14px; height: 14px; }
-.heart-mark path, .heart-mark rect { fill: #6e140c; }
-.m-pause { display: none; }
-.heart-btn.on .m-play { display: none; }
-.heart-btn.on .m-pause { display: inline; }
-.heart-btn.on { animation: beat 1.8s ease-in-out infinite; filter: drop-shadow(0 0 16px rgba(255, 196, 110, 0.75)) drop-shadow(0 6px 10px rgba(70, 25, 15, 0.55)); }
-@keyframes beat { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.05); } 24% { transform: scale(1); } 36% { transform: scale(1.03); } }
-@media (prefers-reduced-motion: reduce) { .heart-btn.on { animation: none; } }
+.heart-btn.on { animation: glow 2.6s ease-in-out infinite; }
+@keyframes glow { 0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 196, 110, 0.55)) drop-shadow(0 6px 10px rgba(50, 20, 10, 0.6)); } 50% { filter: drop-shadow(0 0 24px rgba(255, 200, 120, 0.95)) drop-shadow(0 6px 10px rgba(50, 20, 10, 0.6)); } }
+.play-hint { font-style: italic; font-weight: 700; font-size: 0.95rem; color: var(--pearl); text-shadow: 0 2px 6px rgba(70, 30, 45, 0.7); }
+@media (prefers-reduced-motion: reduce) { .heart-btn.on { animation: none; filter: drop-shadow(0 0 18px rgba(255, 200, 120, 0.85)); } }
