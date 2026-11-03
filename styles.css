@@ -1011,3 +1011,7 @@ body.map-open {
 .story-link { margin-left: auto; margin-right: 0.75rem; color: #ffe08a; font-weight: 700; font-size: 0.95rem; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 .story-link:hover, .story-link:focus-visible { color: #fff; }
 @media (max-width: 760px) { .story-link { font-size: 0.82rem; margin-right: 0.5rem; } }
+
+/* anthem landmark at Fire Horse Plaza */
+.zone-anthem { display: flex; align-items: center; justify-content: center; z-index: 2; }
+.anthem-pin { padding: 0.1rem 0.55rem; border: 2px solid #5a1414; border-radius: 999px; background: #ffcf5a; color: #121833; font-family: Fraunces, Georgia, serif; font-weight: 900; font-size: clamp(0.5rem, 0.95vw, 0.9rem); white-space: nowrap; box-shadow: 0 2px 0 #5a1414, 0 0 12px rgba(255, 140, 40, 0.7); }
