@@ -164,7 +164,8 @@
   var last = null;
   function open(e) { e.preventDefault(); last = document.activeElement; pop.hidden = false; pop.querySelector("input[type=email]").focus(); }
   function close() { if (pop.hidden) return; pop.hidden = true; if (last && last.focus) last.focus(); }
-  document.querySelectorAll("[data-reserve]").forEach(function (b) { b.addEventListener("click", open); });
+  var src = pop.querySelector('input[name="fields[signup_source]"]');
+  document.querySelectorAll("[data-reserve]").forEach(function (b) { b.addEventListener("click", function (e) { if (src) src.value = b.classList.contains("merch-link") ? "balcony" : "tickets"; open(e); }); });
   pop.addEventListener("click", function (e) { if (e.target === pop || e.target.closest(".sheet-close")) close(); });
   document.addEventListener("keydown", function (e) { if (!pop.hidden && e.key === "Escape") close(); });
 })();

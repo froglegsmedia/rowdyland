@@ -94,7 +94,7 @@
         <p class="poster-kicker">Saloon Stage</p>
         <h2 id="ask-request-title">Request an artist</h2>
         <p class="poster-note">Who do you want to see on the Saloon Stage? Send us a howdy with the name and we'll pass it to the booking crew.</p>
-        <form class="signup" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Send my request</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
+        <form class="signup" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="hidden" name="fields[signup_source]" value="artist_request"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Send my request</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
       </div>
     </div>
 
@@ -104,7 +104,7 @@
         <p class="poster-kicker">Saloon Stage</p>
         <h2 id="ask-perform-title">Perform at Rowdyland</h2>
         <p class="poster-note">Got a band, a voice or a fiddle? Send us your name, your music links and where you play, and we'll be in touch.</p>
-        <form class="signup" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Apply to perform</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
+        <form class="signup" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="hidden" name="fields[signup_source]" value="performer"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Apply to perform</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
       </div>
     </div>
 
@@ -114,7 +114,7 @@
         <p class="poster-kicker">Tickets coming soon</p>
         <h2 id="reserve-title">Reserve your ticket</h2>
         <p class="poster-note">Drop your email and you'll be the first to know when tickets go on sale.</p>
-        <form class="signup" onsubmit="var n=this.previousElementSibling;if(n&&n.classList.contains('poster-note'))n.hidden=true" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Reserve my spot</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
+        <form class="signup" onsubmit="var n=this.previousElementSibling;if(n&&n.classList.contains('poster-note'))n.hidden=true" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="hidden" name="fields[signup_source]" value="tickets"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Reserve my spot</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
       </div>
     </div>
 
