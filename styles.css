@@ -1049,3 +1049,9 @@ body.map-open {
 .merch-sign:hover, .merch-sign:focus-visible { outline: none; transform: rotate(0deg) scale(1.04); background: linear-gradient(180deg, #9c6a3e 0%, #7a4c2c 100%); color: #fff; }
 .merch-hat { width: 36px; height: 18px; flex: none; }
 .vista-top .merch-sign { margin-top: 0.7rem; }
+
+/* vista: cover the reserved scrollbar gutter so the page centers on the full window */
+.vista { right: auto; width: 100vw; }
+/* art's focal axis (stage, statue, arch) sits about 1% right of the image center; nudge it back to the page center */
+.vista-art { object-position: 58% 50%; }
+@media (max-width: 760px) { .vista-art { object-position: 51% 50%; } }
