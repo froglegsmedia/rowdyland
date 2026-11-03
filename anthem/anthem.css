@@ -23,7 +23,7 @@ main { position: relative; z-index: 1; }
 h1.arch { margin: 0.2rem auto 0; width: min(94vw, 900px); }
 .arch svg { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 3px 0 rgba(122, 59, 69, 0.65)) drop-shadow(0 0 22px rgba(255, 214, 150, 0.55)); }
 .arch text { font-family: Fraunces, Georgia, serif; fill: url(#gold); stroke: #7a3b45; stroke-width: 2; paint-order: stroke; }
-.a-big { font-size: 128px; font-weight: 900; font-style: italic; letter-spacing: 4px; }
+.a-big { font-size: 118px; font-weight: 900; font-style: italic; letter-spacing: 0; }
 .a-small { font-size: 46px; font-weight: 800; letter-spacing: 22px; }
 .a-mid { font-size: 104px; font-weight: 900; letter-spacing: 18px; }
 .stars path { fill: #ffe0a3; }
