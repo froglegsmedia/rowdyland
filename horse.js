@@ -129,11 +129,17 @@
       setTimeout(run, reduce.matches ? 0 : 450);
     });
   });
-  closeBtn.addEventListener("click", closeMap);
+  function backToVista() {
+    if (!vista) { closeMap(); return; }
+    var f = lastFocus; dlg.hidden = true; vista.hidden = false;
+    requestAnimationFrame(function () { vista.classList.add("in"); });
+    vEnter.focus(); lastFocus = f;
+  }
+  closeBtn.addEventListener("click", backToVista);
   dlg.addEventListener("click", function (e) { if (!sheet.contains(e.target)) closeMap(); });
   document.addEventListener("keydown", function (e) {
     if (dlg.hidden) return;
-    if (e.key === "Escape") { closeMap(); return; }
+    if (e.key === "Escape") { backToVista(); return; }
     if (e.key === "Tab") {
       var f = sheet.querySelectorAll("a[href], button");
       var first = f[0], last = f[f.length - 1];
