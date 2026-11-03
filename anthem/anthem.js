@@ -45,17 +45,15 @@
   lines.forEach(function (l) { r.observe(l); h.observe(l); });
 })();
 
-/* anthem player: same song as Fire Horse Plaza, starts on tap */
+/* anthem heart player: same song as Fire Horse Plaza, starts on tap */
 (function () {
   var a = document.getElementById("anthem-song"), btn = document.getElementById("play-btn"); if (!a || !btn) return;
-  var bar = document.getElementById("pl-bar"), fill = document.getElementById("pl-fill"), tm = document.getElementById("pl-time"), lab = document.getElementById("pl-label");
+  var ring = document.getElementById("h-prog"), tm = document.getElementById("pl-time"), lab = document.getElementById("pl-label");
   function fmt(t) { t = Math.max(0, Math.floor(t || 0)); return Math.floor(t / 60) + ":" + ("0" + (t % 60)).slice(-2); }
-  function ui() { var on = !a.paused; btn.classList.toggle("on", on); btn.setAttribute("aria-pressed", on); btn.setAttribute("aria-label", on ? "Pause the Rowdyland Anthem" : "Play the Rowdyland Anthem"); btn.querySelector(".ic").innerHTML = on ? "&#10074;&#10074;" : "&#9654;"; lab.textContent = on ? "Now playing: The Rowdyland Anthem" : (a.currentTime > 0 ? "Paused" : "Play the anthem"); }
+  function ui() { var on = !a.paused; btn.classList.toggle("on", on); btn.setAttribute("aria-pressed", on); btn.setAttribute("aria-label", on ? "Pause the Rowdyland Anthem" : "Play the Rowdyland Anthem"); lab.textContent = on ? "Now playing" : (a.currentTime > 0 ? "Paused" : "Tap the heart to play"); }
   btn.addEventListener("click", function () { if (a.paused) { var p = a.play(); if (p && p.catch) p.catch(function () {}); } else a.pause(); });
-  a.addEventListener("play", ui); a.addEventListener("pause", ui); a.addEventListener("ended", function () { a.currentTime = 0; ui(); });
-  a.addEventListener("timeupdate", function () { var d = a.duration || 0, pc = d ? a.currentTime / d * 100 : 0; fill.style.width = pc + "%"; bar.setAttribute("aria-valuenow", Math.round(pc)); tm.textContent = fmt(a.currentTime) + (d ? " / " + fmt(d) : ""); });
-  function seek(pc) { if (a.duration) a.currentTime = Math.min(1, Math.max(0, pc)) * a.duration; }
-  bar.addEventListener("click", function (e) { var r = bar.getBoundingClientRect(); seek((e.clientX - r.left) / r.width); });
-  bar.addEventListener("keydown", function (e) { if (!a.duration) return; if (e.key === "ArrowRight") a.currentTime = Math.min(a.duration, a.currentTime + 5); if (e.key === "ArrowLeft") a.currentTime = Math.max(0, a.currentTime - 5); });
+  a.addEventListener("play", ui); a.addEventListener("pause", ui); a.addEventListener("ended", function () { a.currentTime = 0; ring.style.strokeDasharray = "0 100"; ui(); });
+  a.addEventListener("timeupdate", function () { var d = a.duration || 0, pc = d ? a.currentTime / d * 100 : 0; ring.style.strokeDasharray = pc.toFixed(2) + " 100"; tm.textContent = fmt(a.currentTime) + (d ? " / " + fmt(d) : ""); });
+  btn.addEventListener("keydown", function (e) { if (!a.duration) return; if (e.key === "ArrowRight") { a.currentTime = Math.min(a.duration, a.currentTime + 5); e.preventDefault(); } if (e.key === "ArrowLeft") { a.currentTime = Math.max(0, a.currentTime - 5); e.preventDefault(); } });
   document.addEventListener("visibilitychange", function () { if (document.hidden) a.pause(); });
 })();
