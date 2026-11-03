@@ -67,7 +67,7 @@ body {
   background-image:
     radial-gradient(ellipse 130% 95% at 50% 42%, transparent 34%, rgba(10, 5, 3, 0.58) 100%),
     radial-gradient(ellipse 68% 46% at 50% 34%, rgba(255, 196, 128, 0.16), transparent 70%),
-    url("assets/barn-wood.webp");
+    url("assets/home-map.webp?v=hm1");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
