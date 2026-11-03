@@ -1049,13 +1049,3 @@ body.map-open {
 .merch-sign:hover, .merch-sign:focus-visible { outline: none; transform: rotate(0deg) scale(1.04); background: linear-gradient(180deg, #9c6a3e 0%, #7a4c2c 100%); color: #fff; }
 .merch-hat { width: 36px; height: 18px; flex: none; }
 .vista-top .merch-sign { margin-top: 0.7rem; }
-
-/* vista centering: title bar on top, map centered, buttons bar below */
-.vista:not([hidden]) { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
-.vista::before { content: ""; position: absolute; inset: -40px; z-index: 0; background: url("assets/festival-tiltshift.webp?v=fin1") center / cover no-repeat; filter: blur(28px) brightness(0.55); }
-.vista-top, .vista-btns { position: relative; top: auto; bottom: auto; }
-.vista-top { grid-row: 1; padding-top: clamp(0.8rem, 3vh, 1.6rem); padding-bottom: 0.6rem; }
-.vista picture { position: relative; grid-row: 2; inset: auto; z-index: 1; min-height: 0; }
-.vista-art { object-fit: contain; object-position: 50% 50%; }
-.vista-btns { grid-row: 3; padding-top: 0.6rem; padding-bottom: clamp(0.9rem, 3.5vh, 2rem); }
-@media (max-width: 760px) { .vista-art { object-fit: cover; object-position: 50% 50%; } }
