@@ -571,6 +571,8 @@ a:focus-visible,
 html {
   scrollbar-gutter: stable;
 }
+/* home landing: no reserved scrollbar strip, so the barn wood fills edge to edge */
+html:has(body > .stage) { scrollbar-gutter: auto; }
 
 body.map-open {
   overflow: hidden;
