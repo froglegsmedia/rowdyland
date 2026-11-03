@@ -272,3 +272,18 @@
   pan.addEventListener("dragstart", function (e) { e.preventDefault(); });
   window.addEventListener("resize", clamp);
 })();
+
+/* mobile: map buttons sit below the map, centered */
+(function () {
+  var fig = document.querySelector(".map-sheet figure"), frame = fig && fig.querySelector(".map-frame");
+  var ctl = document.querySelector(".map-ctl"), btns = document.querySelector(".head-btns");
+  if (!frame || !ctl || !btns) return;
+  var zoom = ctl.parentNode, head = btns.parentNode, close = head.querySelector(".map-close");
+  var row = document.createElement("div"); row.className = "map-btn-row";
+  var mq = window.matchMedia("(max-width: 760px)");
+  function place() {
+    if (mq.matches) { row.appendChild(ctl); row.appendChild(btns); frame.after(row); }
+    else { zoom.appendChild(ctl); head.insertBefore(btns, close); if (row.parentNode) row.remove(); }
+  }
+  place(); mq.addEventListener ? mq.addEventListener("change", place) : mq.addListener(place);
+})();
