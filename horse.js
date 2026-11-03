@@ -21,7 +21,7 @@
     var f = lastFocus; vista.classList.remove("in"); vista.hidden = true; openMap(); lastFocus = f;
   });
   if (vista) document.addEventListener("keydown", function (e) {
-    if (vista.hidden || e.key !== "Escape" || !document.getElementById("reserve").hidden) return;
+    if (vista.hidden || e.key !== "Escape") return;
     vista.hidden = true; vista.classList.remove("in"); closeMap.call(null, true);
   });
 
@@ -304,17 +304,3 @@
   place(); mq.addEventListener ? mq.addEventListener("change", place) : mq.addListener(place);
 })();
 
-/* ticket reserve popup */
-(function () {
-  var pop = document.getElementById("reserve"); if (!pop) return;
-  var last = null;
-  function close() { if (pop.hidden) return; pop.hidden = true; if (last && last.focus) last.focus(); }
-  document.querySelectorAll("[data-reserve]").forEach(function (b) { b.addEventListener("click", function (e) { e.preventDefault(); last = document.activeElement; pop.hidden = false; pop.querySelector("input[type=email]").focus(); }); });
-  pop.addEventListener("click", function (e) { if (e.target === pop || e.target.closest(".sheet-close")) close(); });
-  document.addEventListener("keydown", function (e) { if (!pop.hidden && e.key === "Escape") { e.stopImmediatePropagation(); close(); } }, true);
-  pop.querySelector(".signup").addEventListener("submit", function (e) {
-    if (!window.fetch || !window.FormData) return; e.preventDefault();
-    var f = e.target, msg = f.querySelector(".signup-msg");
-    fetch(f.action, { method: "POST", body: new FormData(f), headers: { Accept: "application/json" } }).then(function () { msg.textContent = "You're on the list!"; f.reset(); }).catch(function () { f.submit(); });
-  });
-})();
