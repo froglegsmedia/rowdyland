@@ -72,23 +72,19 @@ h1.arch { margin: 0.2rem auto 0; width: min(94vw, 900px); }
 @media (prefers-reduced-motion: reduce) { .ln { transition: color 0.2s; opacity: 1; transform: none; } .big-cta, .scroll-cue { animation: none; } }
 
 /* anthem heart player */
-.heart-player { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; margin: 1.1rem auto 0; }
-.heart-btn { width: 108px; height: 100px; padding: 0; border: 0; background: none; cursor: pointer; filter: drop-shadow(0 6px 0 rgba(90, 30, 20, 0.55)) drop-shadow(0 0 18px rgba(255, 210, 120, 0.55)); transition: transform 0.2s; -webkit-tap-highlight-color: transparent; }
-.heart-btn:hover { transform: scale(1.05); }
-.heart-btn:active { transform: scale(0.96); }
+.heart-player { display: flex; justify-content: center; margin: 1.1rem auto 0; }
+.heart-btn { position: relative; width: clamp(104px, 12vw, 132px); aspect-ratio: 400 / 388; padding: 0; border: 0; background: none; cursor: pointer; filter: drop-shadow(0 6px 10px rgba(70, 25, 15, 0.55)); transition: transform 0.25s, filter 0.4s; -webkit-tap-highlight-color: transparent; }
+.heart-btn:hover { transform: scale(1.04); }
+.heart-btn:active { transform: scale(0.97); }
 .heart-btn:focus { outline: none; }
-.heart-btn:focus-visible svg { filter: drop-shadow(0 0 8px #ffe0a3); }
-.heart-btn svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.h-track { fill: none; stroke: rgba(122, 30, 20, 0.35); stroke-width: 5; }
-.h-prog { fill: none; stroke: #c4231a; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0 100; transition: stroke-dasharray 0.25s linear; }
-.h-body { fill: url(#hg); stroke: #8e1c12; stroke-width: 3; }
-.h-shine { fill: url(#hs); }
-.h-play path, .h-pause rect { fill: #a3170f; stroke: #5a0e08; stroke-width: 1.5; }
-.h-pause { display: none; }
-.heart-btn.on .h-play { display: none; }
-.heart-btn.on .h-pause { display: inline; }
-.heart-btn.on { animation: beat 1.6s ease-in-out infinite; }
-@keyframes beat { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.07); } 24% { transform: scale(1); } 36% { transform: scale(1.05); } }
-.pl-label { font-weight: 800; font-style: italic; font-size: 0.95rem; color: var(--pearl); text-shadow: 0 2px 6px rgba(70, 30, 45, 0.7); }
-.pl-time { font-size: 0.8rem; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; text-shadow: 0 1px 4px rgba(70, 30, 45, 0.7); }
+.heart-btn:focus-visible { filter: drop-shadow(0 0 10px #ffe0a3) drop-shadow(0 6px 10px rgba(70, 25, 15, 0.55)); }
+.heart-art { display: block; width: 100%; height: auto; pointer-events: none; }
+.heart-mark { position: absolute; left: 50%; bottom: 2%; width: 26px; height: 26px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f6d88a, #b9852c 60%, #7a5216); border: 1.5px solid #5a1a0e; box-shadow: 0 2px 4px rgba(40, 15, 8, 0.6), inset 0 1px 1px rgba(255, 240, 200, 0.6); display: grid; place-items: center; }
+.heart-mark svg { width: 14px; height: 14px; }
+.heart-mark path, .heart-mark rect { fill: #6e140c; }
+.m-pause { display: none; }
+.heart-btn.on .m-play { display: none; }
+.heart-btn.on .m-pause { display: inline; }
+.heart-btn.on { animation: beat 1.8s ease-in-out infinite; filter: drop-shadow(0 0 16px rgba(255, 196, 110, 0.75)) drop-shadow(0 6px 10px rgba(70, 25, 15, 0.55)); }
+@keyframes beat { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.05); } 24% { transform: scale(1); } 36% { transform: scale(1.03); } }
 @media (prefers-reduced-motion: reduce) { .heart-btn.on { animation: none; } }

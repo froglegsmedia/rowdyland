@@ -48,12 +48,9 @@
 /* anthem heart player: same song as Fire Horse Plaza, starts on tap */
 (function () {
   var a = document.getElementById("anthem-song"), btn = document.getElementById("play-btn"); if (!a || !btn) return;
-  var ring = document.getElementById("h-prog"), tm = document.getElementById("pl-time"), lab = document.getElementById("pl-label");
-  function fmt(t) { t = Math.max(0, Math.floor(t || 0)); return Math.floor(t / 60) + ":" + ("0" + (t % 60)).slice(-2); }
-  function ui() { var on = !a.paused; btn.classList.toggle("on", on); btn.setAttribute("aria-pressed", on); btn.setAttribute("aria-label", on ? "Pause the Rowdyland Anthem" : "Play the Rowdyland Anthem"); lab.textContent = on ? "Now playing" : (a.currentTime > 0 ? "Paused" : "Tap the heart to play"); }
+  function ui() { var on = !a.paused; btn.classList.toggle("on", on); btn.setAttribute("aria-pressed", on); btn.setAttribute("aria-label", on ? "Pause the Rowdyland Anthem" : "Play the Rowdyland Anthem"); }
   btn.addEventListener("click", function () { if (a.paused) { var p = a.play(); if (p && p.catch) p.catch(function () {}); } else a.pause(); });
-  a.addEventListener("play", ui); a.addEventListener("pause", ui); a.addEventListener("ended", function () { a.currentTime = 0; ring.style.strokeDasharray = "0 100"; ui(); });
-  a.addEventListener("timeupdate", function () { var d = a.duration || 0, pc = d ? a.currentTime / d * 100 : 0; ring.style.strokeDasharray = pc.toFixed(2) + " 100"; tm.textContent = fmt(a.currentTime) + (d ? " / " + fmt(d) : ""); });
+  a.addEventListener("play", ui); a.addEventListener("pause", ui); a.addEventListener("ended", function () { a.currentTime = 0; ui(); });
   btn.addEventListener("keydown", function (e) { if (!a.duration) return; if (e.key === "ArrowRight") { a.currentTime = Math.min(a.duration, a.currentTime + 5); e.preventDefault(); } if (e.key === "ArrowLeft") { a.currentTime = Math.max(0, a.currentTime - 5); e.preventDefault(); } });
   document.addEventListener("visibilitychange", function () { if (document.hidden) a.pause(); });
 })();
