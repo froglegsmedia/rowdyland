@@ -9,6 +9,22 @@
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
   var lastFocus = null;
 
+  var vista = document.getElementById("vista"), vEnter = document.getElementById("vista-enter");
+  function showVista() {
+    if (!vista) { openMap(); return; }
+    lastFocus = document.activeElement;
+    vista.hidden = false; document.body.classList.add("map-open");
+    requestAnimationFrame(function () { vista.classList.add("in"); });
+    vEnter.focus();
+  }
+  if (vEnter) vEnter.addEventListener("click", function () {
+    var f = lastFocus; vista.classList.remove("in"); vista.hidden = true; openMap(); lastFocus = f;
+  });
+  if (vista) document.addEventListener("keydown", function (e) {
+    if (vista.hidden || e.key !== "Escape" || !document.getElementById("reserve").hidden) return;
+    vista.hidden = true; vista.classList.remove("in"); closeMap.call(null, true);
+  });
+
   function openMap() {
     lastFocus = document.activeElement;
     dlg.hidden = false;
@@ -16,8 +32,8 @@
     closeBtn.focus();
   }
 
-  function closeMap() {
-    if (dlg.hidden) return;
+  function closeMap(force) {
+    if (dlg.hidden && force !== true) return;
     dlg.hidden = true;
     document.body.classList.remove("map-open");
     track.classList.remove("is-gone");
@@ -43,7 +59,7 @@
     if (busy) return;
     busy = true;
     if (song && !song.paused) song.pause();
-    if (reduce.matches) { openMap(); return; }
+    if (reduce.matches) { showVista(); return; }
     track.classList.add("is-rearing");
     setTimeout(function () {
       track.classList.remove("is-rearing");
@@ -58,7 +74,7 @@
       var timer = setInterval(function () {
         var b = btn.getBoundingClientRect();
         puff(b.left + b.width * 0.25, b.bottom - 8);
-        if (!shown && b.left > window.innerWidth * 0.92) { shown = true; openMap(); }
+        if (!shown && b.left > window.innerWidth * 0.92) { shown = true; showVista(); }
       }, 90);
       setTimeout(function () {
         clearInterval(timer);
@@ -66,7 +82,7 @@
         btn.style.top = "";
         track.classList.remove("is-galloping");
         track.classList.add("is-gone");
-        if (!shown) openMap();
+        if (!shown) showVista();
       }, 1600);
     }, 750);
   }
@@ -286,4 +302,19 @@
     else { zoom.appendChild(ctl); head.insertBefore(btns, close); if (row.parentNode) row.remove(); }
   }
   place(); mq.addEventListener ? mq.addEventListener("change", place) : mq.addListener(place);
+})();
+
+/* ticket reserve popup */
+(function () {
+  var pop = document.getElementById("reserve"); if (!pop) return;
+  var last = null;
+  function close() { if (pop.hidden) return; pop.hidden = true; if (last && last.focus) last.focus(); }
+  document.querySelectorAll("[data-reserve]").forEach(function (b) { b.addEventListener("click", function (e) { e.preventDefault(); last = document.activeElement; pop.hidden = false; pop.querySelector("input[type=email]").focus(); }); });
+  pop.addEventListener("click", function (e) { if (e.target === pop || e.target.closest(".sheet-close")) close(); });
+  document.addEventListener("keydown", function (e) { if (!pop.hidden && e.key === "Escape") { e.stopImmediatePropagation(); close(); } }, true);
+  pop.querySelector(".signup").addEventListener("submit", function (e) {
+    if (!window.fetch || !window.FormData) return; e.preventDefault();
+    var f = e.target, msg = f.querySelector(".signup-msg");
+    fetch(f.action, { method: "POST", body: new FormData(f), headers: { Accept: "application/json" } }).then(function () { msg.textContent = "You're on the list!"; f.reset(); }).catch(function () { f.submit(); });
+  });
 })();

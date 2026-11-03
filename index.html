@@ -31,7 +31,7 @@
     <link rel="preload" href="assets/barn-wood.webp" as="image" type="image/webp">
     <link rel="preload" href="fonts/Fraunces-Italic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=mbtn1">
+    <link rel="stylesheet" href="styles.css?v=vista1">
     <link rel="stylesheet" href="intro.css?v=intro2">
     <script src="intro.js?v=intro2"></script>
   </head>
@@ -87,6 +87,22 @@
       </div>
     </section>
 
+    <div class="vista" id="vista" role="dialog" aria-modal="true" aria-labelledby="vista-title" hidden>
+      <picture><source srcset="assets/festival-tiltshift.webp?v=1" type="image/webp"><img class="vista-art" src="assets/festival-tiltshift.jpg?v=1" width="1280" height="720" alt="Bird's eye view of the Rowdyland festival grounds at golden hour, with the Main Stage, the gold Rowdy statue in Fire Horse Plaza, Frogville, Pony Palace, the Rowdies night club, Chuckwagon Row and the Welcome Plaza sign." decoding="async"></picture>
+      <div class="vista-top"><p class="vista-kicker">The view from the ridge</p><h2 id="vista-title">Welcome to Rowdyland</h2></div>
+      <div class="vista-btns"><button type="button" class="vista-enter" id="vista-enter">Enter the map</button><a class="vista-tix" href="#reserve" data-reserve>Get your tickets now!</a></div>
+    </div>
+
+    <div class="sheet-wrap" id="reserve" role="dialog" aria-modal="true" aria-labelledby="reserve-title" hidden>
+      <div class="poster reserve-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Rowdyland</p>
+        <h2 id="reserve-title">Reserve your ticket</h2>
+        <p class="poster-note">Drop your email and you'll be the first to know when tickets go on sale.</p>
+        <form class="signup" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Reserve</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
+      </div>
+    </div>
+
     <div class="map-overlay" id="map-dialog" role="dialog" aria-modal="true" aria-labelledby="map-dialog-title" hidden>
       <div class="map-sheet">
         <div class="sheet-head">
@@ -127,7 +143,7 @@
       </div>
     </div>
 
-    <script src="horse.js?v=mbtn1" defer></script>
+    <script src="horse.js?v=vista1" defer></script>
     <script src="tipfit.js?v=tip1" defer></script>
 
     <footer>
