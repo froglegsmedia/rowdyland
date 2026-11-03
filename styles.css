@@ -319,10 +319,15 @@ a:focus-visible,
   -webkit-tap-highlight-color: transparent;
 }
 
-.horse-btn:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 4px;
+.horse-btn,
+.horse-btn:focus,
+.horse-btn:focus-visible,
+.horse-btn:active {
+  outline: none;
+  border: 0;
+  box-shadow: none;
 }
+.horse-btn:focus-visible .horse { filter: drop-shadow(0 0 10px rgba(255, 224, 138, 0.85)); }
 
 .horse {
   display: block;
