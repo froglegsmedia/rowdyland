@@ -206,3 +206,14 @@
   pop.addEventListener("click", function (e) { if (e.target === pop || e.target.closest(".sheet-close")) close(); });
   document.addEventListener("keydown", function (e) { if (!pop.hidden && e.key === "Escape") close(); });
 })();
+
+/* jam submission popup */
+(function () {
+  var pop = document.getElementById("jampop"); if (!pop) return;
+  var last = null;
+  function open(e) { e.preventDefault(); last = document.activeElement; pop.hidden = false; pop.querySelector(".sheet-close").focus(); }
+  function close() { if (pop.hidden) return; pop.hidden = true; if (last && last.focus) last.focus(); }
+  document.querySelectorAll("[data-jampop]").forEach(function (b) { b.addEventListener("click", open); });
+  pop.addEventListener("click", function (e) { if (e.target === pop || e.target.closest(".sheet-close")) close(); });
+  document.addEventListener("keydown", function (e) { if (!pop.hidden && e.key === "Escape") close(); });
+})();

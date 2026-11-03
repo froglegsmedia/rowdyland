@@ -73,7 +73,7 @@
       </section>
 
       <section class="panel lineup" id="lineup">
-        <a class="big-cta jam-pill" href="mailto:howdy@rowdyhop.com?subject=I%20want%20to%20jam%20at%20Rowdyland">Want to jam at Rowdyland?<span class="jam-sub">We're curating the jammers. All improv.</span></a>
+        <a class="big-cta jam-pill" href="#jampop" data-jampop aria-haspopup="dialog">Want to jam at Rowdyland?</a>
         <p class="lineup-link"><button type="button" class="big-cta small lineup-open" aria-haspopup="dialog">See the lineup</button></p>
 
 
@@ -144,6 +144,16 @@
       </div>
     </div>
 
-    <script src="jam-tent.js?v=7" defer></script>
+    <div class="sheet-wrap" id="jampop" role="dialog" aria-modal="true" aria-labelledby="jampop-title" hidden>
+      <div class="poster reserve-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Rowdies house band</p>
+        <h2 id="jampop-title">Want to jam?</h2>
+        <p class="poster-note">We're curating jammers. Submit a video of you jamming to be considered for the house band. You'll never know who you're paired with, and you have to improv.</p>
+        <a class="big-cta small" href="mailto:howdy@rowdyhop.com?subject=Rowdies%20house%20band%20submission">Submit your video</a>
+      </div>
+    </div>
+
+    <script src="jam-tent.js?v=jp1-7" defer></script>
   </body>
 </html>
