@@ -31,7 +31,7 @@
     <link rel="preload" href="assets/barn-wood.webp" as="image" type="image/webp">
     <link rel="preload" href="fonts/Fraunces-Italic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=anthem1">
+    <link rel="stylesheet" href="styles.css?v=anthem4">
     <link rel="stylesheet" href="intro.css?v=intro2">
     <script src="intro.js?v=intro2"></script>
   </head>
@@ -91,20 +91,19 @@
       <div class="map-sheet">
         <div class="sheet-head">
           <h2 id="map-dialog-title" class="soon">The Map</h2>
-          <a class="story-link" href="rowdys-story/">Read Rowdy's Story &#8594;</a>
+          <div class="head-btns"><a class="head-btn" href="rowdys-story/">Read Rowdy's Story</a><a class="head-btn" href="anthem/">The Rowdyland Anthem</a></div>
           <button type="button" class="map-close" aria-label="Close map">&#215;</button>
         </div>
         <figure>
         <div class="map-frame"><div class="map-zoom"><div class="map-pan">
-          <picture><source srcset="assets/rowdyland-map.webp?v=legend10" type="image/webp"><img id="mapimg" src="assets/rowdyland-map.jpg?v=legend10" width="1600" height="1067" decoding="async" loading="eager" alt="Illustrated concept map of the Rowdyland festival grounds, showing the Main Stage, the Saloon Stage in the bottom right corner, The Stables horse area in the top left corner, Pony Palace, camping, and the fire ritual grounds."></picture>
+          <picture><source srcset="assets/rowdyland-map.webp?v=legend11" type="image/webp"><img id="mapimg" src="assets/rowdyland-map.jpg?v=legend11" width="1600" height="1067" decoding="async" loading="eager" alt="Illustrated concept map of the Rowdyland festival grounds, showing the Main Stage, the Saloon Stage in the bottom right corner, The Stables horse area in the top left corner, Pony Palace, camping, and the fire ritual grounds."></picture>
             <a class="zone zone-live" href="frogville/" data-zone="frogville" style="left:47.6%;top:26.4%;width:15.4%;height:27.8%"><span class="zone-tip">Frogville: step inside!</span><span class="sr-only">Enter Frogville</span></a>
             <a class="zone zone-live" href="stables/" data-zone="stables" style="left:15.3%;top:5.4%;width:9.1%;height:13.4%"><span class="zone-tip">The Stables: saddle up!</span><span class="sr-only">Enter The Stables</span></a>
             <a class="zone zone-live" href="main-stage/" data-zone="main-stage" style="left:31.7%;top:4.5%;width:14.2%;height:8%"><span class="zone-tip">Main Stage: get up front!</span><span class="sr-only">Enter the Main Stage</span></a>
             <a class="zone zone-live zone-round" href="jam-tent/" data-zone="jam-tent-top" style="left:54.1%;top:6.7%;width:8.5%;height:12.7%" tabindex="-1" aria-hidden="true"></a>
-            <a class="zone zone-live" href="jam-tent/" data-zone="jam-tent" style="left:54.4%;top:17.6%;width:7.8%;height:8%"><span class="zone-tip">Jam Tent: come on in!</span><span class="sr-only">Enter the Jam Tent</span></a>
+            <a class="zone zone-live" href="jam-tent/" data-zone="jam-tent" style="left:54.4%;top:17.6%;width:7.8%;height:8%"><span class="zone-tip">Rowdies: come on in!</span><span class="sr-only">Enter Rowdies</span></a>
             <a class="zone zone-live" href="pony-palace/" data-zone="pony-palace" style="left:15.4%;top:26.4%;width:14.4%;height:29%"><span class="zone-tip">Pony Palace: step inside!</span><span class="sr-only">Enter Pony Palace</span></a>
             <a class="zone zone-live" href="fire-horse-plaza/" data-zone="fire-horse" style="left:32.2%;top:30%;width:13.2%;height:25%"><span class="zone-tip">Fire Horse Plaza: gather round!</span><span class="sr-only">Enter Fire Horse Plaza</span></a>
-            <a class="zone zone-live zone-anthem" href="anthem/" data-zone="anthem" style="left:34.3%;top:47.3%;width:9%;height:3.6%"><span class="anthem-pin" aria-hidden="true">&#9835; Anthem</span><span class="zone-tip">The Rowdyland Anthem: sing along!</span><span class="sr-only">Open the Rowdyland Anthem lyrics</span></a>
             <a class="zone zone-live" href="carnival/" data-zone="carnival" style="left:15.6%;top:55%;width:14.2%;height:17.5%"><span class="zone-tip">The Carnival: step right up!</span><span class="sr-only">Enter the Carnival</span></a>
             <a class="zone zone-live" href="merch/" data-zone="merch" style="left:30.8%;top:62.5%;width:6.9%;height:6.3%"><span class="zone-tip">Merch Booth: shop the gear!</span><span class="sr-only">Visit the Merch Booth</span></a>
             <a class="zone zone-live" href="movie-theater/" data-zone="movie-theater" style="left:39.9%;top:62.6%;width:6.7%;height:6%"><span class="zone-tip">The Picture Show: classics 24/7!</span><span class="sr-only">Enter the Picture Show movie theater</span></a>
@@ -129,10 +128,11 @@
     </div>
 
     <script src="horse.js?v=mzoom1" defer></script>
+    <script src="tipfit.js?v=tip1" defer></script>
 
     <footer>
       <p>© 2026 ROWDYLAND™</p>
     </footer>
-  <script>(function(){function hd(){var i=document.getElementById('mapimg');if(!i)return;var w=document.createElement('canvas').toDataURL('image/webp').indexOf('image/webp')>0;var u='assets/rowdyland-map-hd.'+(w?'webp':'jpg')+'?v=hd5';var n=new Image();n.onload=function(){var s=i.parentNode.querySelector('source');if(s)s.srcset=u;i.src=u;};n.src=u;}if(document.readyState==='complete')setTimeout(hd,300);else addEventListener('load',function(){setTimeout(hd,300)});})();</script>
+  <script>(function(){function hd(){var i=document.getElementById('mapimg');if(!i)return;var w=document.createElement('canvas').toDataURL('image/webp').indexOf('image/webp')>0;var u='assets/rowdyland-map-hd.'+(w?'webp':'jpg')+'?v=hd6';var n=new Image();n.onload=function(){var s=i.parentNode.querySelector('source');if(s)s.srcset=u;i.src=u;};n.src=u;}if(document.readyState==='complete')setTimeout(hd,300);else addEventListener('load',function(){setTimeout(hd,300)});})();</script>
 </body>
 </html>

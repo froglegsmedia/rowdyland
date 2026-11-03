@@ -43,8 +43,4 @@
   var r = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) e.target.classList.add("seen"); }); }, { rootMargin: "0px 0px -12% 0px" });
   var h = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle("hot", e.isIntersecting); }); }, { rootMargin: "-40% 0px -40% 0px" });
   lines.forEach(function (l) { r.observe(l); h.observe(l); });
-  var box = document.querySelector(".embers");
-  if (box && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    for (var k = 0; k < 26; k++) { var s = document.createElement("i"); s.style.left = Math.random() * 100 + "%"; s.style.setProperty("--d", 6 + Math.random() * 8 + "s"); s.style.setProperty("--delay", -Math.random() * 12 + "s"); box.appendChild(s); }
-  }
 })();

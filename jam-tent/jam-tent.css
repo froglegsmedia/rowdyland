@@ -221,3 +221,12 @@ body.night .gl { background: #9fc0ff; box-shadow: 0 0 10px 4px rgba(80, 120, 255
   .feature .card { order: 0; }
   .feature .art-tall { padding-top: 0; }
 }
+
+/* rowdies manifesto */
+.manifesto { display: flex; justify-content: center; }
+.manifesto .card { max-width: 40rem; text-align: center; }
+/* rowdies neon script logo */
+@font-face { font-family: "Yellowtail"; src: url("../fonts/Yellowtail.woff2") format("woff2"); font-display: swap; }
+h1 span.neon { font-family: Yellowtail, "Brush Script MT", cursive; font-style: italic; font-weight: 400; font-size: 1.45em; line-height: 1.05; padding: 0 0.15em; color: #ffd6f0; -webkit-text-stroke: 0; text-shadow: 0 0 4px #fff, 0 0 10px #ff4fb8, 0 0 22px #ff2aa8, 0 0 42px #ff2aa8, 0 0 70px rgba(255, 42, 168, 0.7); animation: neon-hum 5s ease-in-out infinite; }
+@keyframes neon-hum { 0%, 100% { opacity: 1; } 47% { opacity: 1; } 48% { opacity: 0.8; } 49% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { h1 span.neon { animation: none; } }
