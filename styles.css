@@ -1020,7 +1020,7 @@ body.map-open {
 @media (max-width: 760px) { .story-link { font-size: 0.82rem; margin-right: 0.5rem; } }
 
 /* map header buttons */
-.head-btns { margin-left: auto; margin-right: 0.75rem; display: flex; gap: 0.5rem; }
+.head-btns { margin-left: auto; margin-right: 0.75rem; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; }
 .head-btn { display: inline-block; padding: 0.4rem 0.95rem; border: 2px solid #e2b445; border-radius: 999px; background: #7a1f12; color: #ffe08a; font-family: Fraunces, Georgia, serif; font-weight: 800; font-size: 0.92rem; text-decoration: none; white-space: nowrap; box-shadow: 0 2px 0 #3c2216; }
 .head-btn:hover, .head-btn:focus-visible { outline: none; background: #9c2a17; color: #fff; }
 .map-btn-row { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; margin-top: 0.75rem; }
