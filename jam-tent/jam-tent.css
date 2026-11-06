@@ -231,3 +231,6 @@ h1 span.neon { font-family: "Mr Dafoe", "Brush Script MT", cursive; font-style: 
 @keyframes neon-hum { 0%, 100% { opacity: 1; } 47% { opacity: 1; } 48% { opacity: 0.8; } 49% { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { h1 span.neon { animation: none; } }
 .manifesto .card { opacity: 1; transform: none; rotate: 0deg; }
+
+.manifesto.shed { padding-top: 0; }
+.manifesto.shed .card { margin-top: -0.5rem; }

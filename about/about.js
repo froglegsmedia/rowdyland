@@ -29,10 +29,10 @@
   document.addEventListener("keydown", function (e) { if (!pop.hidden && e.key === "Escape") close(); });
 })();
 
-/* story-v3: cross-fade painted sky by chapter */
+/* cross-fade painted sky by chapter */
 (function () {
   var sky = document.querySelector(".sky"); if (!sky) return;
-  var M = { meaning: "dawn", rowdy: "dusk", ceremony: "fire", renewal: "gold", rowdies: "night" };
+  var M = { mission: "dawn", started: "dusk", renewal: "fire" };
   function set(k) { sky.querySelectorAll(".l").forEach(function (l) { l.classList.toggle("on", l.classList.contains(k) || (l.classList.contains("stars") && (k === "dusk" || k === "night"))); }); }
   set("dawn");
   if (!("IntersectionObserver" in window)) return;
