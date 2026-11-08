@@ -1042,8 +1042,7 @@ body.map-open {
 }
 
 .rowdies-name,
-.church-place svg,
-.legend-fix svg {
+.church-place svg {
   display: block;
   width: 100%;
   height: 100%;
@@ -1060,33 +1059,6 @@ body.map-open {
     drop-shadow(0 0 8px #ff2aa8);
 }
 
-.old-sign-cover,
-.map-patch {
-  position: absolute;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.old-sign-cover {
-  background: #f5e8c8;
-  border-radius: 8px;
-}
-
-.map-patch svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.map-patch.grass-clone {
-  overflow: hidden;
-}
-
-.map-patch.grass-clone img {
-  position: absolute;
-  max-width: none;
-}
-
 .church-place {
   z-index: 4;
   padding: 0;
@@ -1099,13 +1071,6 @@ body.map-open {
 .church-place:focus-visible {
   background: transparent;
   filter: drop-shadow(0 0 6px rgba(255, 248, 230, 0.9));
-}
-
-/* covers the painted "Jam Tent" line; the circle tent is Rowdies */
-.legend-fix {
-  position: absolute;
-  z-index: 3;
-  pointer-events: none;
 }
 
 .zone-round { border-radius: 50%; }
