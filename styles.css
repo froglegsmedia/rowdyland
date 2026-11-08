@@ -560,6 +560,37 @@ a:focus-visible,
   color: var(--ink-dim);
 }
 
+.church-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  max-width: 40rem;
+  margin: 0.55rem auto 0;
+  font-style: normal;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: var(--ink);
+  text-align: left;
+}
+
+.church-legend > span {
+  min-width: 0;
+}
+
+.church-legend b {
+  color: var(--brass);
+}
+
+.church-swatch {
+  flex: 0 0 auto;
+  width: 1.35rem;
+  height: 1.35rem;
+  border: 1px solid #e2b445;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(60, 34, 22, 0.25);
+}
+
 .map-sheet figcaption a {
   margin-left: 0.4em;
   color: var(--brass);
@@ -975,6 +1006,27 @@ body.map-open {
 }
 
 /* jam tent: tent top and label highlight together */
+.zone-church {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.35));
+}
+
+.zone-church:hover,
+.zone-church:focus-visible {
+  background: transparent;
+  filter: drop-shadow(0 0 6px rgba(255, 248, 230, 0.85));
+}
+
+.church-sign {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
 .zone-round { border-radius: 50%; }
 .map-zoom:has([data-zone^="jam-tent"]:hover) [data-zone^="jam-tent"],
 .map-zoom:has([data-zone^="jam-tent"]:focus-visible) [data-zone^="jam-tent"] { outline: none; background: rgba(255, 248, 230, 0.22); box-shadow: 0 0 18px 4px rgba(255, 248, 230, 0.45); }

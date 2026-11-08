@@ -219,6 +219,32 @@
   });
 })();
 
+/* Fixer Upper Church: same poster treatment as the other "details coming" spot */
+(function () {
+  var pop = document.getElementById("church"); if (!pop) return;
+  var last = null;
+  function open(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    last = document.activeElement;
+    if (last && last.classList) last.classList.remove("show-tip");
+    pop.hidden = false;
+    pop.querySelector(".sheet-close").focus();
+  }
+  function close() { if (pop.hidden) return; pop.hidden = true; if (last && last.focus) last.focus(); }
+  document.querySelectorAll("[data-church]").forEach(function (b) { b.addEventListener("click", open); });
+  pop.addEventListener("click", function (e) { if (e.target === pop || e.target.closest(".sheet-close")) close(); });
+  document.addEventListener("keydown", function (e) {
+    if (pop.hidden) return;
+    e.stopImmediatePropagation();
+    if (e.key === "Escape") { close(); return; }
+    if (e.key === "Tab") {
+      var btn = pop.querySelector(".sheet-close");
+      if (document.activeElement !== btn) { e.preventDefault(); btn.focus(); }
+    }
+  }, true);
+})();
+
 /* map pinch / wheel zoom + drag pan */
 (function () {
   var box = document.querySelector(".map-zoom"), pan = box && box.querySelector(".map-pan");
