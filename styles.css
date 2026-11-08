@@ -1025,7 +1025,7 @@ body.map-open {
   .note { display: none; }
 }
 
-/* the circle tent and the plaque under it are one place: Rowdies */
+/* circle tent is Rowdies; the building under it is Fixer Upper Church */
 .zone[data-zone="rowdies"] {
   display: flex;
   align-items: center;
@@ -1033,7 +1033,7 @@ body.map-open {
 }
 
 .rowdies-name,
-.church-badge svg,
+.church-place svg,
 .legend-fix svg {
   display: block;
   width: 100%;
@@ -1049,21 +1049,18 @@ body.map-open {
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.55));
 }
 
-.church-badge {
-  position: absolute;
+.church-place {
   z-index: 4;
-  margin: 0;
   padding: 0;
   border: 0;
   background: transparent;
-  cursor: pointer;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+  overflow: visible;
 }
 
-.church-badge:hover,
-.church-badge:focus-visible {
-  outline: none;
-  filter: drop-shadow(0 0 4px rgba(255, 248, 230, 0.95));
+.church-place:hover,
+.church-place:focus-visible {
+  background: transparent;
+  filter: drop-shadow(0 0 6px rgba(255, 248, 230, 0.9));
 }
 
 /* covers the painted "Jam Tent" line; the circle tent is Rowdies */
@@ -1074,10 +1071,8 @@ body.map-open {
 }
 
 .zone-round { border-radius: 50%; }
-.map-zoom:has([data-zone^="rowdies"]:hover) [data-zone^="rowdies"],
-.map-zoom:has([data-zone^="rowdies"]:focus-visible) [data-zone^="rowdies"] { outline: none; background: rgba(255, 248, 230, 0.22); box-shadow: 0 0 18px 4px rgba(255, 248, 230, 0.45); }
-.map-zoom:has([data-zone="rowdies-sign"]:hover) [data-zone="rowdies"] .zone-tip,
-.map-zoom:has([data-zone="rowdies"]:hover) [data-zone="rowdies-sign"] .zone-tip { opacity: 1; }
+.map-zoom:has([data-zone="rowdies"]:hover) [data-zone="rowdies"],
+.map-zoom:has([data-zone="rowdies"]:focus-visible) [data-zone="rowdies"] { outline: none; background: rgba(255, 248, 230, 0.22); box-shadow: 0 0 18px 4px rgba(255, 248, 230, 0.45); }
 
 /* Chuckwagon Row popup (matches the Reserve your ticket popup) */
 .sheet-wrap { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 1rem; background: rgba(5, 8, 12, 0.72); }
@@ -1087,7 +1082,15 @@ body.map-open {
 @keyframes poster-in { from { opacity: 0; transform: translateY(40px) rotate(-4deg) scale(0.9); } to { opacity: 1; transform: none; } }
 .poster h2 { margin: 0.6rem 0 0.9rem; font-size: clamp(1.8rem, 6vw, 2.6rem); text-transform: uppercase; color: #a3121b; letter-spacing: 0.03em; line-height: 1; }
 .poster-kicker { margin: 0; font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 800; }
-.poster-note { margin: 0 0 1.4rem; font-style: italic; font-size: 0.95rem; }
+.poster-note { margin: 0 0 1.2rem; font-style: italic; font-size: 0.98rem; }
+.poster-schedule { margin: 0.2rem 0 0.7rem; font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; color: #7a1f12; }
+.gatherings { list-style: none; margin: 0 auto 0.9rem; padding: 0.15rem 0.9rem; max-width: 26rem; border: 2px solid #e2b445; border-radius: 8px; background: #fff8ea; text-align: left; }
+.gatherings li { display: flex; justify-content: space-between; gap: 0.8rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(226, 180, 69, 0.55); font-style: normal; font-size: 0.95rem; }
+.gatherings li:last-child { border-bottom: 0; }
+.gatherings b { font-weight: 800; }
+.gatherings span { color: #5c3b28; text-align: right; }
+.poster-soon { margin: 0; font-weight: 800; color: #7a1f12; }
+@media (max-width: 480px) { .gatherings li { flex-direction: column; gap: 0.15rem; } .gatherings span { text-align: left; } }
 .sheet-close { position: absolute; top: 1.1rem; right: 1.1rem; z-index: 1; width: 40px; height: 40px; border: 2px solid #1d120c; border-radius: 50%; background: #fcd11a; color: #1d120c; font-size: 1.5rem; line-height: 1; cursor: pointer; }
 .reserve-poster { padding: 3.2rem 3.4rem 4.2rem; }
 .poster .big-cta { display: inline-block; border-radius: 999px; background: #fcd11a; color: #3c2216; border: 4px solid #3c2216; font-weight: 900; font-size: clamp(1.05rem, 4.5vw, 1.4rem); padding: 0.8rem 1.6rem; box-shadow: 0 8px 0 #3c2216, 0 18px 30px rgba(0, 0, 0, 0.5); cursor: pointer; font-family: inherit; flex: 0 0 auto; }
