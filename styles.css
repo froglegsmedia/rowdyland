@@ -1020,14 +1020,19 @@ body.map-open {
   box-shadow: 0 0 16px 3px rgba(255, 79, 184, 0.55);
 }
 .rowdies-name {
-  width: 86%;
-  height: 42%;
+  width: 92%;
+  height: 68%;
   overflow: visible;
   pointer-events: none;
+}
+.rowdies-word {
   filter:
     drop-shadow(0 0 1px #fff6fc)
     drop-shadow(0 0 3px #ff4fb8)
     drop-shadow(0 0 8px #ff2aa8);
+}
+.rowdies-sub {
+  filter: drop-shadow(0 1px 0 #4a1218) drop-shadow(0 0 2px rgba(40, 8, 12, 0.85));
 }
 .church-place {
   z-index: 4;
