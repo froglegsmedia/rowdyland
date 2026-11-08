@@ -15,6 +15,14 @@ html { overflow-x: clip; }
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Mr Dafoe";
+  src: url("fonts/MrDafoe.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --ink: #f6efe4;
   --ink-dim: #eadccb;
@@ -560,18 +568,30 @@ a:focus-visible,
   color: var(--ink-dim);
 }
 
-.church-legend {
+button.church-legend {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
+  width: min(100%, 40rem);
   max-width: 40rem;
   margin: 0.55rem auto 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
   font-style: normal;
   font-size: 0.92rem;
   line-height: 1.35;
   color: var(--ink);
   text-align: left;
+}
+
+button.church-legend:hover,
+button.church-legend:focus-visible {
+  color: #fff;
+  outline: none;
 }
 
 .church-legend > span {
@@ -1005,32 +1025,59 @@ body.map-open {
   .note { display: none; }
 }
 
-/* jam tent: tent top and label highlight together */
-.zone-church {
-  padding: 0;
-  border: 0;
-  background: transparent;
-  overflow: visible;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.35));
+/* the circle tent and the plaque under it are one place: Rowdies */
+.zone[data-zone="rowdies"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.zone-church:hover,
-.zone-church:focus-visible {
-  background: transparent;
-  filter: drop-shadow(0 0 6px rgba(255, 248, 230, 0.85));
-}
-
-.church-sign {
+.rowdies-name,
+.church-badge svg,
+.legend-fix svg {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.rowdies-name {
+  width: 86%;
+  height: 34%;
+  margin-top: -8%;
   overflow: visible;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.55));
+}
+
+.church-badge {
+  position: absolute;
+  z-index: 4;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+}
+
+.church-badge:hover,
+.church-badge:focus-visible {
+  outline: none;
+  filter: drop-shadow(0 0 4px rgba(255, 248, 230, 0.95));
+}
+
+/* covers the painted "Jam Tent" line; the circle tent is Rowdies */
+.legend-fix {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
 }
 
 .zone-round { border-radius: 50%; }
-.map-zoom:has([data-zone^="jam-tent"]:hover) [data-zone^="jam-tent"],
-.map-zoom:has([data-zone^="jam-tent"]:focus-visible) [data-zone^="jam-tent"] { outline: none; background: rgba(255, 248, 230, 0.22); box-shadow: 0 0 18px 4px rgba(255, 248, 230, 0.45); }
-.map-zoom:has([data-zone="jam-tent-top"]:hover) [data-zone="jam-tent"] .zone-tip { opacity: 1; }
+.map-zoom:has([data-zone^="rowdies"]:hover) [data-zone^="rowdies"],
+.map-zoom:has([data-zone^="rowdies"]:focus-visible) [data-zone^="rowdies"] { outline: none; background: rgba(255, 248, 230, 0.22); box-shadow: 0 0 18px 4px rgba(255, 248, 230, 0.45); }
+.map-zoom:has([data-zone="rowdies-sign"]:hover) [data-zone="rowdies"] .zone-tip,
+.map-zoom:has([data-zone="rowdies"]:hover) [data-zone="rowdies-sign"] .zone-tip { opacity: 1; }
 
 /* Chuckwagon Row popup (matches the Reserve your ticket popup) */
 .sheet-wrap { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 1rem; background: rgba(5, 8, 12, 0.72); }
