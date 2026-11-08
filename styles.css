@@ -1041,12 +1041,22 @@ body.map-open {
 }
 
 .rowdies-name {
-  width: 86%;
-  height: 34%;
-  margin-top: -8%;
+  width: 88%;
+  height: 52%;
   overflow: visible;
   pointer-events: none;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.55));
+  filter:
+    drop-shadow(0 0 1px #fff6fc)
+    drop-shadow(0 0 3px #ff4fb8)
+    drop-shadow(0 0 8px #ff2aa8);
+}
+
+.old-sign-cover {
+  position: absolute;
+  z-index: 3;
+  background: #f5e8c8;
+  border-radius: 8px;
+  pointer-events: none;
 }
 
 .church-place {
