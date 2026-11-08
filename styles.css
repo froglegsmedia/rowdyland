@@ -1030,6 +1030,15 @@ body.map-open {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #12060a;
+}
+
+.rowdies-tent {
+  position: absolute;
+  inset: -1.5%;
+  width: 103%;
+  height: 103%;
+  pointer-events: none;
 }
 
 .rowdies-name,
