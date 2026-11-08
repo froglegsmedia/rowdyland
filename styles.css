@@ -1043,10 +1043,10 @@ body.map-open {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 3.6%;
+  gap: 1.73%;
 }
-.church-icon { width: 17%; height: auto; flex: none; display: block; }
-.church-plaque { width: 79.4%; height: 100%; flex: none; display: block; }
+.church-icon { width: 17.33%; height: auto; flex: none; display: block; }
+.church-plaque { width: 80.94%; height: 100%; flex: none; display: block; }
 .church-place:hover,
 .church-place:focus-visible {
   background: transparent;
