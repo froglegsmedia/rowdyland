@@ -155,6 +155,7 @@
   if (!zoom) return;
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   zoom.querySelectorAll("button.zone").forEach(function (z) {
+    if (z.hasAttribute("data-church")) return;
     z.addEventListener("click", function () {
       zoom.querySelectorAll(".show-tip").forEach(function (o) { if (o !== z) o.classList.remove("show-tip"); });
       z.classList.toggle("show-tip");
@@ -181,6 +182,27 @@
   window.addEventListener("pageshow", function (e) {
     if (e.persisted) { zoom.style.transform = ""; zoom.style.filter = ""; zoom.classList.remove("is-zooming"); }
   });
+})();
+
+/* Fixer Upper Church schedule */
+(function () {
+  var pop = document.getElementById("church"); if (!pop) return;
+  var last = null;
+  function open(e) { e.preventDefault(); e.stopPropagation(); last = document.activeElement; if (last && last.classList) last.classList.remove("show-tip"); pop.hidden = false; var closeBtn = pop.querySelector(".sheet-close"); if (closeBtn) closeBtn.focus(); }
+  function close() { if (pop.hidden) return; pop.hidden = true; if (last && last.focus) last.focus(); }
+  document.querySelectorAll("[data-church]").forEach(function (b) { b.addEventListener("click", open); });
+  pop.addEventListener("click", function (e) { if (e.target === pop || e.target.closest(".sheet-close")) close(); });
+  document.addEventListener("keydown", function (e) {
+    if (pop.hidden) return;
+    e.stopImmediatePropagation();
+    if (e.key === "Escape") { close(); return; }
+    if (e.key === "Tab") {
+      var f = pop.querySelectorAll("button"), first = f[0], lastF = f[f.length - 1];
+      if (!first) return;
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); lastF.focus(); }
+      else if (!e.shiftKey && document.activeElement === lastF) { e.preventDefault(); first.focus(); }
+    }
+  }, true);
 })();
 
 /* Chuckwagon Row popup + email signup (Kit form 9130714) */
