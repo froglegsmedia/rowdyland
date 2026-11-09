@@ -1094,23 +1094,9 @@ body.map-open {
 @media (prefers-reduced-motion: reduce) { .poster { animation: none; } }
 
 /* map zoom + pan */
-.map-pan {
-  position: relative;
-  transform-origin: 0 0;
-  touch-action: pan-x pan-y;
-  /* one compositor layer for map art + labels reduces subpixel wiggle while panning */
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.map-zoom.is-zoomed .map-pan { touch-action: none; cursor: grab; will-change: transform; }
+.map-pan { position: relative; transform-origin: 0 0; touch-action: pan-x pan-y; }
+.map-zoom.is-zoomed .map-pan { touch-action: none; cursor: grab; }
 .map-zoom.is-dragging .map-pan { cursor: grabbing; will-change: transform; }
-.map-pan > picture,
-.map-pan > picture img,
-.map-pan .rowdies-name,
-.map-pan .church-plaque {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
 .map-zoom.is-dragging .zone-tip { opacity: 0; }
 .map-ctl { position: absolute; right: 8px; bottom: 8px; z-index: 5; display: flex; flex-direction: column; gap: 5px; }
 .map-ctl button { width: 34px; height: 34px; padding: 0; border: 2px solid #e2b445; border-radius: 50%; background: #7a1f12; color: #fbf1d8; font: 700 1.25rem/1 Georgia, serif; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.45); }

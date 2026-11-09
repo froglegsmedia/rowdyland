@@ -251,9 +251,8 @@
     var w = box.clientWidth, h = box.clientHeight;
     x = Math.min(0, Math.max(w - w * s, x)); y = Math.min(0, Math.max(h - h * s, y));
     if (s === 1) { x = 0; y = 0; }
-    /* round to device pixels and use translate3d so overlays stay locked to the map art */
     var rx = Math.round(x), ry = Math.round(y);
-    pan.style.transform = "translate3d(" + rx + "px," + ry + "px,0) scale(" + s + ")";
+    pan.style.transform = "translate(" + rx + "px," + ry + "px) scale(" + s + ")";
     box.classList.toggle("is-zoomed", s > 1);
   }
   function zoomAt(ns, cx, cy) { /* cx,cy relative to box */
