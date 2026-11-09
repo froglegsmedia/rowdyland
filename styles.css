@@ -1036,10 +1036,12 @@ body.map-open {
   box-shadow: 0 0 16px 3px rgba(255, 79, 184, 0.55);
 }
 .rowdies-name {
-  width: 88%;
-  height: 68%;
+  width: 92%;
+  height: 72%;
   overflow: visible;
   pointer-events: none;
+  display: block;
+  margin: 0 auto;
 }
 .rowdies-word {
   filter:
@@ -1049,10 +1051,10 @@ body.map-open {
 }
 .rowdies-sub {
   filter:
-    drop-shadow(0 0 1px #fff6d8)
-    drop-shadow(0 0 3px #ffd27a)
-    drop-shadow(0 0 8px rgba(255, 196, 90, 0.95))
-    drop-shadow(0 0 14px rgba(226, 180, 69, 0.75));
+    drop-shadow(0 1px 0 rgba(28, 8, 12, 0.95))
+    drop-shadow(0 -1px 0 rgba(28, 8, 12, 0.75))
+    drop-shadow(1px 0 0 rgba(28, 8, 12, 0.75))
+    drop-shadow(-1px 0 0 rgba(28, 8, 12, 0.75));
 }
 .church-place {
   z-index: 4;
