@@ -31,7 +31,7 @@
     <link rel="preload" href="assets/barn-wood.webp" as="image" type="image/webp">
     <link rel="preload" href="fonts/Fraunces-Italic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=aboutnav1">
+    <link rel="stylesheet" href="styles.css?v=mapstack2">
     <link rel="stylesheet" href="intro.css?v=intro2">
     <script src="intro.js?v=intro2"></script>
   </head>
@@ -89,7 +89,7 @@
 
     <div class="vista" id="vista" role="dialog" aria-modal="true" aria-labelledby="vista-title" hidden>
       <picture><source srcset="assets/festival-tiltshift.webp?v=fin1" type="image/webp"><img class="vista-art" src="assets/festival-tiltshift.jpg?v=fin1" width="1600" height="893" alt="Tilt-shift miniature view of the Rowdyland festival grounds at golden hour, with a crowd at the Rowdyland Main Stage, the gold Rowdy statue at the center, the VIP Deck, the red barn and horse corrals, Pony Palace, the neon Rowdies club, a carousel, Frogville pond, the Saloon, the Picture Show, a vintage train, the Ferris wheel and big top tents, camping tents and RV fields, and the Rowdyland entrance arch reading WELCOME HOME." decoding="async"></picture>
-      <div class="vista-top"><h2 id="vista-title">Welcome to Rowdyland</h2><div class="vista-signs"><a class="merch-sign" href="https://shop.rowdyhop.com" target="_blank" rel="noopener"><svg class="merch-hat" viewBox="0 0 48 24" aria-hidden="true"><path d="M20 2.5 Q24 6 28 2.5 L35.5 6 L33 11.5 L30.5 10.5 L30.5 22 L17.5 22 L17.5 10.5 L15 11.5 L12.5 6 Z" fill="#e2b445" stroke="#3c2216" stroke-width="1.6" stroke-linejoin="round"/><path d="M20.5 3 Q24 7.5 27.5 3" fill="none" stroke="#7a1f12" stroke-width="1.8"/></svg><span>Merch Shop</span></a><a class="merch-sign about-sign" href="about/"><svg class="about-heart" viewBox="0 0 40 32" aria-hidden="true"><path d="M20 28 C10 20 4 14 4 9 C4 5 7 2 11 2 C14 2 17 4 20 7 C23 4 26 2 29 2 C33 2 36 5 36 9 C36 14 30 20 20 28 Z" fill="#e2b445" stroke="#3c2216" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 11 Q20 8 26 11" fill="none" stroke="#7a1f12" stroke-width="1.5" stroke-linecap="round"/></svg><span>About Rowdyland</span></a></div></div>
+      <div class="vista-top"><h2 id="vista-title">Welcome to Rowdyland</h2><div class="vista-signs"><a class="merch-sign" href="https://shop.rowdyhop.com" target="_blank" rel="noopener"><span>Merch Shop</span></a><a class="merch-sign about-sign" href="about/"><span>About Rowdyland</span></a></div></div>
       <div class="vista-btns"><button type="button" class="vista-enter" id="vista-enter">Enter the map</button><a class="vista-tix" href="#tix" data-tix>Get your tickets now!</a></div>
     </div>
 
@@ -102,12 +102,12 @@
         </div>
         <figure>
         <div class="map-frame"><div class="map-zoom"><div class="map-pan">
-          <picture><source srcset="assets/rowdyland-map.webp?v=legend12" type="image/webp"><img id="mapimg" src="assets/rowdyland-map.jpg?v=legend12" width="1600" height="1067" decoding="async" loading="eager" alt="Illustrated concept map of the Rowdyland festival grounds, showing the Main Stage, the Saloon Stage in the bottom right corner, The Stables horse area in the top left corner, Pony Palace, camping, and the fire ritual grounds."></picture>
+          <picture><source srcset="assets/rowdyland-map.webp?v=mapfix6" type="image/webp"><img id="mapimg" src="assets/rowdyland-map.jpg?v=mapfix6" width="1600" height="1067" decoding="async" loading="eager" alt="Illustrated concept map of the Rowdyland festival grounds, showing the Main Stage, the Saloon Stage in the bottom right corner, The Stables horse area in the top left corner, Pony Palace, camping, and the fire ritual grounds."></picture>
             <a class="zone zone-live" href="frogville/" data-zone="frogville" style="left:47.6%;top:26.4%;width:15.4%;height:27.8%"><span class="zone-tip">Frogville: leap inside!</span><span class="sr-only">Enter Frogville</span></a>
             <a class="zone zone-live" href="stables/" data-zone="stables" style="left:15.3%;top:5.4%;width:9.1%;height:13.4%"><span class="zone-tip">The Stables: saddle up!</span><span class="sr-only">Enter The Stables</span></a>
             <a class="zone zone-live" href="main-stage/" data-zone="main-stage" style="left:31.7%;top:4.5%;width:14.2%;height:8%"><span class="zone-tip">Main Stage: get up front!</span><span class="sr-only">Enter the Main Stage</span></a>
-            <a class="zone zone-live zone-round" href="jam-tent/" data-zone="jam-tent-top" style="left:54.1%;top:6.7%;width:8.5%;height:12.7%" tabindex="-1" aria-hidden="true"></a>
-            <a class="zone zone-live" href="jam-tent/" data-zone="jam-tent" style="left:54.4%;top:17.6%;width:7.8%;height:8%"><span class="zone-tip">Rowdies: the after party!</span><span class="sr-only">Enter Rowdies</span></a>
+            <a class="zone zone-live" href="jam-tent/" data-zone="rowdies" style="left:54.1%;top:6.7%;width:8.5%;height:12.45%"><svg class="rowdies-name" viewBox="0 0 240 118" aria-hidden="true"><defs><filter id="rowdies-glow" x="-30%" y="-40%" width="160%" height="180%" color-interpolation-filters="sRGB"><feDropShadow dx="0" dy="0" stdDeviation="0.6" flood-color="#fff6fc" flood-opacity="1"/><feDropShadow dx="0" dy="0" stdDeviation="1.6" flood-color="#ff4fb8" flood-opacity="0.95"/><feDropShadow dx="0" dy="0" stdDeviation="3.2" flood-color="#ff2aa8" flood-opacity="0.85"/></filter><filter id="rowdies-outline" x="-20%" y="-30%" width="140%" height="160%" color-interpolation-filters="sRGB"><feDropShadow dx="0" dy="1" stdDeviation="0" flood-color="#1c080c" flood-opacity="0.95"/><feDropShadow dx="0" dy="-1" stdDeviation="0" flood-color="#1c080c" flood-opacity="0.75"/><feDropShadow dx="1" dy="0" stdDeviation="0" flood-color="#1c080c" flood-opacity="0.75"/><feDropShadow dx="-1" dy="0" stdDeviation="0" flood-color="#1c080c" flood-opacity="0.75"/></filter><filter id="church-glow" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB"><feDropShadow dx="0" dy="0" stdDeviation="2.2" flood-color="#fff8e6" flood-opacity="0.9"/></filter></defs><text class="rowdies-word" x="117" y="52" text-anchor="middle" fill="#ffd6f0" font-family="Mr Dafoe, Brush Script MT, cursive" font-size="52" filter="url(#rowdies-glow)">Rowdies</text><text class="rowdies-sub" text-anchor="middle" fill="#ffe08a" font-family="Alfa Slab One, Rockwell, Georgia, serif" font-weight="400" font-size="16" filter="url(#rowdies-outline)"><tspan x="120" y="82">Jams, DJs,</tspan><tspan x="120" y="102">Ride the Bull.</tspan></text></svg><span class="zone-tip">Rowdies: the after party!</span><span class="sr-only">Enter Rowdies</span></a>
+            <button type="button" class="zone church-place" data-zone="church" data-church style="left:54.25%;top:20.65%;width:6.55%;height:4.55%" aria-label="Fixer Upper Church"><svg class="church-plaque" viewBox="0 0 320 210" aria-hidden="true"><rect x="6" y="8" width="308" height="194" rx="22" fill="#e7a8c4"/><rect x="16" y="18" width="288" height="174" rx="16" fill="#4a1638"/><rect x="26" y="28" width="268" height="154" rx="10" fill="none" stroke="#f3c4d8" stroke-width="3"/><circle cx="44" cy="48" r="6" fill="#f6d5e4" stroke="#4a1638" stroke-width="2"/><circle cx="276" cy="48" r="6" fill="#f6d5e4" stroke="#4a1638" stroke-width="2"/><circle cx="44" cy="162" r="6" fill="#f6d5e4" stroke="#4a1638" stroke-width="2"/><circle cx="276" cy="162" r="6" fill="#f6d5e4" stroke="#4a1638" stroke-width="2"/><g transform="translate(138,48) scale(0.68)"><circle cx="32" cy="32" r="28" fill="#fbeee4" stroke="#f6d5e4" stroke-width="3.5"/><rect x="30" y="9" width="4" height="7" fill="#4a1638"/><rect x="27.5" y="11" width="9" height="3" fill="#4a1638"/><polygon points="32,17 19,30 45,30" fill="#4a1638"/><rect x="21" y="29" width="22" height="18" fill="#4a1638"/><rect x="28.5" y="35" width="7" height="12" fill="#f6d5e4"/><rect x="24" y="33" width="4.5" height="4.5" fill="#e7a8c4"/><rect x="35.5" y="33" width="4.5" height="4.5" fill="#e7a8c4"/></g><text x="160" y="128" text-anchor="middle" fill="#cfb280" font-family="Alfa Slab One, Rockwell, Georgia, serif" font-weight="400" font-size="32">Fixer Upper</text><text x="160" y="160" text-anchor="middle" fill="#cfb280" font-family="Alfa Slab One, Rockwell, Georgia, serif" font-weight="400" font-size="34">Church</text></svg><span class="zone-tip">Fixer Upper Church</span></button>
             <a class="zone zone-live" href="pony-palace/" data-zone="pony-palace" style="left:15.4%;top:26.4%;width:14.4%;height:29%"><span class="zone-tip">Pony Palace: hop in!</span><span class="sr-only">Enter Pony Palace</span></a>
             <a class="zone zone-live" href="fire-horse-plaza/" data-zone="fire-horse" style="left:32.2%;top:30%;width:13.2%;height:25%"><span class="zone-tip">Fire Horse Plaza: gather round!</span><span class="sr-only">Enter Fire Horse Plaza</span></a>
             <a class="zone zone-live" href="carnival/" data-zone="carnival" style="left:15.6%;top:55%;width:14.2%;height:17.5%"><span class="zone-tip">The Carnival: step right up!</span><span class="sr-only">Enter the Carnival</span></a>
@@ -133,6 +133,23 @@
       </div>
     </div>
 
+    <div class="sheet-wrap" id="church" role="dialog" aria-modal="true" aria-labelledby="church-title" hidden>
+      <div class="poster reserve-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">On the map</p>
+        <h2 id="church-title">Fixer Upper Church</h2>
+        <p class="poster-note">This is where you come for motivation, inspiration, renewal, and a place to confess. We help each other find peace and renewal, and share testimonials. Songwriter sessions and songwriter performances happen here as well. Those times and performers are still to be announced.</p>
+        <h3 class="poster-schedule">Gathering Schedule</h3>
+        <ul class="gatherings">
+          <li><b>Friday 3:00 PM</b><span>Guest speaker TBA</span></li>
+          <li><b>Saturday 10:00 AM</b><span>Guest speaker TBA</span></li>
+          <li><b>Saturday 3:00 PM</b><span>Guest speaker TBA</span></li>
+          <li><b>Sunday 10:00 AM</b><span>Guest speaker TBA</span></li>
+        </ul>
+        <p class="poster-soon">Full speaker lineup coming soon.</p>
+      </div>
+    </div>
+
     <div class="sheet-wrap" id="chuck" role="dialog" aria-modal="true" aria-labelledby="chuck-title" hidden>
       <div class="poster reserve-poster">
         <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
@@ -143,12 +160,12 @@
       </div>
     </div>
 
-    <script src="horse.js?v=es1" defer></script>
+    <script src="horse.js?v=mapstack2" defer></script>
     <script src="tipfit.js?v=tip1" defer></script>
 
     <footer>
       <p>© 2026 ROWDYLAND™</p>
     </footer>
-  <script>(function(){function hd(){var i=document.getElementById('mapimg');if(!i)return;var w=document.createElement('canvas').toDataURL('image/webp').indexOf('image/webp')>0;var u='assets/rowdyland-map-hd.'+(w?'webp':'jpg')+'?v=hd7';var n=new Image();n.onload=function(){var s=i.parentNode.querySelector('source');if(s)s.srcset=u;i.src=u;};n.src=u;}if(document.readyState==='complete')setTimeout(hd,300);else addEventListener('load',function(){setTimeout(hd,300)});})();</script>
+  <script>(function(){function hd(){var i=document.getElementById('mapimg');if(!i)return;var w=document.createElement('canvas').toDataURL('image/webp').indexOf('image/webp')>0;var u='assets/rowdyland-map-hd.'+(w?'webp':'jpg')+'?v=mapfix6';var n=new Image();n.onload=function(){var s=i.parentNode.querySelector('source');if(s)s.srcset=u;i.src=u;};n.src=u;}if(document.readyState==='complete')setTimeout(hd,300);else addEventListener('load',function(){setTimeout(hd,300)});})();</script>
 </body>
 </html>
