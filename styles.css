@@ -951,6 +951,13 @@ body.map-open {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s;
+  z-index: 20;
+}
+/* Raise the active zone so its tip stacks above church plaque and other labels */
+.zone:hover,
+.zone:focus-visible,
+.zone.show-tip {
+  z-index: 15;
 }
 .zone[data-zone="tent-camping"] .zone-tip,
 .zone[data-zone="rv-camping"] .zone-tip,
@@ -1042,32 +1049,34 @@ body.map-open {
   pointer-events: none;
   display: block;
   margin: 0 auto;
+  /* lock SVG label to map compositing layer during pan/zoom */
+  backface-visibility: hidden;
 }
-.rowdies-word {
-  filter:
-    drop-shadow(0 0 1px #fff6fc)
-    drop-shadow(0 0 3px #ff4fb8)
-    drop-shadow(0 0 8px #ff2aa8);
-}
+.rowdies-word,
 .rowdies-sub {
-  filter:
-    drop-shadow(0 1px 0 rgba(28, 8, 12, 0.95))
-    drop-shadow(0 -1px 0 rgba(28, 8, 12, 0.75))
-    drop-shadow(1px 0 0 rgba(28, 8, 12, 0.75))
-    drop-shadow(-1px 0 0 rgba(28, 8, 12, 0.75));
+  /* glow/outline live in SVG filters (see index.html) so CSS filter layers do not jitter */
+  filter: none;
 }
 .church-place {
-  z-index: 4;
+  z-index: 2;
   padding: 0;
   border: 0;
   background: transparent;
   overflow: visible;
+  /* keep plaque in the same compositor path as the map (no CSS filter) */
+  filter: none;
+  backface-visibility: hidden;
 }
 .church-plaque { display: block; width: 100%; height: 100%; }
 .church-place:hover,
 .church-place:focus-visible {
   background: transparent;
-  filter: drop-shadow(0 0 6px rgba(255, 248, 230, 0.9));
+  /* SVG glow instead of CSS filter so pan/zoom does not jitter */
+  filter: none;
+}
+.church-place:hover .church-plaque,
+.church-place:focus-visible .church-plaque {
+  filter: url(#church-glow);
 }
 .sheet-close { position: absolute; top: 1.1rem; right: 1.1rem; z-index: 1; width: 40px; height: 40px; border: 2px solid #1d120c; border-radius: 50%; background: #fcd11a; color: #1d120c; font-size: 1.5rem; line-height: 1; cursor: pointer; }
 .reserve-poster { padding: 3.2rem 3.4rem 4.2rem; }
@@ -1085,9 +1094,23 @@ body.map-open {
 @media (prefers-reduced-motion: reduce) { .poster { animation: none; } }
 
 /* map zoom + pan */
-.map-pan { position: relative; transform-origin: 0 0; touch-action: pan-x pan-y; }
-.map-zoom.is-zoomed .map-pan { touch-action: none; cursor: grab; }
+.map-pan {
+  position: relative;
+  transform-origin: 0 0;
+  touch-action: pan-x pan-y;
+  /* one compositor layer for map art + labels reduces subpixel wiggle while panning */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.map-zoom.is-zoomed .map-pan { touch-action: none; cursor: grab; will-change: transform; }
 .map-zoom.is-dragging .map-pan { cursor: grabbing; will-change: transform; }
+.map-pan > picture,
+.map-pan > picture img,
+.map-pan .rowdies-name,
+.map-pan .church-plaque {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
 .map-zoom.is-dragging .zone-tip { opacity: 0; }
 .map-ctl { position: absolute; right: 8px; bottom: 8px; z-index: 5; display: flex; flex-direction: column; gap: 5px; }
 .map-ctl button { width: 34px; height: 34px; padding: 0; border: 2px solid #e2b445; border-radius: 50%; background: #7a1f12; color: #fbf1d8; font: 700 1.25rem/1 Georgia, serif; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.45); }
