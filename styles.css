@@ -23,6 +23,14 @@ html { overflow-x: clip; }
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --ink: #f6efe4;
   --ink-dim: #eadccb;
@@ -1031,12 +1039,7 @@ body.map-open {
     drop-shadow(0 0 3px #ff4fb8)
     drop-shadow(0 0 8px #ff2aa8);
 }
-.rowdies-sub {
-  filter:
-    drop-shadow(0 0 1px #fff6d8)
-    drop-shadow(0 0 3px #ffb03a)
-    drop-shadow(0 0 7px rgba(255, 140, 30, 0.9));
-}
+.rowdies-sub { filter: none; }
 .church-place {
   z-index: 4;
   padding: 0;
@@ -1108,16 +1111,14 @@ body.map-open {
 @media (prefers-reduced-motion: reduce) { .vista, .vista-art { transition: none; animation: none; } }
 
 /* vista merch sign */
-.merch-sign { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.45rem 1.1rem 0.45rem 0.8rem; border: 2px solid #3c2216; border-radius: 6px; background: linear-gradient(180deg, #8a5a34 0%, #6b4226 100%); color: #ffe08a; font-family: Fraunces, Georgia, serif; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; box-shadow: inset 0 1px 0 rgba(255, 224, 160, 0.35), 0 3px 0 #3c2216, 0 6px 14px rgba(0, 0, 0, 0.35); transform: rotate(-1.5deg); transition: transform 0.2s, background 0.2s; }
+.merch-sign { display: inline-flex; align-items: center; justify-content: center; padding: 0.45rem 1rem; border: 2px solid #3c2216; border-radius: 6px; background: linear-gradient(180deg, #8a5a34 0%, #6b4226 100%); color: #ffe08a; font-family: Fraunces, Georgia, serif; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; box-shadow: inset 0 1px 0 rgba(255, 224, 160, 0.35), 0 3px 0 #3c2216, 0 6px 14px rgba(0, 0, 0, 0.35); transform: rotate(-1.5deg); transition: transform 0.2s, background 0.2s; }
 .merch-sign:hover, .merch-sign:focus-visible { outline: none; transform: rotate(0deg) scale(1.04); background: linear-gradient(180deg, #9c6a3e 0%, #7a4c2c 100%); color: #fff; }
-.merch-hat { width: 36px; height: 18px; flex: none; }
 .vista-top .merch-sign { margin-top: 0; }
 
 /* About Rowdyland sign on the festival welcome view */
 .vista-signs { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.55rem; margin-top: 0.7rem; }
 .about-sign { transform: rotate(1.2deg); }
 .about-sign:hover, .about-sign:focus-visible { transform: rotate(0deg) scale(1.04); }
-.about-heart { width: 28px; height: 22px; flex: none; }
 
 /* vista: drop the reserved scrollbar gutter while open so the page centers on the full window */
 html:has(.vista:not([hidden])) { scrollbar-gutter: auto; }
