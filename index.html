@@ -103,7 +103,7 @@
         </div>
         <figure>
         <div class="map-frame"><div class="map-zoom"><div class="map-pan">
-          <picture><source srcset="assets/rowdyland-map.webp?v=mapfix13" type="image/webp"><img id="mapimg" src="assets/rowdyland-map.jpg?v=mapfix13" width="1600" height="1067" decoding="async" loading="eager" alt="Illustrated concept map of the Rowdyland festival grounds, showing the Main Stage, the Saloon Stage in the bottom right corner, The Stables horse area in the top left corner, Pony Palace, camping, and the fire ritual grounds."></picture>
+          <picture><source srcset="assets/rowdyland-map.webp?v=maphd1" type="image/webp"><img id="mapimg" src="assets/rowdyland-map.jpg?v=maphd1" width="1600" height="1067" decoding="async" loading="eager" alt="Illustrated concept map of the Rowdyland festival grounds, showing the Main Stage, the Saloon Stage in the bottom right corner, The Stables horse area in the top left corner, Pony Palace, camping, and the fire ritual grounds."></picture>
             <a class="zone zone-live" href="frogville/" data-zone="frogville" style="left:47.6%;top:26.4%;width:15.4%;height:27.8%"><span class="zone-tip">Frogville: leap inside!</span><span class="sr-only">Enter Frogville</span></a>
             <a class="zone zone-live" href="stables/" data-zone="stables" style="left:15.3%;top:5.4%;width:9.1%;height:13.4%"><span class="zone-tip">The Stables: saddle up!</span><span class="sr-only">Enter The Stables</span></a>
             <a class="zone zone-live" href="main-stage/" data-zone="main-stage" style="left:31.7%;top:4.5%;width:14.2%;height:8%"><span class="zone-tip">Main Stage: get up front!</span><span class="sr-only">Enter the Main Stage</span></a>
@@ -167,6 +167,6 @@
     <footer>
       <p>© 2026 ROWDYLAND™</p>
     </footer>
-  <script>(function(){function hd(){var i=document.getElementById('mapimg');if(!i)return;var w=document.createElement('canvas').toDataURL('image/webp').indexOf('image/webp')>0;var u='assets/rowdyland-map-hd.'+(w?'webp':'jpg')+'?v=mapfix13';var n=new Image();n.onload=function(){var s=i.parentNode.querySelector('source');if(s)s.srcset=u;i.src=u;};n.src=u;}if(document.readyState==='complete')setTimeout(hd,300);else addEventListener('load',function(){setTimeout(hd,300)});})();</script>
+  <script>(function(){var V='maphd1',w=document.createElement('canvas').toDataURL('image/webp').indexOf('image/webp')>0,ext=w?'webp':'jpg',xhd=0,cur=0;function swap(u,r){var i=document.getElementById('mapimg');if(!i)return;var n=new Image();n.onload=function(){if(r<cur)return;cur=r;var s=i.parentNode.querySelector('source');if(s)s.srcset=u;i.src=u;};n.src=u;}function hd(){swap('assets/rowdyland-map-hd.'+ext+'?v='+V,1);var p=document.querySelector('.map-pan');if(!p||!window.MutationObserver)return;var mo=new MutationObserver(function(){if(xhd)return;var m=/scale\(([\d.]+)\)/.exec(p.style.transform||''),z=m?parseFloat(m[1]):1;if(p.clientWidth*z*(window.devicePixelRatio||1)>5200){xhd=1;mo.disconnect();swap('assets/rowdyland-map-xhd.'+ext+'?v='+V,2);}});mo.observe(p,{attributes:true,attributeFilter:['style']});}if(document.readyState==='complete')setTimeout(hd,300);else addEventListener('load',function(){setTimeout(hd,300)});})();</script>
 </body>
 </html>
