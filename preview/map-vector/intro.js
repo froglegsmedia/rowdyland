@@ -5,7 +5,7 @@
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   var d=document,h=d.documentElement,done=false,started=false,cap;
   var w=d.createElement('div');w.id='rintro';w.setAttribute('aria-hidden','true');
-  w.innerHTML='<video muted autoplay playsinline webkit-playsinline preload="auto" disablepictureinpicture poster="/assets/rowdy-burger-poster.jpg?v=intro2"><source src="/assets/rowdy-burger.mp4?v=intro2" type="video/mp4"></video>'+
+  w.innerHTML='<video muted autoplay playsinline webkit-playsinline preload="auto" disablepictureinpicture poster="assets/rowdy-burger-poster.jpg?v=intro2"><source src="assets/rowdy-burger.mp4?v=intro2" type="video/mp4"></video>'+
     '<button type="button" class="rplay" aria-label="Play intro">&#9654; Play</button><button type="button" class="rskip" aria-label="Skip intro">Skip</button>';
   var v=w.querySelector('video'),b=w.querySelector('.rskip'),pl=w.querySelector('.rplay');
   v.muted=true;v.defaultMuted=true;v.playsInline=true;
