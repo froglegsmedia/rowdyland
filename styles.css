@@ -602,6 +602,17 @@ body.map-open {
   overflow: hidden;
 }
 
+/* Hide the landing while the vista or map is up so it cannot
+   flash through their fade-in. Visibility, not opacity, so the
+   masked logo cannot composite on its own layer. */
+body.map-open > .stage,
+body.map-open > main,
+body.map-open > .paddock,
+body.map-open > footer {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 @keyframes idle-bob {
   0%, 100% { transform: translateY(0) rotate(0); }
   50% { transform: translateY(-3px) rotate(-1deg); }

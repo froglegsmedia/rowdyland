@@ -10,19 +10,43 @@
   var lastFocus = null;
 
   var vista = document.getElementById("vista"), vEnter = document.getElementById("vista-enter");
+  var vistaTimer = null;
+  function clearVistaTimer() {
+    if (vistaTimer) { clearTimeout(vistaTimer); vistaTimer = null; }
+  }
+  function resetVista() {
+    if (!vista) return;
+    clearVistaTimer();
+    vista.hidden = true;
+    vista.classList.remove("in");
+    vista.style.zIndex = "";
+  }
   function showVista() {
     if (!vista) { openMap(); return; }
     lastFocus = document.activeElement;
+    clearVistaTimer();
+    vista.style.zIndex = "";
     vista.hidden = false; document.body.classList.add("map-open");
     requestAnimationFrame(function () { vista.classList.add("in"); });
     vEnter.focus();
   }
   if (vEnter) vEnter.addEventListener("click", function () {
-    var f = lastFocus; vista.classList.remove("in"); vista.hidden = true; openMap(); lastFocus = f;
+    var f = lastFocus;
+    /* Keep the vista opaque under the map (z-index 50) so hiding it
+       cannot uncover the landing while the overlay fades in. */
+    vista.style.zIndex = "40";
+    openMap();
+    lastFocus = f;
+    function buryVista() {
+      if (dlg.hidden) return;
+      resetVista();
+    }
+    if (reduce.matches) buryVista();
+    else { clearVistaTimer(); vistaTimer = setTimeout(buryVista, 350); }
   });
   if (vista) document.addEventListener("keydown", function (e) {
-    if (vista.hidden || e.key !== "Escape") return;
-    vista.hidden = true; vista.classList.remove("in"); closeMap.call(null, true);
+    if (vista.hidden || !dlg.hidden || e.key !== "Escape") return;
+    resetVista(); closeMap.call(null, true);
   });
 
   function openMap() {
@@ -35,6 +59,7 @@
   function closeMap(force) {
     if (dlg.hidden && force !== true) return;
     dlg.hidden = true;
+    resetVista();
     document.body.classList.remove("map-open");
     track.classList.remove("is-gone");
     track.parentNode.style.height = "";
@@ -131,8 +156,16 @@
   });
   function backToVista() {
     if (!vista) { closeMap(); return; }
-    var f = lastFocus; dlg.hidden = true; vista.hidden = false;
+    var f = lastFocus;
+    /* Put the vista back on top of the map first, then hide the map
+       once the vista covers it, so the landing cannot flash. */
+    clearVistaTimer();
+    vista.style.zIndex = "";
+    vista.hidden = false;
     requestAnimationFrame(function () { vista.classList.add("in"); });
+    function hideMap() { if (!vista.hidden) dlg.hidden = true; }
+    if (reduce.matches) hideMap();
+    else { clearVistaTimer(); vistaTimer = setTimeout(hideMap, 600); }
     vEnter.focus(); lastFocus = f;
   }
   closeBtn.addEventListener("click", backToVista);
