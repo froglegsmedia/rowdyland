@@ -1161,3 +1161,6 @@ html:has(.vista:not([hidden])) { scrollbar-gutter: auto; }
 /* art's focal axis (stage, statue, arch) sits about 1% right of the image center; nudge it back to the page center */
 .vista-art { object-position: 58% 50%; }
 @media (max-width: 760px) { .vista-art { object-position: 51% 50%; } }
+
+/* vector map text: sits exactly on the map image inside .map-pan, pans and zooms with it */
+.map-pan .map-text { position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
