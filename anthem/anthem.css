@@ -83,3 +83,19 @@ h1.arch { margin: 0.2rem auto 0; width: min(94vw, 900px); }
 @keyframes glow { 0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 196, 110, 0.55)) drop-shadow(0 6px 10px rgba(50, 20, 10, 0.6)); } 50% { filter: drop-shadow(0 0 24px rgba(255, 200, 120, 0.95)) drop-shadow(0 6px 10px rgba(50, 20, 10, 0.6)); } }
 .play-hint { font-style: italic; font-weight: 700; font-size: 0.95rem; color: var(--pearl); text-shadow: 0 2px 6px rgba(70, 30, 45, 0.7); }
 @media (prefers-reduced-motion: reduce) { .heart-btn.on { animation: none; filter: drop-shadow(0 0 18px rgba(255, 200, 120, 0.85)); } }
+
+.scrub { display: flex; align-items: center; gap: 0.55rem; width: min(92vw, 22rem); margin-top: 0.2rem; }
+.scrub-time { flex: 0 0 auto; min-width: 2.7rem; font-variant-numeric: tabular-nums; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.03em; color: var(--gold); text-shadow: 0 2px 6px #000; }
+.scrub-time:last-child { text-align: right; }
+.scrub input[type="range"] { -webkit-appearance: none; appearance: none; flex: 1 1 auto; width: 100%; height: 44px; margin: 0; background: transparent; cursor: pointer; touch-action: none; accent-color: #f6c66a; }
+.scrub input[type="range"]:focus { outline: none; }
+.scrub input[type="range"]:focus-visible { outline: 3px dashed var(--gold); outline-offset: 2px; border-radius: 999px; }
+.scrub input[type="range"]::-webkit-slider-runnable-track { height: 4px; border-radius: 999px; background: linear-gradient(90deg, #f6c66a var(--p, 0%), rgba(255, 224, 163, 0.35) var(--p, 0%)); }
+.scrub input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; margin-top: -9px; border-radius: 50%; border: 2px solid #7a3b45; background: #ffe0a3; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45); }
+.scrub input[type="range"]::-moz-range-track { height: 4px; border: 0; border-radius: 999px; background: rgba(255, 224, 163, 0.35); }
+.scrub input[type="range"]::-moz-range-progress { height: 4px; border-radius: 999px; background: #f6c66a; }
+.scrub input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border: 2px solid #7a3b45; border-radius: 50%; background: #ffe0a3; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45); }
+@media (pointer: coarse) {
+  .scrub input[type="range"]::-webkit-slider-thumb { width: 28px; height: 28px; margin-top: -12px; }
+  .scrub input[type="range"]::-moz-range-thumb { width: 28px; height: 28px; }
+}
