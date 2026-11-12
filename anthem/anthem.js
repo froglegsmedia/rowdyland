@@ -45,13 +45,98 @@
   lines.forEach(function (l) { r.observe(l); h.observe(l); });
 })();
 
-/* anthem heart player: same song as Fire Horse Plaza, starts on tap */
+/* anthem buckle player: full song, starts on tap, seekable on touch */
 (function () {
   var a = document.getElementById("anthem-song"), btn = document.getElementById("play-btn"); if (!a || !btn) return;
-  var hint = document.getElementById("play-hint");
-  function ui() { var on = !a.paused; if (hint) hint.textContent = on ? "Click to pause" : "Click to play"; btn.classList.toggle("on", on); btn.setAttribute("aria-pressed", on); btn.setAttribute("aria-label", on ? "Pause the Rowdyland Anthem" : "Play the Rowdyland Anthem"); }
-  btn.addEventListener("click", function () { if (a.paused) { var p = a.play(); if (p && p.catch) p.catch(function () {}); } else a.pause(); });
-  a.addEventListener("play", ui); a.addEventListener("pause", ui); a.addEventListener("ended", function () { a.currentTime = 0; ui(); });
-  btn.addEventListener("keydown", function (e) { if (!a.duration) return; if (e.key === "ArrowRight") { a.currentTime = Math.min(a.duration, a.currentTime + 5); e.preventDefault(); } if (e.key === "ArrowLeft") { a.currentTime = Math.max(0, a.currentTime - 5); e.preventDefault(); } });
-  document.addEventListener("visibilitychange", function () { if (document.hidden) a.pause(); });
+  var hint = document.getElementById("play-hint"), seek = document.getElementById("seek");
+  var nowEl = document.getElementById("time-now"), endEl = document.getElementById("time-end");
+  var dragging = false;
+  var tap = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+  /* CBR length of audio/rowdyland-anthem.mp3, used until the browser reports duration */
+  var KNOWN = 261.7;
+  function dur() { var d = a.duration; return (isFinite(d) && d > 0) ? d : KNOWN; }
+  function fmt(s, round) {
+    if (!isFinite(s) || s < 0) s = 0;
+    s = round ? Math.round(s) : Math.floor(s);
+    var m = Math.floor(s / 60), r = s % 60;
+    return m + ":" + (r < 10 ? "0" : "") + r;
+  }
+  function verb(on) { return (tap ? "Tap" : "Click") + (on ? " to pause" : " to play"); }
+  function ui() {
+    var on = !a.paused, waiting = on && a.readyState < 3;
+    if (hint) hint.textContent = waiting ? "Loading\u2026" : verb(on);
+    btn.classList.toggle("on", on);
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.setAttribute("aria-label", waiting ? "Loading the Rowdyland Anthem" : (on ? "Pause the Rowdyland Anthem" : "Play the Rowdyland Anthem"));
+    if ("mediaSession" in navigator) navigator.mediaSession.playbackState = on ? "playing" : "paused";
+  }
+  function place() {
+    var d = dur(), t = a.currentTime || 0;
+    if (endEl) endEl.textContent = fmt(d, true);
+    if (nowEl && !dragging) nowEl.textContent = fmt(t, false);
+    if (seek && !dragging) {
+      var p = Math.max(0, Math.min(1000, Math.round((t / d) * 1000)));
+      seek.value = String(p);
+      seek.style.setProperty("--p", (p / 10) + "%");
+      seek.setAttribute("aria-valuemax", String(Math.round(d)));
+      seek.setAttribute("aria-valuenow", String(Math.floor(t)));
+      seek.setAttribute("aria-valuetext", fmt(t, false) + " of " + fmt(d, true));
+    }
+    if ("mediaSession" in navigator && navigator.mediaSession.setPositionState) {
+      try { navigator.mediaSession.setPositionState({ duration: d, playbackRate: a.playbackRate || 1, position: Math.min(d, Math.max(0, t)) }); } catch (e) {}
+    }
+  }
+  function jump(v) {
+    var d = dur(), t = (Number(v) / 1000) * d;
+    try { a.currentTime = Math.max(0, Math.min(d, t)); } catch (e) {}
+  }
+  btn.addEventListener("click", function () {
+    if (a.paused) {
+      if (hint && a.readyState < 3) hint.textContent = "Loading\u2026";
+      var p = a.play();
+      if (p && p.catch) p.catch(function () { ui(); });
+    } else a.pause();
+  });
+  a.addEventListener("play", ui);
+  a.addEventListener("pause", ui);
+  a.addEventListener("playing", ui);
+  a.addEventListener("waiting", function () { if (hint && !a.paused) hint.textContent = "Loading\u2026"; });
+  a.addEventListener("canplay", ui);
+  a.addEventListener("loadedmetadata", place);
+  a.addEventListener("durationchange", place);
+  a.addEventListener("timeupdate", place);
+  a.addEventListener("ended", function () { try { a.currentTime = 0; } catch (e) {} ui(); place(); });
+  if (seek) {
+    seek.addEventListener("input", function () {
+      dragging = true;
+      var d = dur(), t = (Number(seek.value) / 1000) * d;
+      if (nowEl) nowEl.textContent = fmt(t, false);
+      seek.style.setProperty("--p", (Number(seek.value) / 10) + "%");
+      seek.setAttribute("aria-valuetext", fmt(t, false) + " of " + fmt(d, true));
+    });
+    seek.addEventListener("change", function () { dragging = false; jump(seek.value); place(); });
+    window.addEventListener("pointerup", function () { if (!dragging) return; dragging = false; jump(seek.value); place(); });
+    window.addEventListener("pointercancel", function () { if (!dragging) return; dragging = false; jump(seek.value); place(); });
+  }
+  btn.addEventListener("keydown", function (e) {
+    var d = dur();
+    if (e.key === "ArrowRight") { try { a.currentTime = Math.min(d, (a.currentTime || 0) + 5); } catch (err) {} e.preventDefault(); }
+    if (e.key === "ArrowLeft") { try { a.currentTime = Math.max(0, (a.currentTime || 0) - 5); } catch (err) {} e.preventDefault(); }
+  });
+  if ("mediaSession" in navigator && window.MediaMetadata) {
+    try {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: "The Rowdyland Anthem",
+        artist: "Rowdyland",
+        artwork: [{ src: new URL("buckle.webp?v=1", document.baseURI).href, sizes: "440x369", type: "image/webp" }]
+      });
+      navigator.mediaSession.setActionHandler("play", function () { var p = a.play(); if (p && p.catch) p.catch(function () {}); });
+      navigator.mediaSession.setActionHandler("pause", function () { a.pause(); });
+      navigator.mediaSession.setActionHandler("seekbackward", function (d) { try { a.currentTime = Math.max(0, (a.currentTime || 0) - ((d && d.seekOffset) || 10)); } catch (e) {} });
+      navigator.mediaSession.setActionHandler("seekforward", function (d) { try { a.currentTime = Math.min(dur(), (a.currentTime || 0) + ((d && d.seekOffset) || 10)); } catch (e) {} });
+      navigator.mediaSession.setActionHandler("seekto", function (d) { if (d && typeof d.seekTime === "number") { try { a.currentTime = d.seekTime; } catch (e) {} } });
+    } catch (e) {}
+  }
+  ui();
+  place();
 })();
