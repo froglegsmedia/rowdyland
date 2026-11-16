@@ -215,3 +215,5 @@ body { background: linear-gradient(#1e120b, #3a1a0e 60%, #1e120b); }
   .feature .card { order: 0; }
   .feature .art-tall { padding-top: 0; }
 }
+
+.plaza-logo { display: block; width: auto; height: clamp(6rem, 17vh, 10.5rem); aspect-ratio: 1563 / 3287; margin: 0.6rem auto 0.9rem; filter: drop-shadow(0 0 1.5px rgba(40, 12, 4, 0.95)) drop-shadow(0 2px 6px rgba(20, 6, 2, 0.7)); }
