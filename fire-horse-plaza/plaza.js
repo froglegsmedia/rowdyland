@@ -24,7 +24,7 @@
     }
   }
   if (reduce) return;
-  var layers = [].slice.call(document.querySelectorAll("[data-speed]")), ticking = false;
+  var layers = [].slice.call(document.querySelectorAll(".scene [data-speed]")), ticking = false;
   function update() {
     var y = scrollY;
     layers.forEach(function (el) {

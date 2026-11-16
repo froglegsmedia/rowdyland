@@ -9,7 +9,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 .scene { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .layer { will-change: transform; }
-.sky { position: absolute; inset: -6% 0 0; background: linear-gradient(rgba(30, 18, 11, 0.08), rgba(30, 18, 11, 0.4)), url("art/plaza-bg.webp?v=warm1") center 70% / cover no-repeat; }
+.sky { position: absolute; inset: -6% 0 0; background: linear-gradient(rgba(30, 18, 11, 0.08), rgba(30, 18, 11, 0.4)), url("art/plaza-bg.webp?v=nobeams1") center 70% / cover no-repeat; }
 .glitter { position: absolute; inset: 0; }
 .gl { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #fff; box-shadow: 0 0 8px 3px rgba(255, 210, 120, 0.85); animation: twinkle var(--d, 3s) ease-in-out var(--delay, 0s) infinite; }
 @keyframes twinkle { 0%, 100% { opacity: 0.05; transform: scale(0.6); } 50% { opacity: 1; transform: scale(1.2); } }
@@ -220,7 +220,7 @@ body { background: linear-gradient(#1e120b, #3a1a0e 60%, #1e120b); }
 
 /* ===== tribal / serious tone ===== */
 :root { --tgold: #e2b75c; --tgold-d: #b9872b; --ember: #8e1f12; --coal: #120905; }
-.sky { background: radial-gradient(ellipse 55% 48% at 50% 20%, rgba(8, 4, 2, 0.72), rgba(8, 4, 2, 0.45) 55%, transparent 100%), radial-gradient(ellipse 75% 70% at 50% 42%, rgba(12, 6, 3, 0.05), rgba(12, 6, 3, 0.55) 100%), linear-gradient(rgba(14, 7, 3, 0.26), rgba(14, 7, 3, 0.45) 55%, rgba(14, 7, 3, 0.72)), url("art/plaza-bg.webp?v=warm1") center 70% / cover no-repeat; filter: saturate(0.82) contrast(1.04); }
+.sky { background: radial-gradient(ellipse 55% 48% at 50% 20%, rgba(8, 4, 2, 0.72), rgba(8, 4, 2, 0.45) 55%, transparent 100%), radial-gradient(ellipse 75% 70% at 50% 42%, rgba(12, 6, 3, 0.05), rgba(12, 6, 3, 0.55) 100%), linear-gradient(rgba(14, 7, 3, 0.26), rgba(14, 7, 3, 0.45) 55%, rgba(14, 7, 3, 0.72)), url("art/plaza-bg.webp?v=nobeams1") center 70% / cover no-repeat; filter: saturate(0.82) contrast(1.04); }
 .gl { opacity: 0.55; box-shadow: 0 0 6px 2px rgba(255, 200, 110, 0.6); width: 4px; height: 4px; }
 
 /* header: thin gold lines instead of bubbly pills */
@@ -281,4 +281,13 @@ body.night .card h2 { text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
   .fv-top { padding-left: 0.75rem; padding-right: 0.75rem; }
   .back, .mini-cta, .dn { white-space: nowrap; font-size: 0.82rem; letter-spacing: 0.03em; padding: 0.45rem 0.65rem; }
   .top-r { gap: 0.4rem; }
+}
+
+/* separators: fixed, symmetrical spacing between sections */
+.feature .art { transform: none !important; }
+.panel.feature, .panel.feature.right, .panel.cta { min-height: 0; padding-top: 6rem; padding-bottom: 6rem; }
+.panel.hero { padding-bottom: 6rem; }
+@media (max-width: 760px) {
+  .panel.feature, .panel.feature.right, .panel.cta { padding-top: 4rem; padding-bottom: 4rem; }
+  .panel.hero { padding-bottom: 4rem; }
 }
