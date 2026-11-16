@@ -396,3 +396,7 @@ body.night .feature[data-time="day"] .art img {
   .card, .art img { opacity: 1; transform: none; transition: none; }
   .statue .stack img { transition: none; }
 }
+
+.fv-top { background: linear-gradient(to bottom, rgba(7,5,4,0.92), rgba(7,5,4,0.6) 70%, transparent); }
+.fv-top .back { white-space: nowrap; }
+@media (max-width: 480px) { .back, .mini-cta, .dn { font-size: 0.68rem; letter-spacing: 0.08em; } .mini-cta, .dn { padding: 0.5rem 0.75rem; white-space: nowrap; } .top-r { gap: 0.4rem; } .fv-top { gap: 0.5rem; } }
