@@ -291,3 +291,7 @@ body.night .card h2 { text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
   .panel.feature, .panel.feature.right, .panel.cta { padding-top: 4rem; padding-bottom: 4rem; }
   .panel.hero { padding-bottom: 4rem; }
 }
+
+/* night: keep Rowdy bright, never dimmed */
+body.night .statue img { filter: brightness(1.22) contrast(1.06) drop-shadow(0 0 22px rgba(255, 190, 110, 0.28)) drop-shadow(0 14px 18px rgba(0, 0, 0, 0.55)); }
+body.night .feature .art img { filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.5)); }
