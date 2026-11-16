@@ -215,3 +215,7 @@ body { background: linear-gradient(#1e120b, #3a1a0e 60%, #1e120b); }
   .feature .card { order: 0; }
   .feature .art-tall { padding-top: 0; }
 }
+
+/* link to the Fire Horse Ceremony page */
+.rite-link { display: inline-block; margin-top: 0.9rem; padding: 0.55rem 1.1rem; border-radius: 999px; background: #1a0d07; color: #f3d27a; border: 2px solid #e8c25e; font-weight: 800; text-decoration: none; letter-spacing: 0.02em; box-shadow: 0 0 16px rgba(255, 122, 26, 0.35); }
+.rite-link:hover { background: #2a140a; color: #fff2bf; }

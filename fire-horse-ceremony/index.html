@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>The Fire Horse Ceremony | Rowdyland</title>
+    <meta name="description" content="The Fire Horse Ceremony: a ritual paying tribute to our ancestors in Fire Horse Plaza. Rowdy goes ablaze and is revealed in gold.">
+    <meta name="theme-color" content="#070504">
+    <link rel="icon" href="../favicon.ico?v=2" sizes="any">
+    <link rel="icon" href="../favicon-32.png?v=2" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+    <link rel="preload" href="../fonts/Cinzel.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="art/horse-gold.svg?v=1" as="image" type="image/svg+xml">
+    <link rel="stylesheet" href="ceremony.css?v=1">
+  </head>
+  <body>
+    <canvas class="embers" aria-hidden="true"></canvas>
+    <div class="flames" aria-hidden="true"></div>
+
+    <header class="fc-top">
+      <a class="back" href="../fire-horse-plaza/">&#8592; Fire Horse Plaza</a>
+      <a class="mini-cta" href="#tickets">Tickets</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="emblem"><img src="art/horse-gold.svg?v=1" width="1928" height="4176" alt="The Rowdyland horse emblem in gold"></div>
+        <p class="kicker">Fire Horse Plaza</p>
+        <h1><span>The</span> Fire Horse Ceremony</h1>
+        <p class="lede">A ritual paying tribute to our ancestors.</p>
+        <div class="rule" aria-hidden="true"><i></i></div>
+      </section>
+
+      <section class="rites" aria-label="The ritual">
+        <article class="rite"><span class="num" aria-hidden="true">I</span><h2>Tribute</h2><p>In Fire Horse Plaza, we pay tribute to our ancestors.</p></article>
+        <article class="rite"><span class="num" aria-hidden="true">II</span><h2>The Anthem</h2><p>Speakers all around the grounds carry the Rowdyland anthem.</p></article>
+        <article class="rite"><span class="num" aria-hidden="true">III</span><h2>Ablaze</h2><p>Rowdy goes ablaze. Fire shoots into the sky.</p></article>
+        <article class="rite gold"><span class="num" aria-hidden="true">IV</span><h2>Revealed in Gold</h2><p>Rowdy is revealed in gold.</p></article>
+      </section>
+
+      <section class="final">
+        <p class="kicker">The final night</p>
+        <h2>Straight into the night</h2>
+        <p>The ceremony leads straight into Rowdy Hop's set.<br>Then Bigxthaplug headlines.</p>
+      </section>
+
+      <section class="merch" aria-labelledby="merch-title">
+        <p class="kicker">Ceremony merch</p>
+        <h2 id="merch-title">I Witnessed the Fire</h2>
+        <div class="merch-row">
+          <figure><img src="art/patch.webp?v=1" width="800" height="800" loading="lazy" alt="Round patch reading I Witnessed the Fire, Rowdyland, with the gold horse"><figcaption>The Patch</figcaption></figure>
+          <figure><img src="art/tee.webp?v=1" width="750" height="1000" loading="lazy" alt="Black tee with the gold horse, Rowdyland, Fire Horse Ceremony"><figcaption>The Tee</figcaption></figure>
+        </div>
+        <p class="soon">Coming soon</p>
+      </section>
+
+      <section class="cta" id="tickets">
+        <h2>Witness the fire</h2>
+        <a class="big-cta" href="#reserve" data-reserve>Get your tickets now!</a>
+      </section>
+    </main>
+
+    <div class="sheet-wrap" id="reserve" role="dialog" aria-modal="true" aria-labelledby="reserve-title" hidden><div class="poster reserve-poster"><button type="button" class="sheet-close" aria-label="Close">&#215;</button><p class="poster-kicker">Tickets coming soon</p><h2 id="reserve-title">Reserve your ticket</h2><p class="poster-note">Drop your email and you'll be the first to know when tickets go on sale.</p><form class="signup" onsubmit="var n=this.previousElementSibling;if(n&&n.classList.contains('poster-note'))n.hidden=true" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="hidden" name="fields[signup_source]" value="tickets"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Reserve my spot</button><p class="signup-msg" role="status" aria-live="polite"></p></form></div></div>
+
+    <script src="ceremony.js?v=1"></script>
+  </body>
+</html>
