@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Fire Horse Plaza | Rowdyland</title>
+    <meta name="description" content="Fire Horse Plaza, the heart of Rowdyland. On the final night, just before the headliner, Rowdy the statue goes ablaze to the Rowdyland anthem and is revealed in gold.">
+    <meta name="theme-color" content="#1e120b">
+    <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+    <link rel="icon" href="/favicon-32.png?v=2" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+    <link rel="preload" href="/fire-horse-plaza/art/plaza-bg.webp?v=warm1" as="image" type="image/webp">
+    <link rel="preload" href="/fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="plaza.css?v=8fhc">
+  </head>
+  <body class="entering">
+    <div class="scene" aria-hidden="true">
+      <div class="layer sky" data-speed="-0.008"></div>
+      <div class="night-wash"></div>
+      <div class="glitter"></div>
+    </div>
+
+    <header class="fv-top">
+      <a class="back" href="../map/#map-open">&#8592; Back to the map</a>
+      <div class="top-r"><button type="button" class="dn" id="daynight" aria-pressed="false">&#9790; Night</button><a class="mini-cta" href="#tickets">Tickets</a></div>
+    </header>
+
+    <main>
+      <section class="panel hero">
+        <p class="kicker">Rowdyland Zone</p>
+        <h1>Welcome to <span>Fire Horse Plaza</span></h1>
+        <p class="lede">The heart of Rowdyland. Where Rowdy burns and rises in gold.</p>
+        <button type="button" class="statue" id="statue" aria-label="Start the fire ceremony" aria-pressed="false">
+          <span class="stack">
+            <img id="img-stone" src="/fire-horse-plaza/art/hero-statue.webp?v=rowdy2" alt="Rowdy, a giant bronze horse statue on a stone pedestal" width="806" height="1372">
+            <img id="img-fire" src="/fire-horse-plaza/art/hero-fire.webp?v=rowdy2" alt="" aria-hidden="true" width="806" height="1372">
+            <img id="img-gold" src="/fire-horse-plaza/art/hero-gold.webp?v=redmane1" alt="" aria-hidden="true" width="806" height="1372">
+          </span>
+          <span class="pp-bubble" aria-hidden="true">Light the fire &#128293;</span>
+        </button>
+        <p class="now" id="now" hidden>Rowdy stands watch. Tap him to see the ceremony.</p>
+        <p class="scroll-cue" aria-hidden="true">Gather round</p>
+      </section>
+
+      <section class="panel feature left" id="notes">
+        <div class="card"><span class="tag">All festival</span><h2>Feed Rowdy a Note</h2><p>Write a journal entry, a wish, a secret, whatever you want. Drop it in Rowdy's box. Whatever you write will never get read. On the final night, your notes are the spark that sets Rowdy on fire.</p></div>
+        <div class="art" data-speed="-0.08"><img src="/fire-horse-plaza/art/notes.webp?v=1" alt="A carved wooden offering box with a horse emblem and a handwritten note dropping into its slot"></div>
+      </section>
+
+      <section class="panel feature right" id="when" data-time="night">
+        <div class="card"><span class="tag n">Final night</span><h2>After the Sun Sets</h2><p>When the sky goes dark and the main stage goes quiet, everyone turns to the plaza.</p></div>
+        <div class="art" data-speed="-0.08"><img src="/fire-horse-plaza/art/statue.webp?v=rowdy2" alt="Rowdy, a giant bronze horse statue rearing on a carved stone pedestal"></div>
+      </section>
+
+      <section class="panel feature left" id="ceremony" data-time="night">
+        <div class="card"><span class="tag n">Final night</span><h2>The Fire Ceremony</h2><p>Throw what you are done carrying into the fire and walk out new. Rowdy comes out gold, and so do we.</p><a class="rite-link" href="../">Enter the Fire Horse Ceremony &#8594;</a></div>
+        <div class="art" data-speed="-0.08"><img src="/fire-horse-plaza/art/fire.webp?v=rowdy2" alt="The bronze horse statue Rowdy engulfed in flames rising into the sky"></div>
+      </section>
+
+      <section class="panel feature right" id="anthem">
+        <div class="card"><span class="tag n">All around the grounds</span><h2>The Anthem</h2><p>The Rowdyland anthem rolls out of every speaker on the grounds. Wherever you are, you'll hear it.</p></div>
+        <div class="art art-tall" data-speed="-0.08"><img src="/fire-horse-plaza/art/anthem.webp?v=1" alt="A wooden pole with brass horn speakers and string lights playing music"></div>
+      </section>
+
+      <section class="panel feature left" id="gold" data-time="night">
+        <div class="card"><span class="tag n">The finale</span><h2>Revealed in Gold</h2><p>The fire shoots into the sky. When it burns out, Rowdy stands there shining in gold.</p></div>
+        <div class="art" data-speed="-0.08"><img src="/fire-horse-plaza/art/gold.webp?v=redmane1" alt="Rowdy the horse statue gleaming in gold on its stone pedestal"></div>
+      </section>
+
+      <section class="panel cta" id="tickets">
+        <img class="cta-horse" src="/fire-horse-plaza/art/gold.webp?v=redmane1" alt="" aria-hidden="true">
+        <h2>Be there when Rowdy burns</h2>
+        <a class="big-cta" href="#reserve" data-reserve>Get your tickets now!</a>
+        <p class="fine">Ticket sales open soon. Save your spot and we'll let you know first.</p>
+        <a class="back alt" href="../map/#map-open">Explore more of the map</a>
+      </section>
+    </main>
+    <div class="catch-layer" id="catch-layer" aria-hidden="true"></div>
+    <div class="hud">
+      <div class="jar" id="jar" role="status" aria-live="polite"><span class="jar-icon" aria-hidden="true"></span><span class="jar-count"><b id="jar-n">0</b>/10</span><span class="jar-hint" id="jar-hint">gold embers found</span></div>
+    </div>
+
+    <div class="sheet-wrap" id="lucky" role="dialog" aria-modal="true" aria-labelledby="lucky-title" hidden>
+      <div class="poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Pure gold</p>
+        <h2 id="lucky-title">You found every ember!</h2>
+        <p class="poster-note">That earns you 15% off your Rowdyland tickets. Use code <strong>FIREHORSE15</strong> at checkout.</p>
+        <a class="big-cta small" href="https://shop.rowdyhop.com/collections/rowdyland" target="_blank" rel="noopener">Shop the merch</a>
+      </div>
+    </div>
+
+    <div class="sheet-wrap" id="reserve" role="dialog" aria-modal="true" aria-labelledby="reserve-title" hidden>
+      <div class="poster reserve-poster">
+        <button type="button" class="sheet-close" aria-label="Close">&#215;</button>
+        <p class="poster-kicker">Tickets coming soon</p>
+        <h2 id="reserve-title">Reserve your ticket</h2>
+        <p class="poster-note">Drop your email and you'll be the first to know when tickets go on sale.</p>
+        <form class="signup" onsubmit="var n=this.previousElementSibling;if(n&&n.classList.contains('poster-note'))n.hidden=true" action="https://app.kit.com/forms/9130714/subscriptions" method="post" target="_blank"><input type="hidden" name="fields[signup_source]" value="tickets"><input type="email" name="email_address" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required><button type="submit" class="big-cta small">Reserve my spot</button><p class="signup-msg" role="status" aria-live="polite"></p></form>
+      </div>
+    </div>
+
+    <script src="plaza.js?v=3" defer></script>
+  </body>
+</html>
