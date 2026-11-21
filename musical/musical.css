@@ -1,0 +1,821 @@
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/Fraunces-Italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mr Dafoe";
+  src: url("../fonts/MrDafoe.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alfa Slab One";
+  src: url("../fonts/AlfaSlabOne.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink: #f6efe4;
+  --ink-dim: #eadccb;
+  --brass: #f0d7ad;
+  --gold: #f6c66a;
+  --fire: #e24a1b;
+  --ember: #ff8a2a;
+  --black: #090604;
+  --card: rgba(22, 13, 9, 0.72);
+  --line: rgba(240, 215, 173, 0.28);
+  --max: 68rem;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  background: var(--black);
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 80% 40% at 50% -10%, rgba(226, 74, 27, 0.18), transparent 55%),
+    var(--black);
+  color: var(--ink);
+  font-family: Fraunces, "Iowan Old Style", Palatino, Georgia, serif;
+  font-weight: 460;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+picture {
+  display: block;
+}
+
+a {
+  color: var(--gold);
+}
+
+a:hover {
+  color: #fff6df;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #8a3d24;
+  color: #fff8ee;
+}
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.4rem;
+  z-index: 10;
+  transform: translateY(-160%);
+  padding: 0.45rem 0.75rem;
+  background: var(--gold);
+  color: var(--black);
+  text-decoration: none;
+}
+
+.skip:focus {
+  transform: none;
+}
+
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  flex-wrap: wrap;
+  padding: 0.72rem max(1.1rem, env(safe-area-inset-right)) 0.72rem max(1.1rem, env(safe-area-inset-left));
+  padding-top: max(0.72rem, env(safe-area-inset-top));
+  background: rgba(9, 6, 4, 0.92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.bar-mark,
+.bar a {
+  color: var(--brass);
+  text-decoration: none;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 620;
+}
+
+.bar a {
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 0.95rem;
+  font-weight: 560;
+  text-decoration: underline;
+  text-decoration-color: rgba(246, 198, 106, 0.45);
+  text-underline-offset: 0.22em;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  align-items: end;
+  min-height: calc(100svh - 3.2rem);
+  isolation: isolate;
+  overflow: clip;
+}
+
+.hero-art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  margin: 0;
+}
+
+.hero-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% 42%;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(9, 6, 4, 0.28) 0%, rgba(9, 6, 4, 0.18) 28%, rgba(9, 6, 4, 0.88) 76%, var(--black) 100%),
+    linear-gradient(90deg, rgba(9, 6, 4, 0.94) 0%, rgba(9, 6, 4, 0.78) 42%, rgba(9, 6, 4, 0.18) 100%);
+}
+
+.hero-copy {
+  width: min(100% - 2.2rem, var(--max));
+  margin: 0 auto;
+  padding: 18vh 0 3.2rem;
+}
+
+.eyebrow,
+.kicker {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.74rem;
+  font-weight: 680;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0.85rem 0 0;
+}
+
+.logo {
+  width: min(100%, 38rem);
+  height: auto;
+  aspect-ratio: 1954 / 639;
+  filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.55));
+}
+
+.show-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0.35rem 0 0;
+  color: var(--brass);
+  font-family: "Alfa Slab One", Fraunces, Georgia, serif;
+  font-size: clamp(1.35rem, 3.4vw, 2.35rem);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.show-title::before,
+.show-title::after {
+  content: "";
+  height: 1px;
+  width: min(4.5rem, 12vw);
+  background: linear-gradient(90deg, transparent, var(--gold), var(--fire));
+}
+
+.script {
+  margin: 0.85rem 0 0;
+  color: var(--gold);
+  font-family: "Mr Dafoe", "Brush Script MT", cursive;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.logline {
+  max-width: 40rem;
+  margin: 1rem 0 0;
+  color: var(--ink);
+  font-size: clamp(1.18rem, 2.4vw, 1.48rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.15rem;
+  max-width: 40rem;
+  margin: 1.35rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--brass);
+  font-size: 0.78rem;
+  font-weight: 640;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.facts li {
+  margin: 0;
+  padding: 0;
+}
+
+.cue {
+  margin: 1.6rem 0 0;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 680;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.toc {
+  width: min(100% - 2.2rem, var(--max));
+  margin: 0 auto;
+  padding: 0.4rem 0 0.2rem;
+}
+
+.toc ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc a {
+  display: inline-block;
+  padding: 0.38rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--brass);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.toc a:hover,
+.toc a:focus-visible {
+  border-color: var(--gold);
+  color: #fff8ee;
+  background: rgba(226, 74, 27, 0.18);
+}
+
+.sheet {
+  width: min(100% - 2.2rem, var(--max));
+  margin: 0 auto;
+  padding: 4.2rem 0 1rem;
+  scroll-margin-top: 4.2rem;
+}
+
+.sheet h2,
+.act-head h3,
+.cast-lead h3,
+.support h3,
+.beat h3,
+.number h3 {
+  margin: 0;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.sheet h2 {
+  margin-top: 0.45rem;
+  font-size: clamp(2.15rem, 5vw, 3.7rem);
+}
+
+.deck {
+  max-width: 42rem;
+  margin: 1rem 0 0;
+  font-size: 1.16rem;
+  line-height: 1.55;
+}
+
+.prose {
+  max-width: 42rem;
+}
+
+.prose p,
+.beat p,
+.cast-lead p,
+.support p,
+.number p,
+.note p {
+  margin: 0.85rem 0 0;
+}
+
+.prose h3 {
+  margin: 1.8rem 0 0;
+  font-size: clamp(1.45rem, 2.6vw, 1.9rem);
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.pull {
+  max-width: 40rem;
+  margin: 1.6rem 0 0;
+  padding: 0.2rem 0 0.2rem 1.1rem;
+  border-left: 2px solid var(--fire);
+  color: var(--brass);
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-style: italic;
+  font-weight: 520;
+  line-height: 1.35;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 1.6rem 2.2rem;
+  align-items: center;
+  margin-top: 1.8rem;
+}
+
+.frame img {
+  width: 100%;
+  border: 1px solid var(--line);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.38);
+}
+
+figcaption {
+  margin-top: 0.55rem;
+  color: var(--ink-dim);
+  font-size: 0.8rem;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+.act {
+  padding-top: 0.6rem;
+}
+
+.act-head {
+  margin: 2.2rem 0 0.4rem;
+  padding: 1.15rem 1.2rem 1.2rem;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(226, 74, 27, 0.22), transparent 55%),
+    #120c09;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.act-ii {
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(226, 74, 27, 0.38), transparent 52%),
+    #140905;
+}
+
+.act-kicker {
+  margin: 0;
+  color: var(--gold);
+  font-family: "Alfa Slab One", Fraunces, Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.act-head h3 {
+  margin-top: 0.3rem;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+}
+
+.act-head p {
+  max-width: 40rem;
+  margin: 0.7rem 0 0;
+  color: var(--ink-dim);
+}
+
+.beats {
+  margin: 0.4rem 0 0;
+  padding: 0.6rem 0 0;
+  list-style: none;
+}
+
+.beat {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 0.4rem 1rem;
+  padding: 1.25rem 0 1.3rem;
+  border-bottom: 1px solid rgba(240, 215, 173, 0.14);
+}
+
+.beat h3 {
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+}
+
+.scn {
+  margin: 0.2rem 0 0;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.beat .frame {
+  grid-column: 2;
+  margin-top: 0.85rem;
+}
+
+.cast-lead,
+.support article,
+.note,
+.mail-card {
+  padding: 1.15rem 1.15rem 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+.cast-lead {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: 1.1rem 1.4rem;
+  margin-top: 1.3rem;
+  align-items: center;
+}
+
+.cast-lead h3,
+.support h3 {
+  font-size: clamp(1.45rem, 2.5vw, 1.9rem);
+}
+
+.role {
+  margin: 0.3rem 0 0;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 680;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.support {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.company {
+  max-width: 42rem;
+  margin-top: 1rem;
+  color: var(--ink-dim);
+}
+
+.score-note {
+  max-width: 42rem;
+  margin-top: 1rem;
+  padding-top: 0.2rem;
+}
+
+.act-label {
+  margin: 1.6rem 0 0.2rem;
+  color: var(--gold);
+  font-family: "Alfa Slab One", Fraunces, Georgia, serif;
+  font-size: 0.92rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.score {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: num;
+}
+
+.number {
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+  gap: 0.15rem 0.85rem;
+  align-items: start;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid rgba(240, 215, 173, 0.14);
+}
+
+.number h3 {
+  font-size: 1.28rem;
+}
+
+.idx {
+  margin: 0.15rem 0 0;
+  color: var(--fire);
+  font-family: "Alfa Slab One", Fraunces, Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.where {
+  margin: 0.15rem 0 0;
+  color: var(--brass);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+.pocket {
+  margin: 0.15rem 0 0;
+  padding: 0.28rem 0.5rem;
+  border: 1px solid var(--line);
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.finale {
+  background: linear-gradient(90deg, rgba(226, 74, 27, 0.14), transparent 70%);
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 1.2rem;
+  align-items: end;
+  max-width: 46rem;
+  margin-top: 1.5rem;
+}
+
+.pair figcaption {
+  text-align: center;
+}
+
+.steps {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  position: relative;
+  margin: 0;
+  padding: 0.75rem 0 0.75rem 2.6rem;
+  border-bottom: 1px solid rgba(240, 215, 173, 0.12);
+  counter-increment: step;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
+  color: var(--gold);
+  font-family: "Alfa Slab One", Fraunces, Georgia, serif;
+  font-size: 0.95rem;
+}
+
+.sign {
+  max-width: 40rem;
+  margin: 1.3rem 0 0;
+}
+
+.sign img {
+  width: 100%;
+  height: auto;
+}
+
+.emblem {
+  width: 4.2rem;
+  margin: 0 0 0.4rem;
+}
+
+.emblem img {
+  width: 100%;
+  height: auto;
+}
+
+.full-fig {
+  margin: 3rem 0 0;
+}
+
+.full-fig img {
+  width: 100%;
+  max-height: 78vh;
+  object-fit: cover;
+  object-position: center 60%;
+}
+
+.portrait {
+  width: min(100%, 22rem);
+  margin: 0;
+}
+
+.portrait img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 18%;
+  border: 1px solid var(--line);
+  filter: grayscale(1) contrast(1.05);
+}
+
+.creator {
+  display: grid;
+  grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+  gap: 1.4rem 2rem;
+  align-items: start;
+  margin-top: 1.4rem;
+}
+
+.mail {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.mail-card {
+  max-width: 40rem;
+  margin-top: 1.2rem;
+  text-align: left;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(226, 74, 27, 0.28), transparent 50%),
+    #140c08;
+}
+
+.mail-card p {
+  max-width: 36rem;
+}
+
+.mail-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--black);
+  background: linear-gradient(90deg, #fcd11a, #fc8518 48%, #e8102a);
+  font-size: clamp(1.15rem, 2.6vw, 1.55rem);
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 0.75rem 1.05rem;
+  min-height: 48px;
+}
+
+.mail-link:hover,
+.mail-link:focus-visible {
+  color: var(--black);
+  filter: brightness(1.06);
+}
+
+.colophon {
+  width: min(100% - 2.2rem, var(--max));
+  margin: 0 auto;
+  padding: 0 0 calc(2rem + env(safe-area-inset-bottom));
+  color: var(--ink-dim);
+  font-size: 0.86rem;
+}
+
+.colophon p {
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    min-height: 0;
+    display: block;
+  }
+
+  .hero-art {
+    position: relative;
+    height: 62vw;
+    min-height: 210px;
+    max-height: 380px;
+  }
+
+  .hero-scrim {
+    background: linear-gradient(180deg, rgba(9, 6, 4, 0.08) 0%, rgba(9, 6, 4, 0.2) 40%, var(--black) 100%);
+    top: auto;
+    height: 46%;
+  }
+
+  .hero-copy {
+    padding: 1.1rem 0 2rem;
+  }
+
+  .split,
+  .cast-lead,
+  .support,
+  .creator {
+    grid-template-columns: 1fr;
+  }
+
+  .number {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+  }
+
+  .pocket {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 0.45rem;
+  }
+
+  .beat {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .beat .frame {
+    grid-column: 1;
+  }
+
+  .pair {
+    grid-template-columns: 1fr 1fr;
+    max-width: 100%;
+  }
+
+  .show-title::before,
+  .show-title::after {
+    width: 1.4rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .pair {
+    grid-template-columns: 1fr;
+    max-width: 16rem;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media print {
+  .bar,
+  .skip,
+  .toc,
+  .cue {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+    color: #1a100c;
+  }
+
+  .sheet,
+  .colophon {
+    width: 100%;
+  }
+
+  a {
+    color: #1a100c;
+  }
+}
