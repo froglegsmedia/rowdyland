@@ -224,7 +224,7 @@ body.night .gl { background: #9fc0ff; box-shadow: 0 0 10px 4px rgba(80, 120, 255
 }
 
 /* rowdies manifesto */
-.manifesto { display: flex; justify-content: center; }
+.manifesto { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
 .manifesto .card { max-width: 40rem; text-align: center; }
 /* rowdies neon script logo */
 @font-face { font-family: "Mr Dafoe"; src: url("../fonts/MrDafoe.woff2") format("woff2"); font-display: swap; }
